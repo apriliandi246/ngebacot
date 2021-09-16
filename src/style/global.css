@@ -1,5 +1,5 @@
 :root {
-	/* Font weight */
+	/* Font Weight */
 	--thin: 100;
 	--extra-light: 200;
 	--light: 300;
@@ -8,8 +8,27 @@
 	--semi-bold: 600;
 	--bold: 700;
 
-	/* Font family */
-	--application-ui-font: "Poppins", sans-serif;
+	/* Font Family */
+	--font-family: "Poppins", sans-serif;
+
+	/* Heading */
+	--h1-font-size: 45px;
+	--h1-line-height: 55px;
+
+	--h2-font-size: 32px;
+	--h2-line-height: 38px;
+
+	--h3-font-size: 28px;
+	--h3-line-height: 34px;
+
+	--h4-font-size: 23px;
+	--h4-line-height: 28px;
+
+	--h5-font-size: 20px;
+	--h5-line-height: 25px;
+
+	--h6-font-size: 18px;
+	--h6-line-height: 22px;
 
 	/* Font Size */
 	--text-12x: 12px;
@@ -23,6 +42,111 @@
 	--text-48x: 48px;
 	--text-60x: 60px;
 	--text-72x: 72px;
+
+	/* Spaces */
+	--space-2px: 2px;
+	--space-4x: 4px;
+	--space-8x: 8px;
+	--space-12x: 12px;
+	--space-16x: 16px;
+	--space-24x: 24px;
+	--space-32x: 32px;
+	--space-48x: 48px;
+	--space-64x: 64px;
+	--space-96x: 96px;
+	--space-128x: 128px;
+	--space-192x: 192px;
+	--space-256x: 256px;
+	--space-384x: 384px;
+	--space-512x: 512px;
+	--space-640x: 640px;
+	--space-768x: 768px;
+
+	/* Primary Colors */
+	--purple-50: #e6e6ff;
+	--purple-100: #c4c6ff;
+	--purple-200: #a2a5fc;
+	--purple-300: #8888fc;
+	--purple-400: #7069fa;
+	--purple-500: #5d55fa;
+	--purple-600: #4d3df7;
+	--purple-700: #3525e6;
+	--purple-800: #1d0ebe;
+	--purple-900: #0c008c;
+
+	/* Secondary Colors */
+	--teal-50: #effcf6;
+	--teal-100: #c6f7e2;
+	--teal-200: #8eedc7;
+	--teal-300: #65d6ad;
+	--teal-400: #3ebd93;
+	--teal-500: #27ab83;
+	--teal-600: #199473;
+	--teal-700: #147d64;
+	--teal-800: #0c6b58;
+	--teal-900: #014d40;
+
+	/* Neutral Colors */
+	--grey-50: #f9fafb;
+	--grey-100: #f3f4f6;
+	--grey-200: #e5e7eb;
+	--grey-300: #d1d5db;
+	--grey-400: #9ca3af;
+	--grey-500: #6b7280;
+	--grey-600: #4b5563;
+	--grey-700: #374151;
+	--grey-800: #1f2937;
+	--grey-900: #111827;
+
+	/*  Supporting, semantic, and Variant Colors */
+
+	/* For information */
+	--light-blue-50: #e3f8ff;
+	--light-blue-100: #b3ecff;
+	--light-blue-200: #81defd;
+	--light-blue-300: #5ed0fa;
+	--light-blue-400: #40c3f7;
+	--light-blue-500: #2bb0ed;
+	--light-blue-600: #1992d4;
+	--light-blue-700: #127fbf;
+	--light-blue-800: #0b69a3;
+	--light-blue-900: #035388;
+
+	/* For success, safe, and right */
+	--green-50: #e3f9e5;
+	--green-100: #c1f2c7;
+	--green-200: #91e697;
+	--green-300: #51ca58;
+	--green-400: #31b237;
+	--green-500: #18981d;
+	--green-600: #0f8613;
+	--green-700: #0e7817;
+	--green-800: #07600e;
+	--green-900: #014807;
+
+	/* For error, danger, and wrong */
+	--red-50: #ffe3e3;
+	--red-100: #ffbdbd;
+	--red-200: #ffbdbd;
+	--red-300: #f86a6a;
+	--red-400: #ef4e4e;
+	--red-500: #e12d39;
+	--red-600: #cf1124;
+	--red-700: #ab091e;
+	--red-800: #8a041a;
+	--red-900: #610316;
+
+	/* For warning, alert, and caution */
+	--yellow-50: #fffbea;
+	--yellow-100: #fff3c4;
+	--yellow-200: #fce588;
+	--yellow-300: #fadb5f;
+	--yellow-400: #f7c948;
+	--yellow-500: #f0b429;
+	--yellow-600: #de911d;
+	--yellow-700: #cb6e17;
+	--yellow-800: #b44d12;
+	--yellow-900: #8d2b0b;
 }
 
 *,
@@ -33,13 +157,40 @@
 	box-sizing: border-box;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
+h1 {
+	font-weight: var(--bold);
+	font-size: var(--h1-font-size);
+	line-height: var(--h1-line-height);
+}
+
+h2 {
+	font-weight: var(--bold);
+	font-size: var(--h2-font-size);
+	line-height: var(--h2-line-height);
+}
+
+h3 {
+	font-weight: var(--bold);
+	font-size: var(--h3-font-size);
+	line-height: var(--h3-line-height);
+}
+
+h4 {
+	font-weight: var(--bold);
+	font-size: var(--h4-font-size);
+	line-height: var(--h4-line-height);
+}
+
+h5 {
+	font-weight: var(--bold);
+	font-size: var(--h5-font-size);
+	line-height: var(--h5-line-height);
+}
+
 h6 {
 	font-weight: var(--bold);
+	font-size: var(--h6-font-size);
+	line-height: var(--h6-line-height);
 }
 
 input:disabled,
@@ -47,10 +198,6 @@ select:disabled,
 button:disabled,
 textarea:disabled {
 	cursor: not-allowed;
-}
-
-::-ms-reveal {
-	display: none;
 }
 
 ul {
@@ -66,8 +213,8 @@ ol li::marker {
 }
 
 pre,
-code,
 kbd,
+code,
 samp {
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
 		"Courier New", monospace;
@@ -87,10 +234,10 @@ button {
 	cursor: pointer;
 }
 
-button,
 input,
-optgroup,
+button,
 select,
+optgroup,
 textarea {
 	outline: none;
 	border-radius: 5px;
@@ -99,10 +246,14 @@ textarea {
 img,
 svg,
 video,
-canvas,
 audio,
-iframe,
 embed,
+iframe,
+canvas,
 object {
 	display: block;
+}
+
+::-ms-reveal {
+	display: none;
 }
