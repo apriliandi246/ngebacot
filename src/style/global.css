@@ -150,11 +150,15 @@
 }
 
 *,
-::before,
-::after {
+::after,
+::before {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+* {
+	font-family: var(--font-family);
 }
 
 h1 {
@@ -198,14 +202,17 @@ select:disabled,
 button:disabled,
 textarea:disabled {
 	cursor: not-allowed;
+	font-family: var(--font-family);
 }
 
 ul {
 	list-style: disc;
+	font-family: var(--font-family);
 }
 
 ol {
 	list-style: decimal;
+	font-family: var(--font-family);
 }
 
 ol li::marker {
@@ -241,6 +248,7 @@ optgroup,
 textarea {
 	outline: none;
 	border-radius: 5px;
+	font-family: var(--font-family);
 }
 
 img,
