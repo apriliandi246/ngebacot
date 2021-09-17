@@ -8,13 +8,13 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					$style: path.resolve("./src/style"),
-					$config: path.resolve("./src/config"),
-					$components: path.resolve("./src/components")
-				}
-			}
-		}
-	}
+					"@style": path.resolve("./src/style"),
+					"@config": path.resolve("./src/config"),
+					"@components": path.resolve("./src/components"),
+				},
+			},
+		},
+	},
 };
 
 export default config;
