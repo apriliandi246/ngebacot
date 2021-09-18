@@ -63,16 +63,16 @@
 	--space-768x: 768px;
 
 	/* Primary Colors */
-	--purple-50: #e6e6ff;
-	--purple-100: #c4c6ff;
-	--purple-200: #a2a5fc;
-	--purple-300: #8888fc;
-	--purple-400: #7069fa;
-	--purple-500: #5d55fa;
-	--purple-600: #4d3df7;
-	--purple-700: #3525e6;
-	--purple-800: #1d0ebe;
-	--purple-900: #0c008c;
+	--primary-50: #eaebec;
+	--primary-100: #d6d7d9;
+	--primary-200: #c2c3c6;
+	--primary-300: #aeb0b4;
+	--primary-400: #9a9ca1;
+	--primary-500: #86888e;
+	--primary-600: #72757c;
+	--primary-700: #5e6169;
+	--primary-800: #4a4d56;
+	--primary-900: #363a44;
 
 	/* Secondary Colors */
 	--teal-50: #effcf6;
