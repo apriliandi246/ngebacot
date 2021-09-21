@@ -3,6 +3,7 @@
 	import InputLabel from "@components/InputLabel.svelte";
 	import SignNavbar from "@components/SignNavbar.svelte";
 
+	let submitBtn = false;
 	let usernameValue = "";
 	let passwordValue = "";
 	let confirmPassValue = "";
@@ -227,7 +228,9 @@
 			/>
 		</div>
 
-		<button type="submit" disabled={submitBtnDisabled} class="signup__btn">Sign Up</button>
+		<button type="submit" disabled={submitBtnDisabled} class="signup__btn">
+			{submitBtn ? "Loading...." : "Sign Up"}
+		</button>
 
 		<p class="sign__msg">
 			Have an account ? <a href="/signin" rel="external" class="signup__link">Sign In</a>

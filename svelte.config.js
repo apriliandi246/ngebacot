@@ -6,6 +6,10 @@ const config = {
 		target: "#svelte",
 
 		vite: {
+			ssr: {
+				external: ["firebase"],
+			},
+
 			resolve: {
 				alias: {
 					"@style": path.resolve("./src/style"),
