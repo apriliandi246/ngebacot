@@ -1,5 +1,17 @@
 <script>
+	import Input from "@components/Input.svelte";
+	import InputLabel from "@components/InputLabel.svelte";
 	import SignNavbar from "@components/SignNavbar.svelte";
+
+	let usernameValue = "";
+	let passwordValue = "";
+
+	const passwordPattern = /^[\w@-]{8,}$/;
+	const usernamePattern = /^[\S*]{6,12}$/i;
+
+	$: usernameStatusPattern = usernamePattern.test(usernameValue);
+	$: passwordPatternStatus = passwordPattern.test(passwordValue);
+	$: submitBtnDisabled = usernameStatusPattern && passwordPatternStatus ? false : true;
 
 	function signIn() {}
 </script>
@@ -148,16 +160,30 @@
 
 	<form class="signin" on:submit|preventDefault={signIn}>
 		<div class="signin__wrapper">
-			<label class="signin__label" for="username">Username</label>
-			<input class="signin__input" id="username" placeholder="username" type="text" />
+			<InputLabel labelFor="username" labelContent="Username" labelDisabled={false} />
+
+			<Input
+				inputType="text"
+				inputId="username"
+				inputDisabled={false}
+				inputPlaceholder="username"
+				bind:inputValue={usernameValue}
+			/>
 		</div>
 
 		<div class="signin__wrapper">
-			<label class="signin__label" for="password">Password</label>
-			<input class="signin__input" id="password" placeholder="password" type="password" />
+			<InputLabel labelFor="password" labelContent="Password" labelDisabled={false} />
+
+			<Input
+				inputId="password"
+				inputType="password"
+				inputDisabled={false}
+				inputPlaceholder="password"
+				bind:inputValue={passwordValue}
+			/>
 		</div>
 
-		<button class="signin__btn">Sign In</button>
+		<button type="submit" class="signin__btn" disabled={submitBtnDisabled}>Sign In</button>
 
 		<p class="sign__msg">
 			Don't have an account? ? <a href="/signup" rel="external" class="signin__link">Sign Up</a>
@@ -192,28 +218,6 @@
 		margin-bottom: var(--space-24x);
 	}
 
-	.signin__label {
-		color: var(--grey-900);
-		margin-bottom: var(--space-4x);
-	}
-
-	.signin__input {
-		width: 100%;
-		padding: 8px 12px;
-		font-size: var(--text-16);
-		transition: box-shadow 0.2s;
-		border: 1px solid var(--primary-900);
-	}
-
-	.signin__input:focus {
-		box-shadow: 0 0 0 3px var(--primary-500);
-	}
-
-	.signin__input::placeholder {
-		color: var(--grey-400);
-		font-size: var(--text-14x);
-	}
-
 	.signin__btn {
 		width: 100%;
 		padding: 8px;
@@ -232,6 +236,16 @@
 
 	.signin__btn:active {
 		box-shadow: 0 0 0 3px var(--primary-500);
+	}
+
+	.signin__btn:disabled {
+		color: var(--grey-400);
+		background-color: var(--grey-100);
+		border: 1px solid var(--primary-300);
+	}
+
+	.signin__btn:disabled:hover {
+		border: 1px solid var(--primary-300);
 	}
 
 	.sign__msg {

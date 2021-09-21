@@ -1,5 +1,23 @@
 <script>
+	import Input from "@components/Input.svelte";
+	import InputLabel from "@components/InputLabel.svelte";
 	import SignNavbar from "@components/SignNavbar.svelte";
+
+	let usernameValue = "";
+	let passwordValue = "";
+	let confirmPassValue = "";
+
+	const passwordPattern = /^[\w@-]{8,}$/;
+	const usernamePattern = /^[\S*]{6,12}$/i;
+
+	$: usernameStatusPattern = usernamePattern.test(usernameValue);
+	$: passwordPatternStatus = passwordPattern.test(passwordValue);
+	$: confirmPasswordDisabled = passwordPatternStatus ? false : true;
+
+	$: submitBtnDisabled =
+		usernameStatusPattern && passwordPatternStatus && confirmPassValue === passwordValue
+			? false
+			: true;
 
 	function signUp() {}
 </script>
@@ -170,26 +188,46 @@
 
 	<form class="signup" on:submit|preventDefault={signUp}>
 		<div class="signup__wrapper">
-			<label class="signup__label" for="username">Username</label>
-			<input class="signup__input" id="username" placeholder="username" type="text" />
-		</div>
+			<InputLabel labelFor="username" labelContent="Username" labelDisabled={false} />
 
-		<div class="signup__wrapper">
-			<label class="signup__label" for="password">Password</label>
-			<input class="signup__input" id="password" placeholder="password" type="password" />
-		</div>
-
-		<div class="signup__wrapper">
-			<label class="signup__label" for="confirm-password">Confirm Password</label>
-			<input
-				class="signup__input"
-				id="confirm-password"
-				placeholder="confirm password"
-				type="text"
+			<Input
+				inputType="text"
+				inputId="username"
+				inputDisabled={false}
+				inputPlaceholder="username"
+				bind:inputValue={usernameValue}
 			/>
 		</div>
 
-		<button class="signup__btn">Sign Up</button>
+		<div class="signup__wrapper">
+			<InputLabel labelFor="password" labelContent="Password" labelDisabled={false} />
+
+			<Input
+				inputId="password"
+				inputType="password"
+				inputDisabled={false}
+				inputPlaceholder="password"
+				bind:inputValue={passwordValue}
+			/>
+		</div>
+
+		<div class="signup__wrapper">
+			<InputLabel
+				labelFor="confirm-password"
+				labelContent="Confirm Password"
+				labelDisabled={confirmPasswordDisabled}
+			/>
+
+			<Input
+				inputType="password"
+				inputId="confirm-password"
+				bind:inputValue={confirmPassValue}
+				inputPlaceholder="confirm password"
+				inputDisabled={confirmPasswordDisabled}
+			/>
+		</div>
+
+		<button type="submit" disabled={submitBtnDisabled} class="signup__btn">Sign Up</button>
 
 		<p class="sign__msg">
 			Have an account ? <a href="/signin" rel="external" class="signup__link">Sign In</a>
@@ -224,28 +262,6 @@
 		margin-bottom: var(--space-24x);
 	}
 
-	.signup__label {
-		color: var(--grey-900);
-		margin-bottom: var(--space-4x);
-	}
-
-	.signup__input {
-		width: 100%;
-		padding: 8px 12px;
-		font-size: var(--text-16);
-		transition: box-shadow 0.2s;
-		border: 1px solid var(--primary-900);
-	}
-
-	.signup__input:focus {
-		box-shadow: 0 0 0 3px var(--primary-500);
-	}
-
-	.signup__input::placeholder {
-		color: var(--grey-400);
-		font-size: var(--text-14x);
-	}
-
 	.signup__btn {
 		width: 100%;
 		padding: 8px;
@@ -264,6 +280,16 @@
 
 	.signup__btn:active {
 		box-shadow: 0 0 0 3px var(--primary-500);
+	}
+
+	.signup__btn:disabled {
+		color: var(--grey-400);
+		background-color: var(--grey-100);
+		border: 1px solid var(--primary-300);
+	}
+
+	.signup__btn:disabled:hover {
+		border: 1px solid var(--primary-300);
 	}
 
 	.sign__msg {
