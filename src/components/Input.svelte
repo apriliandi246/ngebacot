@@ -4,6 +4,7 @@
 	export let inputValue;
 	export let inputDisabled;
 	export let inputPlaceholder;
+	export let inputIcon = false;
 
 	function getInputValue(event) {
 		inputValue = event.target.value;
@@ -13,9 +14,11 @@
 <input
 	id={inputId}
 	type={inputType}
+	spellcheck="false"
 	autocomplete="off"
 	disabled={inputDisabled}
 	on:input={getInputValue}
+	class:icon-space={inputIcon}
 	placeholder={inputPlaceholder}
 />
 
@@ -40,5 +43,9 @@
 	input::placeholder {
 		color: var(--grey-400);
 		font-size: var(--text-14x);
+	}
+
+	.icon-space {
+		padding-right: var(--space-48x);
 	}
 </style>

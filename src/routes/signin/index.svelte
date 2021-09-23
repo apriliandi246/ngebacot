@@ -2,18 +2,26 @@
 	import Input from "@components/Input.svelte";
 	import InputLabel from "@components/InputLabel.svelte";
 	import SignNavbar from "@components/SignNavbar.svelte";
+	import { emailPattern, passwordPattern } from "@utils/regexInputPattern";
 
-	let usernameValue = "";
-	let passwordValue = "";
+	let email = "";
+	let password = "";
+	let submitFormStatus = false;
+	let statusInputPassword = "hide";
 
-	const passwordPattern = /^[\w@-]{8,}$/;
-	const usernamePattern = /^[\S*]{6,12}$/i;
+	$: checkEmailPattern = emailPattern.test(email);
+	$: checkPasswordPattern = passwordPattern.test(password);
+	$: submitBtnContet = submitFormStatus ? "Loading...." : "Sign In";
+	$: passwordInputType = statusInputPassword === "hide" ? "password" : "text";
+	$: submitBtnDisabled = checkEmailPattern && checkPasswordPattern ? false : true;
 
-	$: usernameStatusPattern = usernamePattern.test(usernameValue);
-	$: passwordPatternStatus = passwordPattern.test(passwordValue);
-	$: submitBtnDisabled = usernameStatusPattern && passwordPatternStatus ? false : true;
+	function submitForm() {
+		submitFormStatus = true;
+	}
 
-	function signIn() {}
+	function showPassword(status) {
+		statusInputPassword = status;
+	}
 </script>
 
 <SignNavbar />
@@ -21,9 +29,8 @@
 <div class="container">
 	<svg
 		fill="none"
-		width="225"
-		height="225"
 		viewBox="0 0 575 577"
+		class="signup-ilustration"
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<path
@@ -158,43 +165,94 @@
 		/>
 	</svg>
 
-	<form class="signin" on:submit|preventDefault={signIn}>
+	<form class="signin" on:submit|preventDefault={submitForm}>
 		<div class="signin__wrapper">
-			<InputLabel labelFor="username" labelContent="Username" labelDisabled={false} />
+			<InputLabel labelFor="email" labelContent="Email" labelDisabled={submitFormStatus} />
 
 			<Input
-				inputType="text"
-				inputId="username"
-				inputDisabled={false}
-				inputPlaceholder="username"
-				bind:inputValue={usernameValue}
+				inputId="email"
+				inputType="email"
+				inputPlaceholder="Email"
+				bind:inputValue={email}
+				inputDisabled={submitFormStatus}
 			/>
 		</div>
 
-		<div class="signin__wrapper">
-			<InputLabel labelFor="password" labelContent="Password" labelDisabled={false} />
+		<div class="signin__wrapper signin__password-wrapper">
+			<InputLabel labelFor="password" labelContent="Password" labelDisabled={submitFormStatus} />
 
 			<Input
+				inputIcon={true}
 				inputId="password"
-				inputType="password"
-				inputDisabled={false}
+				bind:inputValue={password}
 				inputPlaceholder="password"
-				bind:inputValue={passwordValue}
+				inputType={passwordInputType}
+				inputDisabled={submitFormStatus}
 			/>
+
+			{#if statusInputPassword === "hide"}
+				<svg
+					width="22"
+					height="22"
+					fill="none"
+					class="eye-icon"
+					stroke="#363a44"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+					on:click={() => showPassword("show")}
+				>
+					<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+					<circle cx="12" cy="12" r="3" />
+				</svg>
+			{/if}
+
+			{#if statusInputPassword === "show"}
+				<svg
+					width="22"
+					height="22"
+					fill="none"
+					class="eye-icon"
+					stroke="#363a44"
+					viewBox="0 0 24 24"
+					xmlns="http://www.w3.org/2000/svg"
+					on:click={() => showPassword("hide")}
+				>
+					<path
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
+					/>
+				</svg>
+			{/if}
 		</div>
 
-		<button type="submit" class="signin__btn" disabled={submitBtnDisabled}>Sign In</button>
+		<button type="submit" class="signin__btn" disabled={submitBtnDisabled}>
+			{submitBtnContet}
+		</button>
 
 		<p class="sign__msg">
-			Don't have an account? ? <a href="/signup" rel="external" class="signin__link">Sign Up</a>
+			Don't have an account? ? <a href="/signup" class="signin__link">Sign Up</a>
 		</p>
 	</form>
 </div>
 
 <style>
-	svg {
+	.signup-ilustration {
 		width: 350px;
 		height: 350px;
+	}
+
+	.eye-icon {
+		top: 0;
+		right: 0;
+		cursor: pointer;
+		margin-top: 39.4px;
+		position: absolute;
+		margin-right: 13px;
 	}
 
 	.container {
@@ -209,6 +267,10 @@
 
 	.signin {
 		width: 32%;
+	}
+
+	.signin__password-wrapper {
+		position: relative;
 	}
 
 	.signin__wrapper {
@@ -265,7 +327,7 @@
 	}
 
 	@media screen and (max-width: 1010px) {
-		svg {
+		.signup-ilustration {
 			width: 290px;
 			height: 290px;
 		}
