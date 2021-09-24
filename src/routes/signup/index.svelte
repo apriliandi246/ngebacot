@@ -1,7 +1,6 @@
 <script>
 	import Input from "@components/Input.svelte";
 	import InputLabel from "@components/InputLabel.svelte";
-	import SignNavbar from "@components/SignNavbar.svelte";
 	import { emailPattern, usernamePattern, passwordPattern } from "@utils/regexInputPattern";
 
 	let email = "";
@@ -26,7 +25,9 @@
 	}
 </script>
 
-<SignNavbar />
+<svelte:head>
+	<title>Ngebacot · Sign Up</title>
+</svelte:head>
 
 <div class="container">
 	<svg
@@ -283,27 +284,13 @@
 </div>
 
 <style>
-	.signup-ilustration {
-		width: 460px;
-		height: 460px;
-	}
-
-	.eye-icon {
-		top: 0;
-		right: 0;
-		cursor: pointer;
-		margin-top: 39.4px;
-		position: absolute;
-		margin-right: 13px;
-	}
-
 	.container {
 		width: 1000px;
 		display: flex;
 		align-items: center;
 		gap: var(--space-24x);
 		justify-content: center;
-		padding-bottom: var(--space-32x);
+		padding-bottom: var(--space-48x);
 		margin: var(--space-128x) auto 0 auto;
 	}
 
@@ -368,12 +355,21 @@
 		text-decoration: underline;
 	}
 
-	@media screen and (max-width: 1010px) {
-		.signup-ilustration {
-			width: 290px;
-			height: 290px;
-		}
+	.signup-ilustration {
+		width: 460px;
+		height: 460px;
+	}
 
+	.eye-icon {
+		top: 0;
+		right: 0;
+		cursor: pointer;
+		margin-top: 39.4px;
+		position: absolute;
+		margin-right: 13px;
+	}
+
+	@media screen and (max-width: 1010px) {
 		.container {
 			width: 70%;
 			align-items: center;
@@ -384,6 +380,11 @@
 
 		.signup {
 			width: 70%;
+		}
+
+		.signup-ilustration {
+			width: 290px;
+			height: 290px;
 		}
 	}
 
