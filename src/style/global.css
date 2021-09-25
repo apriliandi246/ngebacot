@@ -269,6 +269,10 @@ object {
 	display: block;
 }
 
+a {
+	text-decoration: none;
+}
+
 ::-ms-reveal {
 	display: none;
 }
