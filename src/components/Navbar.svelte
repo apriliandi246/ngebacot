@@ -20,12 +20,13 @@
 	<div class="navbar__menus" class:show-menus-mobile={navbarMenusStatus === "show"}>
 		<a href="/#" class="navbar__profile-link">
 			<svg
-				width="26"
-				height="26"
+				width="24"
+				height="24"
 				fill="none"
 				stroke="#f9fafb"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				class="navbar__menu"
 				stroke-linecap="round"
 				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
@@ -36,8 +37,8 @@
 		</a>
 
 		<svg
-			width="26"
-			height="26"
+			width="24"
+			height="24"
 			fill="none"
 			stroke-width="2"
 			stroke="#f9fafb"
@@ -55,8 +56,8 @@
 		</svg>
 
 		<svg
-			width="26"
-			height="26"
+			width="24"
+			height="24"
 			fill="none"
 			stroke="#f9fafb"
 			stroke-width="2"
@@ -76,8 +77,8 @@
 
 	{#if navbarMenusStatus === "hide"}
 		<svg
-			width="30"
-			height="30"
+			width="29"
+			height="29"
 			fill="none"
 			stroke="#f9fafb"
 			stroke-width="2"
@@ -96,8 +97,8 @@
 
 	{#if navbarMenusStatus === "show"}
 		<svg
-			width="30"
-			height="30"
+			width="29"
+			height="29"
 			fill="none"
 			stroke-width="2"
 			stroke="#f9fafb"
@@ -121,7 +122,7 @@
 		left: 0;
 		right: 0;
 		width: 100%;
-		height: 70px;
+		height: 60px;
 		display: flex;
 		position: fixed;
 		align-items: center;
@@ -143,26 +144,34 @@
 
 	.navbar__menu {
 		cursor: pointer;
+		transition: stroke 0.1s;
+	}
+
+	.navbar__menu:hover,
+	.navbar__show-menus:hover,
+	.navbar__close-menus:hover {
+		stroke: var(--grey-400);
 	}
 
 	.navbar__add-post {
 		border: none;
 		border-radius: 24px;
-		color: var(--grey-900);
+		color: var(--grey-50);
 		font-size: var(--text-16x);
-		padding: 6px var(--space-32x);
-		transition: background-color 0.2s;
-		background-color: var(--light-blue-500);
+		padding: 6px 40px;
+		transition: background-color 0.1s;
+		background-color: var(--primary-700);
 	}
 
 	.navbar__add-post:hover {
-		background-color: var(--light-blue-300);
+		background-color: var(--primary-600);
 	}
 
 	.navbar__show-menus,
 	.navbar__close-menus {
 		display: none;
 		cursor: pointer;
+		transition: stroke 0.1s;
 	}
 
 	.home-link {
@@ -207,8 +216,13 @@
 			background-color: var(--primary-900);
 		}
 
+		.navbar__menu {
+			width: 28px;
+			height: 28px;
+		}
+
 		.navbar__add-post {
-			padding: var(--space-8x) var(--space-64x);
+			padding: var(--space-12x) var(--space-96x);
 		}
 
 		.navbar__show-menus,
