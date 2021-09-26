@@ -1,4 +1,5 @@
 <script>
+	import { modalPostStatus } from "@store";
 	import Logo from "@components/Logo.svelte";
 
 	let navbarMenusStatus = "hide";
@@ -9,6 +10,10 @@
 		} else {
 			navbarMenusStatus = "hide";
 		}
+	}
+
+	function showModalPost() {
+		$modalPostStatus = "show";
 	}
 </script>
 
@@ -72,7 +77,7 @@
 			<line x1="21" y1="12" x2="9" y2="12" />
 		</svg>
 
-		<button class="navbar__add-post">Add Post</button>
+		<button on:click={showModalPost} class="navbar__add-post">Add Post</button>
 	</div>
 
 	{#if navbarMenusStatus === "hide"}
@@ -155,10 +160,10 @@
 
 	.navbar__add-post {
 		border: none;
+		padding: 6px 40px;
 		border-radius: 24px;
 		color: var(--grey-50);
 		font-size: var(--text-16x);
-		padding: 6px 40px;
 		transition: background-color 0.1s;
 		background-color: var(--primary-700);
 	}

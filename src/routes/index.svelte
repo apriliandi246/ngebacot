@@ -1,10 +1,24 @@
 <script>
+	import { modalPostStatus } from "@store";
 	import Post from "@components/Post.svelte";
+	import ModalPost from "@components/ModalPost.svelte";
 </script>
 
 <svelte:head>
+	{#if $modalPostStatus === "show"}
+		<style>
+			body {
+				overflow: hidden;
+			}
+		</style>
+	{/if}
+
 	<title>Ngebacot</title>
 </svelte:head>
+
+{#if $modalPostStatus === "show"}
+	<ModalPost />
+{/if}
 
 <div class="container">
 	<Post statusPost="public" />

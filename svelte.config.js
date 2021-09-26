@@ -14,6 +14,7 @@ const config = {
 				alias: {
 					"@style": path.resolve("./src/style"),
 					"@utils": path.resolve("./src/utils"),
+					"@store": path.resolve("./src/store"),
 					"@config": path.resolve("./src/config"),
 					"@components": path.resolve("./src/components"),
 				},
