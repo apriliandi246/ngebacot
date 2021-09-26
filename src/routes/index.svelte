@@ -7,9 +7,9 @@
 </svelte:head>
 
 <div class="container">
-	<Post isPrivate={true} />
-	<Post isPrivate={false} />
-	<Post isPrivate={true} />
+	<Post statusPost="public" />
+	<Post statusPost="anonym" />
+	<Post statusPost="private" />
 </div>
 
 <style>
@@ -20,6 +20,12 @@
 		flex-direction: column;
 		justify-content: center;
 		margin: 160px auto 0 auto;
+	}
+
+	@media screen and (max-width: 620px) {
+		.container {
+			margin-top: 134px;
+		}
 	}
 
 	@media screen and (min-width: 320px) {
