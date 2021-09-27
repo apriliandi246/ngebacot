@@ -7,8 +7,8 @@
 		$modalPostStatus = "hide";
 	}
 
-	function chooseStatusPost(event) {
-		statusPost = event.target.value;
+	function selectStatusPost(status) {
+		statusPost = status;
 	}
 </script>
 
@@ -36,51 +36,82 @@
 				rows="14"
 				spellcheck="false"
 				class="modal__input"
-				placeholder="What do you think ????"
+				placeholder="Write what you think ????"
 			/>
 
 			<div class="modal__post-status">
-				<div class="modal__status-input">
-					<input
-						type="radio"
-						id="public"
-						name="status"
-						value="public"
-						on:change={chooseStatusPost}
-					/>
+				<div class="modal__status-input" on:click={() => selectStatusPost("public")}>
+					<input type="radio" id="public" name="status" value="public" />
 
-					<label class:emphasize-color={statusPost === "public"} for="public">Public Post</label>
+					<svg
+						width="22"
+						height="22"
+						fill="none"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						xmlns="http://www.w3.org/2000/svg"
+						stroke={statusPost === "public" ? "#f9fafb" : "#9ca3af"}
+					>
+						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+						<circle cx="9" cy="7" r="4" />
+						<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+						<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+					</svg>
+
+					<label for="public" class:emphasize-color={statusPost === "public"}>Public Post</label>
 				</div>
 
-				<div class="modal__status-input">
-					<input
-						type="radio"
-						id="anonym"
-						name="status"
-						value="anonym"
-						on:change={chooseStatusPost}
-					/>
+				<div class="modal__status-input" on:click={() => selectStatusPost("anonym")}>
+					<input type="radio" id="anonym" name="status" value="anonym" />
 
-					<label class:emphasize-color={statusPost === "anonym"} for="anonym">Anonym Post</label>
+					<svg
+						width="22"
+						height="22"
+						fill="none"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						xmlns="http://www.w3.org/2000/svg"
+						stroke={statusPost === "anonym" ? "#f9fafb" : "#9ca3af"}
+					>
+						<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+						<circle cx="8.5" cy="7" r="4" />
+						<line x1="18" y1="8" x2="23" y2="13" />
+						<line x1="23" y1="8" x2="18" y2="13" />
+					</svg>
+
+					<label for="anonym" class:emphasize-color={statusPost === "anonym"}>Anonym Post</label>
 				</div>
 
-				<div class="modal__status-input">
-					<input
-						type="radio"
-						id="private"
-						name="status"
-						value="private"
-						on:change={chooseStatusPost}
-					/>
+				<div class="modal__status-input" on:click={() => selectStatusPost("private")}>
+					<input type="radio" id="private" name="status" value="private" />
 
-					<label class:emphasize-color={statusPost === "private"} for="private">
+					<svg
+						width="22"
+						height="22"
+						fill="none"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						xmlns="http://www.w3.org/2000/svg"
+						stroke={statusPost === "private" ? "#f9fafb" : "#9ca3af"}
+					>
+						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+						<circle cx="12" cy="7" r="4" />
+					</svg>
+
+					<label for="private" class:emphasize-color={statusPost === "private"}>
 						Private Post
 					</label>
 				</div>
 			</div>
 
 			<div class="modal__buttons">
-				<button on:click={hideModalPost} type="button" class="modal__cancel-btn">Cancel</button>
+				<button type="button" class="modal__cancel-btn" on:click={hideModalPost}>Cancel</button>
 				<button type="submit" class="modal__submit-btn">Submit</button>
 			</div>
 		</form>
@@ -98,6 +129,7 @@
 		width: 18px;
 		height: 18px;
 		cursor: pointer;
+		margin-right: 6px;
 	}
 
 	.modal-area {
@@ -110,7 +142,7 @@
 		position: fixed;
 		align-items: center;
 		justify-content: center;
-		background-color: rgba(0, 0, 0, 0.4);
+		background-color: rgba(0, 0, 0, 0.3);
 	}
 
 	.modal {
@@ -135,28 +167,36 @@
 		margin-top: var(--space-24x);
 	}
 
-	.modal__post-status {
-		display: flex;
-		justify-content: space-evenly;
-		margin-top: var(--space-24x);
-	}
-
-	.modal__status-input {
-		display: flex;
-		gap: var(--space-8x);
-		align-items: center;
-	}
-
 	.modal__input {
 		width: 100%;
 		border: none;
 		resize: none;
 		border-radius: 0;
+		line-height: 28px;
+		letter-spacing: 0.5px;
 		color: var(--grey-50);
 		padding: var(--space-16x);
 		font-size: var(--text-16x);
 		background-color: transparent;
-		border-bottom: 2px solid var(--grey-400);
+		border-bottom: 4px dashed var(--grey-400);
+	}
+
+	.modal__input::placeholder {
+		color: var(--grey-400);
+		font-size: var(--text-16x);
+	}
+
+	.modal__post-status {
+		display: flex;
+		margin-top: var(--space-32x);
+		justify-content: space-around;
+	}
+
+	.modal__status-input {
+		display: flex;
+		cursor: pointer;
+		align-items: center;
+		gap: var(--space-8x);
 	}
 
 	.modal__input::-webkit-scrollbar {
@@ -175,11 +215,6 @@
 	.modal__input::-webkit-scrollbar-thumb:hover {
 		cursor: default;
 		background-color: var(--primary-500);
-	}
-
-	.modal__input::placeholder {
-		color: var(--grey-400);
-		font-size: var(--text-16x);
 	}
 
 	.modal__buttons {
@@ -204,13 +239,13 @@
 		background-color: var(--primary-700);
 	}
 
-	.modal__submit-btn:hover {
-		background-color: var(--primary-600);
-	}
-
 	.modal__cancel-btn {
 		color: var(--grey-900);
 		background-color: var(--grey-200);
+	}
+
+	.modal__submit-btn:hover {
+		background-color: var(--primary-600);
 	}
 
 	.modal__cancel-btn:hover {
@@ -218,7 +253,6 @@
 	}
 
 	.emphasize-color {
-		font-size: 15px;
 		color: var(--grey-50);
 	}
 </style>
