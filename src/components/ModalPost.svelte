@@ -1,5 +1,5 @@
 <script>
-	import { modalPostStatus } from "@store";
+	import { wordsOfPost, modalPostStatus } from "@store";
 
 	let statusPost;
 
@@ -35,7 +35,9 @@
 			<textarea
 				rows="14"
 				spellcheck="false"
+				autocomplete="off"
 				class="modal__input"
+				bind:value={$wordsOfPost}
 				placeholder="Write what you think ????"
 			/>
 
