@@ -225,6 +225,7 @@
 
 	.post__words {
 		line-height: 28px;
+		letter-spacing: 0.5px;
 		color: var(--grey-900);
 		margin-bottom: var(--space-24x);
 	}

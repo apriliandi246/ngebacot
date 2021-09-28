@@ -180,11 +180,11 @@
 		padding: var(--space-16x);
 		font-size: var(--text-16x);
 		background-color: transparent;
-		border-bottom: 4px dashed var(--grey-400);
+		border-bottom: 4px solid var(--grey-400);
 	}
 
 	.modal__input::placeholder {
-		color: var(--grey-400);
+		color: var(--grey-300);
 		font-size: var(--text-16x);
 	}
 
@@ -211,7 +211,7 @@
 
 	.modal__input::-webkit-scrollbar-thumb {
 		cursor: default;
-		background-color: var(--primary-600);
+		background-color: var(--grey-400);
 	}
 
 	.modal__input::-webkit-scrollbar-thumb:hover {
