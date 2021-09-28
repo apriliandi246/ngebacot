@@ -10,8 +10,8 @@
 <div class="post">
 	<div class="post__head">
 		<img
-			width="50px"
-			height="50px"
+			width="47"
+			height="47"
 			loading="lazy"
 			src={profileImgSrc}
 			alt="Username of the user"
