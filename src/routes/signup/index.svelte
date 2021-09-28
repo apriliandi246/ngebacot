@@ -16,9 +16,13 @@
 	$: passwordInputType = passwordInputStatus === "hide" ? "password" : "text";
 
 	$: submitBtnDisabled =
-		checkEmailPattern && checkUsernamePattern && checkPasswordPattern ? false : true;
+		checkEmailPattern && checkUsernamePattern && checkPasswordPattern && !submitFormStatus
+			? false
+			: true;
 
-	function submitForm() {}
+	function submitForm() {
+		submitFormStatus = true;
+	}
 
 	function setPassInputType(status) {
 		passwordInputStatus = status;
@@ -203,9 +207,9 @@
 			<Input
 				inputId="email"
 				inputType="email"
+				bind:inputValue={email}
 				inputPlaceholder="email"
 				inputDisabled={submitFormStatus}
-				bind:inputValue={email}
 			/>
 		</div>
 
@@ -215,9 +219,9 @@
 			<Input
 				inputType="text"
 				inputId="username"
-				inputDisabled={submitFormStatus}
-				inputPlaceholder="username"
 				bind:inputValue={username}
+				inputPlaceholder="username"
+				inputDisabled={submitFormStatus}
 			/>
 		</div>
 
@@ -227,9 +231,9 @@
 			<Input
 				inputIcon={true}
 				inputId="password"
+				bind:inputValue={password}
 				inputPlaceholder="password"
 				inputType={passwordInputType}
-				bind:inputValue={password}
 				inputDisabled={submitFormStatus}
 			/>
 
@@ -239,13 +243,13 @@
 					height="22"
 					fill="none"
 					class="eye-icon"
-					stroke="#363a44"
 					stroke-width="2"
 					viewBox="0 0 24 24"
 					stroke-linecap="round"
 					stroke-linejoin="round"
 					xmlns="http://www.w3.org/2000/svg"
 					on:click={() => setPassInputType("show")}
+					stroke={submitFormStatus ? "#aeb0b4" : "#363a44"}
 				>
 					<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
 					<circle cx="12" cy="12" r="3" />
@@ -258,10 +262,10 @@
 					height="22"
 					fill="none"
 					class="eye-icon"
-					stroke="#363a44"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
 					on:click={() => setPassInputType("hide")}
+					stroke={submitFormStatus ? "#aeb0b4" : "#363a44"}
 				>
 					<path
 						stroke-width="2"
@@ -321,12 +325,7 @@
 	}
 
 	.signup__btn:hover {
-		color: var(--grey-900);
-		background-color: var(--grey-50);
-	}
-
-	.signup__btn:active {
-		box-shadow: 0 0 0 3px var(--primary-500);
+		background-color: var(--primary-800);
 	}
 
 	.signup__btn:disabled {
@@ -364,7 +363,7 @@
 		top: 0;
 		right: 0;
 		cursor: pointer;
-		margin-top: 39.4px;
+		margin-top: 40px;
 		position: absolute;
 		margin-right: 13px;
 	}

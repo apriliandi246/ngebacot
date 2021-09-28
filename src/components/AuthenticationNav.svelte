@@ -9,7 +9,7 @@
 <style>
 	nav {
 		width: 100%;
-		height: 60px;
+		height: 65px;
 		display: flex;
 		align-items: center;
 		gap: var(--space-48x);

@@ -12,7 +12,8 @@
 	$: checkPasswordPattern = passwordPattern.test(password);
 	$: submitBtnContet = submitFormStatus ? "Loading...." : "Sign In";
 	$: passwordInputType = statusInputPassword === "hide" ? "password" : "text";
-	$: submitBtnDisabled = checkEmailPattern && checkPasswordPattern ? false : true;
+	$: submitBtnDisabled =
+		checkEmailPattern && checkPasswordPattern && !submitFormStatus ? false : true;
 
 	function submitForm() {
 		submitFormStatus = true;
@@ -173,8 +174,8 @@
 			<Input
 				inputId="email"
 				inputType="email"
-				inputPlaceholder="Email"
 				bind:inputValue={email}
+				inputPlaceholder="Email"
 				inputDisabled={submitFormStatus}
 			/>
 		</div>
@@ -197,13 +198,13 @@
 					height="22"
 					fill="none"
 					class="eye-icon"
-					stroke="#363a44"
 					stroke-width="2"
 					viewBox="0 0 24 24"
 					stroke-linecap="round"
 					stroke-linejoin="round"
 					xmlns="http://www.w3.org/2000/svg"
 					on:click={() => showPassword("show")}
+					stroke={submitFormStatus ? "#aeb0b4" : "#363a44"}
 				>
 					<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
 					<circle cx="12" cy="12" r="3" />
@@ -216,10 +217,10 @@
 					height="22"
 					fill="none"
 					class="eye-icon"
-					stroke="#363a44"
 					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
 					on:click={() => showPassword("hide")}
+					stroke={submitFormStatus ? "#aeb0b4" : "#363a44"}
 				>
 					<path
 						stroke-width="2"
@@ -279,12 +280,7 @@
 	}
 
 	.signin__btn:hover {
-		color: var(--grey-900);
-		background-color: var(--grey-50);
-	}
-
-	.signin__btn:active {
-		box-shadow: 0 0 0 3px var(--primary-500);
+		background-color: var(--primary-800);
 	}
 
 	.signin__btn:disabled {
@@ -322,7 +318,7 @@
 		top: 0;
 		right: 0;
 		cursor: pointer;
-		margin-top: 39.4px;
+		margin-top: 40px;
 		position: absolute;
 		margin-right: 13px;
 	}

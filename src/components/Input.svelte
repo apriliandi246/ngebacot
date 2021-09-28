@@ -25,7 +25,7 @@
 <style>
 	input {
 		width: 100%;
-		padding: 8px 12px;
+		padding: 9px 12px;
 		font-size: var(--text-16);
 		transition: box-shadow 0.2s;
 		border: 1px solid var(--primary-900);
@@ -37,11 +37,11 @@
 	}
 
 	input:focus {
-		box-shadow: 0 0 0 3px var(--primary-500);
+		box-shadow: 0 0 0 1px var(--primary-900);
 	}
 
 	input::placeholder {
-		color: var(--grey-400);
+		color: var(--grey-500);
 		font-size: var(--text-14x);
 	}
 
