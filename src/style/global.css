@@ -161,6 +161,10 @@
 	font-family: var(--font-family);
 }
 
+body {
+	background-color: var(--primary-50);
+}
+
 h1 {
 	font-weight: var(--bold);
 	font-size: var(--h1-font-size);

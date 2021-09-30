@@ -128,6 +128,7 @@
 		right: 0;
 		width: 100%;
 		height: 60px;
+		z-index: 9999;
 		display: flex;
 		position: fixed;
 		align-items: center;
