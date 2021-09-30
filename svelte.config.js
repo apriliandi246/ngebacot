@@ -1,15 +1,15 @@
 import path from "path";
+import vercel from "@sveltejs/adapter-vercel";
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
 		target: "#svelte",
-
+		adapter: vercel(),
 		vite: {
 			ssr: {
 				external: ["firebase"],
 			},
-
 			resolve: {
 				alias: {
 					"@style": path.resolve("./src/style"),
