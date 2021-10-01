@@ -1,5 +1,5 @@
 <script context="module">
-	export function load({ error, status }) {
+	export function load({ status }) {
 		return {
 			props: {
 				status,
@@ -835,14 +835,14 @@
 		padding-bottom: 40px;
 		flex-direction: column;
 		justify-content: center;
-		margin: var(--space-48x) auto 0 auto;
+		margin: 0 auto 0 auto;
 	}
 
 	svg {
 		width: 650px;
 		height: 650px;
-		border-radius: 14px;
 		margin-top: 90px;
+		border-radius: 14px;
 		border: 6px solid var(--primary-900);
 	}
 
@@ -872,6 +872,7 @@
 		svg {
 			width: auto;
 			height: auto;
+			margin-top: 10px;
 		}
 
 		a {

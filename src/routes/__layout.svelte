@@ -14,8 +14,10 @@
 
 {#if pageRoute === "signup" || pageRoute === "signin"}
 	<AuthenticationNav />
-{:else}
+{:else if pageRoute === ""}
 	<Navbar />
+{:else}
+	<AuthenticationNav />
 {/if}
 
 <slot />
