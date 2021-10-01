@@ -1,6 +1,6 @@
 <script>
 	import { modalPostStatus } from "@store";
-	import Post from "@components/Post.svelte";
+	import Post from "@components/Post/index.svelte";
 	import ModalPost from "@components/ModalPost.svelte";
 	import WelcomeBanner from "@components/WelcomeBanner.svelte";
 </script>
@@ -24,9 +24,9 @@
 <WelcomeBanner />
 
 <div class="container">
-	<Post statusPost="public" />
-	<Post statusPost="anonym" />
-	<Post statusPost="private" />
+	<Post postStatus="public" />
+	<Post postStatus="anonym" />
+	<Post postStatus="private" />
 </div>
 
 <style>
@@ -39,40 +39,42 @@
 		margin: 160px auto 0 auto;
 	}
 
-	@media screen and (max-width: 620px) {
+	@media screen and (max-width: 1019px) {
 		.container {
-			margin-top: 134px;
+			width: 700px;
 		}
 	}
 
-	@media screen and (min-width: 320px) {
+	@media screen and (max-width: 800px) {
 		.container {
-			padding-left: 0;
-			padding-right: 0;
+			width: 100%;
+			padding-left: 80px;
+			padding-right: 80px;
 		}
 	}
 
-	@media screen and (min-width: 480px) {
+	@media screen and (max-width: 700px) {
 		.container {
-			padding-left: var(--space-18x);
-			padding-right: var(--space-18x);
+			padding-left: 40px;
+			padding-right: 40px;
 		}
 	}
 
-	@media screen and (min-width: 768px) {
+	@media screen and (max-width: 550px) {
 		.container {
-			padding-left: var(--space-24x);
-			padding-right: var(--space-24x);
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+
+	@media screen and (max-width: 480px) {
+		.container {
+			padding-left: 11px;
+			padding-right: 11px;
 		}
 	}
 
 	@media screen and (min-width: 1020px) {
-		.container {
-			width: 640px;
-		}
-	}
-
-	@media screen and (min-width: 1200px) {
 		.container {
 			width: 740px;
 		}
