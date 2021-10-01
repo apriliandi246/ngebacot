@@ -1,8 +1,8 @@
 <script>
-	import { modalPostStatus } from "@store";
 	import Post from "@components/Post/index.svelte";
 	import ModalPost from "@components/ModalPost.svelte";
 	import WelcomeBanner from "@components/WelcomeBanner.svelte";
+	import { welcomeBannerStatus, modalPostStatus } from "@store";
 </script>
 
 <svelte:head>
@@ -21,7 +21,9 @@
 	<ModalPost />
 {/if}
 
-<WelcomeBanner />
+{#if $welcomeBannerStatus === "show"}
+	<WelcomeBanner />
+{/if}
 
 <div class="container">
 	<Post postStatus="public" />

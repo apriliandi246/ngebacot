@@ -1,3 +1,12 @@
+<script>
+	import { welcomeBannerStatus } from "@store";
+
+	function hideWelcomeBanner() {
+		$welcomeBannerStatus = "hide";
+		localStorage.setItem("_welcome-banner", "hide");
+	}
+</script>
+
 <div class="banner">
 	<h2 class="banner__title">Welcome</h2>
 
@@ -63,6 +72,7 @@
 		viewBox="0 0 24 24"
 		stroke-linecap="round"
 		stroke-linejoin="round"
+		on:click={hideWelcomeBanner}
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<line x1="18" y1="6" x2="6" y2="18" />
