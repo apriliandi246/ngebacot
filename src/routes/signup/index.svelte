@@ -357,6 +357,9 @@
 	.signup-ilustration {
 		width: 460px;
 		height: 460px;
+		margin-right: 40px;
+		border-radius: 14px;
+		border: 6px solid var(--primary-900);
 	}
 
 	.eye-icon {
@@ -384,6 +387,8 @@
 		.signup-ilustration {
 			width: 290px;
 			height: 290px;
+			margin-right: 0;
+			margin-bottom: 40px;
 		}
 	}
 
