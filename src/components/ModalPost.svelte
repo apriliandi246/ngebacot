@@ -15,11 +15,11 @@
 <div class="modal-area" on:click|self={hideModalPost}>
 	<div class="modal">
 		<svg
-			width="28"
-			height="28"
+			width="32"
+			height="32"
 			fill="none"
-			stroke="#f9fafb"
-			stroke-width="2"
+			stroke="#363a44"
+			stroke-width="3"
 			viewBox="0 0 24 24"
 			stroke-linecap="round"
 			stroke-linejoin="round"
@@ -42,8 +42,14 @@
 			/>
 
 			<div class="modal__post-status">
-				<div class="modal__status-input" on:click={() => selectStatusPost("public")}>
-					<input type="radio" id="public" name="status" value="public" />
+				<div class="modal__status-input" class:emphasize-border-color={statusPost === "public"}>
+					<input
+						id="public"
+						type="radio"
+						name="status"
+						value="public"
+						on:change={() => selectStatusPost("public")}
+					/>
 
 					<svg
 						width="22"
@@ -54,7 +60,7 @@
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						xmlns="http://www.w3.org/2000/svg"
-						stroke={statusPost === "public" ? "#f9fafb" : "#9ca3af"}
+						stroke={statusPost === "public" ? "#363a44" : "#86888e"}
 					>
 						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 						<circle cx="9" cy="7" r="4" />
@@ -65,8 +71,14 @@
 					<label for="public" class:emphasize-color={statusPost === "public"}>Public Post</label>
 				</div>
 
-				<div class="modal__status-input" on:click={() => selectStatusPost("anonym")}>
-					<input type="radio" id="anonym" name="status" value="anonym" />
+				<div class="modal__status-input" class:emphasize-border-color={statusPost === "anonym"}>
+					<input
+						id="anonym"
+						type="radio"
+						name="status"
+						value="anonym"
+						on:change={() => selectStatusPost("anonym")}
+					/>
 
 					<svg
 						width="22"
@@ -77,7 +89,7 @@
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						xmlns="http://www.w3.org/2000/svg"
-						stroke={statusPost === "anonym" ? "#f9fafb" : "#9ca3af"}
+						stroke={statusPost === "anonym" ? "#363a44" : "#86888e"}
 					>
 						<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 						<circle cx="8.5" cy="7" r="4" />
@@ -88,8 +100,14 @@
 					<label for="anonym" class:emphasize-color={statusPost === "anonym"}>Anonym Post</label>
 				</div>
 
-				<div class="modal__status-input" on:click={() => selectStatusPost("private")}>
-					<input type="radio" id="private" name="status" value="private" />
+				<div class="modal__status-input" class:emphasize-border-color={statusPost === "private"}>
+					<input
+						type="radio"
+						id="private"
+						name="status"
+						value="private"
+						on:change={() => selectStatusPost("private")}
+					/>
 
 					<svg
 						width="22"
@@ -100,7 +118,7 @@
 						stroke-linecap="round"
 						stroke-linejoin="round"
 						xmlns="http://www.w3.org/2000/svg"
-						stroke={statusPost === "private" ? "#f9fafb" : "#9ca3af"}
+						stroke={statusPost === "private" ? "#363a44" : "#86888e"}
 					>
 						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
 						<circle cx="12" cy="7" r="4" />
@@ -144,24 +162,34 @@
 		position: fixed;
 		align-items: center;
 		justify-content: center;
-		background-color: rgba(0, 0, 0, 0.3);
+		background-color: rgba(0, 0, 0, 0.1);
 	}
 
 	.modal {
 		width: 760px;
-		border-radius: 5px;
-		background-color: var(--primary-900);
+		position: relative;
+		border-radius: 4px;
+		margin-top: var(--space-32x);
+		background-color: var(--grey-50);
+		border: 6px solid var(--primary-900);
 		padding: var(--space-24x) var(--space-24x);
 	}
 
 	.modal__close-icon {
+		top: 0;
+		right: 0;
+		padding: 1px;
 		cursor: pointer;
-		transition: stroke 0.1s;
-		margin-top: var(--space-4x);
+		margin-top: 13px;
+		position: absolute;
+		margin-right: 17px;
+		border-radius: 100%;
+		transition: background-color 0.1s;
+		border: 3px solid var(--primary-900);
 	}
 
 	.modal__close-icon:hover {
-		stroke: var(--grey-400);
+		background-color: var(--primary-100);
 	}
 
 	.modal__form {
@@ -171,20 +199,19 @@
 
 	.modal__input {
 		width: 100%;
-		border: none;
 		resize: none;
-		border-radius: 0;
 		line-height: 28px;
+		border-radius: 5px;
 		letter-spacing: 0.5px;
-		color: var(--grey-50);
+		color: var(--grey-900);
 		padding: var(--space-16x);
 		font-size: var(--text-16x);
-		background-color: transparent;
-		border-bottom: 4px solid var(--grey-400);
+		margin-top: var(--space-24x);
+		border: 2px solid var(--grey-900);
 	}
 
 	.modal__input::placeholder {
-		color: var(--grey-300);
+		color: var(--grey-600);
 		font-size: var(--text-16x);
 	}
 
@@ -197,8 +224,11 @@
 	.modal__status-input {
 		display: flex;
 		cursor: pointer;
+		border-radius: 5px;
+		padding: 10px 14px;
 		align-items: center;
 		gap: var(--space-8x);
+		border: 2px solid var(--primary-500);
 	}
 
 	.modal__input::-webkit-scrollbar {
@@ -210,13 +240,11 @@
 	}
 
 	.modal__input::-webkit-scrollbar-thumb {
-		cursor: default;
-		background-color: var(--grey-400);
+		background-color: var(--primary-900);
 	}
 
 	.modal__input::-webkit-scrollbar-thumb:hover {
-		cursor: default;
-		background-color: var(--primary-500);
+		background-color: var(--primary-800);
 	}
 
 	.modal__buttons {
@@ -238,7 +266,7 @@
 
 	.modal__submit-btn {
 		color: var(--grey-50);
-		background-color: var(--primary-700);
+		background-color: var(--primary-900);
 	}
 
 	.modal__cancel-btn {
@@ -247,14 +275,18 @@
 	}
 
 	.modal__submit-btn:hover {
-		background-color: var(--primary-600);
+		background-color: var(--primary-800);
 	}
 
 	.modal__cancel-btn:hover {
-		background-color: var(--grey-100);
+		background-color: var(--grey-300);
 	}
 
 	.emphasize-color {
-		color: var(--grey-50);
+		color: var(--grey-900);
+	}
+
+	.emphasize-border-color {
+		border-color: var(--primary-000);
 	}
 </style>
