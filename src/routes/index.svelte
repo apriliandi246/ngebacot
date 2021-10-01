@@ -1,5 +1,6 @@
 <script>
 	import Post from "@components/Post/index.svelte";
+	import FormPost from "@components/FormPost.svelte";
 	import ModalPost from "@components/ModalPost.svelte";
 	import WelcomeBanner from "@components/WelcomeBanner.svelte";
 	import { welcomeBannerStatus, modalPostStatus } from "@store";
@@ -26,6 +27,8 @@
 {/if}
 
 <div class="container">
+	<FormPost />
+
 	<Post postStatus="public" />
 	<Post postStatus="anonym" />
 	<Post postStatus="private" />
@@ -38,7 +41,7 @@
 		padding-bottom: 40px;
 		flex-direction: column;
 		justify-content: center;
-		margin: 160px auto 0 auto;
+		margin: 120px auto 0 auto;
 	}
 
 	@media screen and (max-width: 1019px) {

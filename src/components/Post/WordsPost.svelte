@@ -54,6 +54,7 @@
 
 	@media screen and (max-width: 550px) {
 		.post__words {
+			font-size: 14px;
 			line-height: 24px;
 		}
 	}
