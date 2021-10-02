@@ -1,26 +1,13 @@
 <script>
+	import { welcomeBannerStatus } from "@store";
 	import Post from "@components/Post/index.svelte";
 	import FormPost from "@components/FormPost.svelte";
-	import ModalPost from "@components/ModalPost.svelte";
 	import WelcomeBanner from "@components/WelcomeBanner.svelte";
-	import { welcomeBannerStatus, modalPostStatus } from "@store";
 </script>
 
 <svelte:head>
-	{#if $modalPostStatus === "show"}
-		<style>
-			body {
-				overflow: hidden;
-			}
-		</style>
-	{/if}
-
 	<title>Ngebacot</title>
 </svelte:head>
-
-{#if $modalPostStatus === "show"}
-	<ModalPost />
-{/if}
 
 {#if $welcomeBannerStatus === "show"}
 	<WelcomeBanner />

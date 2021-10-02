@@ -1,5 +1,4 @@
 <script>
-	import { modalPostStatus } from "@store";
 	import Logo from "@components/Logo.svelte";
 
 	let navbarMenusStatus = "hide";
@@ -11,115 +10,122 @@
 			navbarMenusStatus = "hide";
 		}
 	}
-
-	function showModalPost() {
-		$modalPostStatus = "show";
-	}
 </script>
 
-<nav class="navbar">
-	<a href="/" class="home-link">
-		<Logo />
-	</a>
+<div on:click|self={toggleNavbarMenus} class:navbar-area={navbarMenusStatus === "show"}>
+	<nav class="navbar">
+		<a href="/" class="home-link">
+			<Logo />
+		</a>
 
-	<div class="navbar__menus" class:show-menus-mobile={navbarMenusStatus === "show"}>
-		<a href="/#" class="navbar__profile-link">
+		<div class="navbar__menus" class:show-menus-mobile={navbarMenusStatus === "show"}>
+			<a href="/#" class="navbar__profile-link">
+				<svg
+					width="26"
+					height="26"
+					fill="none"
+					stroke="#f9fafb"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+					class="navbar__menu"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+					<circle cx="12" cy="7" r="4" />
+				</svg>
+
+				<span class="menu-name">Profile</span>
+			</a>
+
+			<button class="navbar__profile-link nav-btn">
+				<svg
+					width="26"
+					height="26"
+					fill="none"
+					stroke-width="2"
+					stroke="#f9fafb"
+					viewBox="0 0 24 24"
+					class="navbar__menu"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<circle cx="12" cy="12" r="10" />
+					<line x1="2" y1="12" x2="22" y2="12" />
+					<path
+						d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+					/>
+				</svg>
+
+				<span class="menu-name">Language</span>
+			</button>
+
+			<button class="navbar__profile-link nav-btn">
+				<svg
+					width="26"
+					height="26"
+					fill="none"
+					stroke="#f9fafb"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+					class="navbar__menu"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+					<polyline points="16 17 21 12 16 7" />
+					<line x1="21" y1="12" x2="9" y2="12" />
+				</svg>
+
+				<span class="menu-name">Sign Out</span>
+			</button>
+		</div>
+
+		{#if navbarMenusStatus === "hide"}
 			<svg
-				width="24"
-				height="24"
+				width="30"
+				height="30"
 				fill="none"
 				stroke="#f9fafb"
 				stroke-width="2"
 				viewBox="0 0 24 24"
-				class="navbar__menu"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				on:click={toggleNavbarMenus}
+				class="navbar__show-menus"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-				<circle cx="12" cy="7" r="4" />
+				<line x1="3" y1="12" x2="21" y2="12" />
+				<line x1="3" y1="6" x2="21" y2="6" />
+				<line x1="3" y1="18" x2="21" y2="18" />
 			</svg>
-		</a>
+		{/if}
 
-		<svg
-			width="24"
-			height="24"
-			fill="none"
-			stroke-width="2"
-			stroke="#f9fafb"
-			viewBox="0 0 24 24"
-			class="navbar__menu"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<circle cx="12" cy="12" r="10" />
-			<line x1="2" y1="12" x2="22" y2="12" />
-			<path
-				d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-			/>
-		</svg>
-
-		<svg
-			width="24"
-			height="24"
-			fill="none"
-			stroke="#f9fafb"
-			stroke-width="2"
-			viewBox="0 0 24 24"
-			class="navbar__menu"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-			<polyline points="16 17 21 12 16 7" />
-			<line x1="21" y1="12" x2="9" y2="12" />
-		</svg>
-
-		<button on:click={showModalPost} class="navbar__add-post">Add Post</button>
-	</div>
-
-	{#if navbarMenusStatus === "hide"}
-		<svg
-			width="29"
-			height="29"
-			fill="none"
-			stroke="#f9fafb"
-			stroke-width="2"
-			viewBox="0 0 24 24"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			on:click={toggleNavbarMenus}
-			class="navbar__show-menus"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<line x1="3" y1="12" x2="21" y2="12" />
-			<line x1="3" y1="6" x2="21" y2="6" />
-			<line x1="3" y1="18" x2="21" y2="18" />
-		</svg>
-	{/if}
-
-	{#if navbarMenusStatus === "show"}
-		<svg
-			width="29"
-			height="29"
-			fill="none"
-			stroke-width="2"
-			stroke="#f9fafb"
-			viewBox="0 0 24 24"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			on:click={toggleNavbarMenus}
-			class="navbar__close-menus"
-			xmlns="http://www.w3.org/2000/svg"
-		>
-			<circle cx="12" cy="12" r="10" />
-			<line x1="15" y1="9" x2="9" y2="15" />
-			<line x1="9" y1="9" x2="15" y2="15" />
-		</svg>
-	{/if}
-</nav>
+		{#if navbarMenusStatus === "show"}
+			<svg
+				width="30"
+				height="30"
+				fill="none"
+				stroke-width="2"
+				stroke="#f9fafb"
+				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				style="margin-top: 8px;"
+				class="navbar__close-menus"
+				on:click={toggleNavbarMenus}
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<circle cx="12" cy="12" r="10" />
+				<line x1="15" y1="9" x2="9" y2="15" />
+				<line x1="9" y1="9" x2="15" y2="15" />
+			</svg>
+		{/if}
+	</nav>
+</div>
 
 <style>
 	.navbar {
@@ -128,24 +134,33 @@
 		right: 0;
 		width: 100%;
 		height: 60px;
-		z-index: 9999;
+		z-index: 999;
 		display: flex;
 		position: fixed;
 		align-items: center;
 		gap: var(--space-48x);
-		justify-content: space-around;
+		justify-content: space-evenly;
 		background-color: var(--primary-900);
 	}
 
 	.navbar__menus {
-		gap: 40px;
 		display: flex;
 		align-items: center;
+		gap: var(--space-32x);
 		justify-content: center;
 	}
 
 	.navbar__profile-link {
+		cursor: pointer;
+		display: inline;
+		padding: 8px 12px;
+		border-radius: 4px;
 		text-decoration: none;
+		transition: background-color 0.1s;
+	}
+
+	.navbar__profile-link:hover {
+		background-color: var(--primary-800);
 	}
 
 	.navbar__menu {
@@ -153,31 +168,20 @@
 		transition: stroke 0.1s;
 	}
 
-	.navbar__menu:hover,
-	.navbar__show-menus:hover,
-	.navbar__close-menus:hover {
-		stroke: var(--grey-400);
-	}
-
-	.navbar__add-post {
-		border: none;
-		padding: 6px 40px;
-		border-radius: 24px;
-		color: var(--grey-50);
-		font-size: var(--text-16x);
-		transition: background-color 0.1s;
-		background-color: var(--primary-700);
-	}
-
-	.navbar__add-post:hover {
-		background-color: var(--primary-600);
-	}
-
 	.navbar__show-menus,
 	.navbar__close-menus {
 		display: none;
 		cursor: pointer;
 		transition: stroke 0.1s;
+	}
+
+	.navbar__show-menus:hover,
+	.navbar__close-menus:hover {
+		stroke: var(--grey-400);
+	}
+
+	.menu-name {
+		display: none;
 	}
 
 	.home-link {
@@ -189,6 +193,12 @@
 		transform: scale(0.9);
 	}
 
+	.nav-btn {
+		border: none;
+		outline: none;
+		background-color: transparent;
+	}
+
 	@media screen and (max-width: 1190px) {
 		.navbar {
 			justify-content: space-between;
@@ -197,28 +207,30 @@
 		}
 	}
 
-	@media screen and (max-width: 880px) {
+	@media screen and (max-width: 800px) {
 		.navbar {
-			padding-left: var(--space-64x);
-			padding-right: var(--space-64x);
+			padding-left: var(--space-48x);
+			padding-right: var(--space-48x);
 		}
+	}
 
+	@media screen and (max-width: 600px) {
 		.navbar__show-menus {
 			display: inline;
 		}
 
 		.navbar__menus {
 			top: 0;
+			gap: 0px;
 			right: 0;
 			bottom: 0;
-			gap: 60px;
-			width: 100%;
+			width: 64%;
 			z-index: 9999;
-			height: 100vh;
 			display: none;
-			position: absolute;
+			position: fixed;
 			align-items: center;
 			flex-direction: column;
+			justify-content: flex-start;
 			background-color: var(--primary-900);
 		}
 
@@ -227,25 +239,47 @@
 			height: 28px;
 		}
 
-		.navbar__add-post {
-			padding: var(--space-12x) var(--space-96x);
-		}
-
 		.navbar__show-menus,
 		.navbar__close-menus {
 			z-index: 9999;
 			display: inline;
 		}
 
+		.navbar__profile-link {
+			gap: 15px;
+			display: flex;
+			padding: 10px;
+			margin-top: 105px;
+			border-radius: 5px;
+			align-items: center;
+			color: var(--grey-50);
+			font-size: var(--text-16x);
+		}
+
+		.navbar__profile-link:hover {
+			background-color: var(--primary-800);
+		}
+
 		.show-menus-mobile {
 			display: flex;
 		}
+
+		.menu-name {
+			display: inline;
+		}
+
+		.navbar-area {
+			inset: 0;
+			z-index: 9999;
+			position: fixed;
+			background-color: rgba(0, 0, 0, 0.3);
+		}
 	}
 
-	@media screen and (max-width: 800px) {
+	@media screen and (max-width: 550px) {
 		.navbar {
-			padding-left: var(--space-24x);
-			padding-right: var(--space-24x);
+			padding-left: var(--space-16x);
+			padding-right: var(--space-16x);
 		}
 	}
 </style>

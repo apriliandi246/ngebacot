@@ -14,19 +14,17 @@
 
 {#if postStatus === "public" || postStatus === "anonym"}
 	<div class="post__words">
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, amet. Hic provident dolore
-		eveniet sint commodi error eius perspiciatis, tempora eos mollitia voluptatibus aperiam
-		molestias quas sequi, consequatur alias nemo necessitatibus quo ratione id exercitationem sit?
-		Aspernatur tenetur iure labore iusto, iste quo distinctio suscipit reiciendis temporibus facere
-		laboriosam voluptas aliquid magni id debitis dignissimos nisi mollitia fugit nostrum consectetur
-		doloremque dolorum hic! Omnis eum praesentium dolor illo obcaecati cumque.
+		Svelte is a radical new approach to building user interfaces. Whereas traditional frameworks
+		like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a
+		compile step that happens when you build your app.. Instead of using techniques like virtual DOM
+		diffing, Svelte writes code that surgically updates the DOM when the state of your app changes.
 	</div>
 {/if}
 
 <style>
 	.post__words {
+		line-height: 27px;
 		padding: 10px 13px;
-		line-height: 28px;
 		border-radius: 5px;
 		letter-spacing: 0.5px;
 		color: var(--grey-900);

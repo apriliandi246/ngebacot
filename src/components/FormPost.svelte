@@ -204,7 +204,6 @@
 
 	.modal__status-input {
 		display: flex;
-		cursor: pointer;
 		border-radius: 5px;
 		padding: 10px 14px;
 		align-items: center;
