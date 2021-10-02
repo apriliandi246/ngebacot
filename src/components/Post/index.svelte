@@ -20,16 +20,22 @@
 <style>
 	.post {
 		width: 100%;
-		border-radius: 5px;
+		border-radius: 3px;
 		padding: 20px 22px;
 		margin-bottom: 44px;
 		background-color: var(--grey-50);
-		border: 2px solid var(--primary-900);
+		border: 1px solid var(--primary-900);
 	}
 
 	@media screen and (max-width: 550px) {
 		.post {
 			padding: var(--space-16x);
+		}
+	}
+
+	@media screen and (min-width: 320px) and (max-width: 480px) {
+		.post {
+			padding: 15px 13px;
 		}
 	}
 </style>

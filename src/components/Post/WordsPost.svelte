@@ -25,25 +25,30 @@
 	.post__words {
 		line-height: 27px;
 		padding: 10px 13px;
-		border-radius: 5px;
+		border-radius: 3px;
 		letter-spacing: 0.5px;
 		color: var(--grey-900);
-		border: 2px solid var(--primary-900);
+		border: 1px solid var(--primary-900);
 	}
 
 	.post__private {
 		padding: 16px;
-		border-radius: 5px;
-		margin-bottom: var(--space-24x);
-		border: 2px solid var(--primary-900);
+		border-radius: 3px;
+		border: 1px solid var(--primary-900);
+	}
+
+	.post__words,
+	.post__private {
+		margin-top: 19px;
+		margin-bottom: 21px;
 	}
 
 	.large-block {
 		width: 100%;
 		height: 32px;
-		border-radius: 5px;
+		border-radius: 3px;
 		margin-bottom: 17px;
-		background-color: var(--primary-200);
+		background-color: var(--primary-800);
 	}
 
 	.large-block:last-child {
@@ -60,6 +65,16 @@
 	@media screen and (max-width: 493px) {
 		.large-block {
 			height: 26px;
+		}
+	}
+
+	@media screen and (min-width: 320px) and (max-width: 480px) {
+		.post__words {
+			padding: 8px;
+		}
+
+		.post__private {
+			padding: 10px;
 		}
 	}
 </style>

@@ -4,7 +4,7 @@
 	import { welcomeBannerStatus } from "@store";
 	import { navigating, page } from "$app/stores";
 	import Navbar from "@components/Navbar.svelte";
-	import AuthenticationNav from "@components/AuthenticationNav.svelte";
+	import SimpleNavbar from "@components/SimpleNavbar.svelte";
 	import PreloadingIndicator from "@components/PreloadingIndicator.svelte";
 
 	$: pageRoute = $page.path.split("/")[1];
@@ -22,11 +22,11 @@
 {/if}
 
 {#if pageRoute === "signup" || pageRoute === "signin"}
-	<AuthenticationNav />
+	<SimpleNavbar />
 {:else if pageRoute === ""}
 	<Navbar />
 {:else}
-	<AuthenticationNav />
+	<SimpleNavbar />
 {/if}
 
 <slot />

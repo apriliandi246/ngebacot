@@ -825,7 +825,7 @@
 		/>
 	</svg>
 
-	<a href="/" rel="external">Back to Main Event</a>
+	<a href="/">Back to Main Event</a>
 </div>
 
 <style>
@@ -833,9 +833,9 @@
 		display: flex;
 		align-items: center;
 		padding-bottom: 40px;
+		margin: 0 auto 0 auto;
 		flex-direction: column;
 		justify-content: center;
-		margin: 0 auto 0 auto;
 	}
 
 	svg {

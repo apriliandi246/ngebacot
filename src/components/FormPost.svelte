@@ -19,106 +19,110 @@
 			placeholder="Write what you think ????"
 		/>
 
-		<div class="modal__post-status">
-			<div class="modal__status-input" class:emphasize-border-color={statusPost === "public"}>
-				<div class="radio-input">
-					<input
-						id="public"
-						type="radio"
-						name="status"
-						value="public"
-						on:change={() => selectStatusPost("public")}
-					/>
+		{#if $wordsOfPost}
+			<div class="form__post-status">
+				<div class="form__status-input" class:emphasize-border-color={statusPost === "public"}>
+					<div class="radio-input">
+						<input
+							id="public"
+							type="radio"
+							name="status"
+							value="public"
+							on:change={() => selectStatusPost("public")}
+						/>
 
-					<div class="radio-input-dot" class:radio-input-selected={statusPost === "public"} />
+						<div class="radio-input-dot" class:radio-input-selected={statusPost === "public"} />
+					</div>
+
+					<svg
+						width="22"
+						height="22"
+						fill="none"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						xmlns="http://www.w3.org/2000/svg"
+						stroke={statusPost === "public" ? "#363a44" : "#86888e"}
+					>
+						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+						<circle cx="9" cy="7" r="4" />
+						<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+						<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+					</svg>
+
+					<label for="public" class:emphasize-color={statusPost === "public"}>Public Post</label>
 				</div>
 
-				<svg
-					width="22"
-					height="22"
-					fill="none"
-					stroke-width="2"
-					viewBox="0 0 24 24"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					xmlns="http://www.w3.org/2000/svg"
-					stroke={statusPost === "public" ? "#363a44" : "#86888e"}
-				>
-					<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-					<circle cx="9" cy="7" r="4" />
-					<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-					<path d="M16 3.13a4 4 0 0 1 0 7.75" />
-				</svg>
+				<div class="form__status-input" class:emphasize-border-color={statusPost === "anonym"}>
+					<div class="radio-input">
+						<input
+							id="anonym"
+							type="radio"
+							name="status"
+							value="anonym"
+							on:change={() => selectStatusPost("anonym")}
+						/>
 
-				<label for="public" class:emphasize-color={statusPost === "public"}>Public Post</label>
-			</div>
+						<div class="radio-input-dot" class:radio-input-selected={statusPost === "anonym"} />
+					</div>
 
-			<div class="modal__status-input" class:emphasize-border-color={statusPost === "anonym"}>
-				<div class="radio-input">
-					<input
-						id="anonym"
-						type="radio"
-						name="status"
-						value="anonym"
-						on:change={() => selectStatusPost("anonym")}
-					/>
+					<svg
+						width="22"
+						height="22"
+						fill="none"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						xmlns="http://www.w3.org/2000/svg"
+						stroke={statusPost === "anonym" ? "#363a44" : "#86888e"}
+					>
+						<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+						<circle cx="8.5" cy="7" r="4" />
+						<line x1="18" y1="8" x2="23" y2="13" />
+						<line x1="23" y1="8" x2="18" y2="13" />
+					</svg>
 
-					<div class="radio-input-dot" class:radio-input-selected={statusPost === "anonym"} />
+					<label for="anonym" class:emphasize-color={statusPost === "anonym"}>Anonym Post</label>
 				</div>
 
-				<svg
-					width="22"
-					height="22"
-					fill="none"
-					stroke-width="2"
-					viewBox="0 0 24 24"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					xmlns="http://www.w3.org/2000/svg"
-					stroke={statusPost === "anonym" ? "#363a44" : "#86888e"}
-				>
-					<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-					<circle cx="8.5" cy="7" r="4" />
-					<line x1="18" y1="8" x2="23" y2="13" />
-					<line x1="23" y1="8" x2="18" y2="13" />
-				</svg>
+				<div class="form__status-input" class:emphasize-border-color={statusPost === "private"}>
+					<div class="radio-input">
+						<input
+							id="private"
+							type="radio"
+							name="status"
+							value="private"
+							on:change={() => selectStatusPost("private")}
+						/>
 
-				<label for="anonym" class:emphasize-color={statusPost === "anonym"}>Anonym Post</label>
-			</div>
+						<div class="radio-input-dot" class:radio-input-selected={statusPost === "private"} />
+					</div>
 
-			<div class="modal__status-input" class:emphasize-border-color={statusPost === "private"}>
-				<div class="radio-input">
-					<input
-						id="private"
-						type="radio"
-						name="status"
-						value="private"
-						on:change={() => selectStatusPost("private")}
-					/>
+					<svg
+						width="22"
+						height="22"
+						fill="none"
+						stroke-width="2"
+						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						xmlns="http://www.w3.org/2000/svg"
+						stroke={statusPost === "private" ? "#363a44" : "#86888e"}
+					>
+						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+						<circle cx="12" cy="7" r="4" />
+					</svg>
 
-					<div class="radio-input-dot" class:radio-input-selected={statusPost === "private"} />
+					<label for="private" class:emphasize-color={statusPost === "private"}>
+						Private Post
+					</label>
 				</div>
-
-				<svg
-					width="22"
-					height="22"
-					fill="none"
-					stroke-width="2"
-					viewBox="0 0 24 24"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					xmlns="http://www.w3.org/2000/svg"
-					stroke={statusPost === "private" ? "#363a44" : "#86888e"}
-				>
-					<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-					<circle cx="12" cy="7" r="4" />
-				</svg>
-
-				<label for="private" class:emphasize-color={statusPost === "private"}> Private Post </label>
 			</div>
-		</div>
 
-		<button type="submit" class="modal__submit-btn">Add Post</button>
+			<button type="submit" class="form__submit-btn">Add Post</button>
+		{/if}
 	</form>
 </div>
 
@@ -136,7 +140,6 @@
 		appearance: none;
 		margin-right: 6px;
 		position: relative;
-		-ms-progress-appearance: none;
 	}
 
 	input[type="radio"]::before {
@@ -151,27 +154,26 @@
 
 	.container {
 		width: 100%;
-		border-radius: 5px;
-		padding: var(--space-24x);
+		padding: 20px;
+		border-radius: 3px;
 		margin-bottom: var(--space-48x);
 		background-color: var(--grey-50);
-		border: 2px solid var(--primary-900);
+		border: 1px solid var(--primary-900);
 	}
 
 	.form__input {
 		width: 100%;
 		line-height: 28px;
-		border-radius: 5px;
+		border-radius: 3px;
+		padding: 12px 13px;
 		letter-spacing: 0.5px;
 		color: var(--grey-900);
-		padding: var(--space-16x);
 		font-size: var(--text-16x);
-		transition: box-shadow 0.2s;
-		border: 2px solid var(--grey-900);
+		border: 1px solid var(--grey-500);
 	}
 
 	.form__input:focus {
-		box-shadow: 0 0 0 1px var(--primary-900);
+		border-color: var(--primary-900);
 	}
 
 	.form__input::placeholder {
@@ -195,36 +197,36 @@
 		background-color: var(--primary-800);
 	}
 
-	.modal__post-status {
+	.form__post-status {
 		display: flex;
-		margin-bottom: 30px;
 		margin-top: var(--space-24x);
+		margin-bottom: var(--space-24x);
 		justify-content: space-between;
 	}
 
-	.modal__status-input {
+	.form__status-input {
 		display: flex;
-		border-radius: 5px;
+		border-radius: 3px;
 		padding: 10px 14px;
 		align-items: center;
 		gap: var(--space-8x);
-		border: 2px solid var(--primary-500);
+		border: 1px solid var(--primary-500);
 	}
 
-	.modal__submit-btn {
+	.form__submit-btn {
 		border: none;
 		font-size: var(--text-16x);
 		padding: 6px var(--space-32x);
 		transition: background-color 0.1s;
 	}
 
-	.modal__submit-btn {
+	.form__submit-btn {
 		float: right;
 		color: var(--grey-50);
 		background-color: var(--primary-900);
 	}
 
-	.modal__submit-btn:hover {
+	.form__submit-btn:hover {
 		background-color: var(--primary-800);
 	}
 
@@ -253,7 +255,7 @@
 	}
 
 	.emphasize-border-color {
-		border-color: var(--primary-000);
+		border-color: var(--primary-900);
 	}
 
 	@media screen and (max-width: 780px) {
@@ -261,15 +263,15 @@
 			padding: 20px;
 		}
 
-		.modal__post-status {
+		.form__post-status {
 			flex-direction: column;
 		}
 
-		.modal__status-input {
+		.form__status-input {
 			margin-bottom: var(--space-24x);
 		}
 
-		.modal__status-input:last-child {
+		.form__status-input:last-child {
 			margin-bottom: 0;
 		}
 	}
@@ -284,14 +286,23 @@
 			font-size: 14px;
 		}
 
-		.modal__submit-btn {
+		.form__submit-btn {
 			font-size: 15px;
 		}
 	}
 
-	@media screen and (max-width: 460px) {
+	@media screen and (min-width: 320px) and (max-width: 480px) {
 		.container {
-			padding: 16px;
+			padding: 10px;
+		}
+
+		.form__submit-btn,
+		.form__status-input {
+			padding: 9px;
+		}
+
+		.form__submit-btn {
+			width: 100%;
 		}
 	}
 </style>

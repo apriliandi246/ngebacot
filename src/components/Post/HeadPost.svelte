@@ -26,17 +26,16 @@
 </div>
 
 <style>
+	.post__head {
+		display: flex;
+		align-items: center;
+	}
+
 	.post__image-profile {
 		border-radius: 100%;
 		margin-right: var(--space-24x);
 		background-color: var(--grey-200);
-		border: 2px solid var(--primary-900);
-	}
-
-	.post__head {
-		display: flex;
-		align-items: center;
-		margin-bottom: var(--space-32x);
+		border: 1px solid var(--primary-900);
 	}
 
 	.post__head-data {
@@ -48,12 +47,12 @@
 	.post__username,
 	.post__anonym-user {
 		padding: 4px 12px;
-		border-radius: 5px;
+		border-radius: 3px;
 		letter-spacing: 0.5px;
 		color: var(--grey-900);
 		font-size: var(--text-16x);
 		font-weight: var(--semi-bold);
-		border: 2px solid var(--primary-900);
+		border: 1px solid var(--primary-900);
 	}
 
 	.post__username:hover {
@@ -67,10 +66,10 @@
 
 	.post__date {
 		padding: 2px 10px;
-		border-radius: 4px;
+		border-radius: 3px;
 		color: var(--grey-600);
 		font-size: var(--text-14x);
-		border: 2px solid var(--primary-900);
+		border: 1px solid var(--primary-900);
 	}
 
 	@media screen and (max-width: 550px) {
