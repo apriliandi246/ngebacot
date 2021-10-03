@@ -1,20 +1,35 @@
 <script>
-	import { welcomeBannerStatus } from "@store";
 	import Post from "@components/Post/index.svelte";
 	import FormPost from "@components/FormPost.svelte";
+	import { welcomeBannerStatus, deviceSize } from "@store";
 	import WelcomeBanner from "@components/WelcomeBanner.svelte";
+	import FloatingButton from "@components/FloatingButton.svelte";
 </script>
 
 <svelte:head>
-	<title>Ngebacot</title>
+	{#if $welcomeBannerStatus === "_b72n6o"}
+		<style>
+			body {
+				overflow: hidden;
+			}
+		</style>
+	{/if}
+
+	<title>Ngebacot · Home</title>
 </svelte:head>
 
-{#if $welcomeBannerStatus === "show"}
+{#if $welcomeBannerStatus === "_b72n6o"}
 	<WelcomeBanner />
 {/if}
 
 <div class="container">
-	<FormPost />
+	{#if $deviceSize > 480}
+		<FormPost />
+	{/if}
+
+	{#if $deviceSize <= 480}
+		<FloatingButton />
+	{/if}
 
 	<Post postStatus="public" />
 	<Post postStatus="anonym" />

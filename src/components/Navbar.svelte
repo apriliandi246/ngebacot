@@ -1,24 +1,23 @@
 <script>
+	import { sideNavbarStatus } from "@store";
 	import Logo from "@components/Logo.svelte";
 
-	let navbarMenusStatus = "hide";
-
 	function toggleNavbarMenus() {
-		if (navbarMenusStatus === "hide") {
-			navbarMenusStatus = "show";
+		if ($sideNavbarStatus === "hide") {
+			$sideNavbarStatus = "show";
 		} else {
-			navbarMenusStatus = "hide";
+			$sideNavbarStatus = "hide";
 		}
 	}
 </script>
 
-<div on:click|self={toggleNavbarMenus} class:navbar-area={navbarMenusStatus === "show"}>
+<div on:click|self={toggleNavbarMenus} class:navbar-area={$sideNavbarStatus === "show"}>
 	<nav class="navbar">
 		<a href="/" class="home-link">
 			<Logo />
 		</a>
 
-		<div class="navbar__menus" class:show-menus-mobile={navbarMenusStatus === "show"}>
+		<div class="navbar__menus" class:show-menus-mobile={$sideNavbarStatus === "show"}>
 			<a href="/#" class="navbar__profile-link">
 				<svg
 					width="26"
@@ -32,8 +31,8 @@
 					stroke-linejoin="round"
 					xmlns="http://www.w3.org/2000/svg"
 				>
-					<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
 					<circle cx="12" cy="7" r="4" />
+					<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
 				</svg>
 
 				<span class="menu-name">Profile</span>
@@ -75,16 +74,16 @@
 					stroke-linejoin="round"
 					xmlns="http://www.w3.org/2000/svg"
 				>
-					<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
 					<polyline points="16 17 21 12 16 7" />
 					<line x1="21" y1="12" x2="9" y2="12" />
+					<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
 				</svg>
 
 				<span class="menu-name">Sign Out</span>
 			</button>
 		</div>
 
-		{#if navbarMenusStatus === "hide"}
+		{#if $sideNavbarStatus === "hide"}
 			<svg
 				width="30"
 				height="30"
@@ -98,13 +97,13 @@
 				class="navbar__show-menus"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<line x1="3" y1="12" x2="21" y2="12" />
 				<line x1="3" y1="6" x2="21" y2="6" />
+				<line x1="3" y1="12" x2="21" y2="12" />
 				<line x1="3" y1="18" x2="21" y2="18" />
 			</svg>
 		{/if}
 
-		{#if navbarMenusStatus === "show"}
+		{#if $sideNavbarStatus === "show"}
 			<svg
 				width="30"
 				height="30"
@@ -138,7 +137,6 @@
 		display: flex;
 		position: fixed;
 		align-items: center;
-		gap: var(--space-48x);
 		justify-content: space-evenly;
 		background-color: var(--primary-900);
 	}
@@ -146,7 +144,6 @@
 	.navbar__menus {
 		display: flex;
 		align-items: center;
-		gap: var(--space-32x);
 		justify-content: center;
 	}
 
@@ -156,7 +153,12 @@
 		padding: 8px 12px;
 		border-radius: 4px;
 		text-decoration: none;
+		margin-right: var(--space-32x);
 		transition: background-color 0.1s;
+	}
+
+	.navbar__profile-link:last-child {
+		margin-right: 0;
 	}
 
 	.navbar__profile-link:hover {
@@ -214,17 +216,16 @@
 		}
 	}
 
-	@media screen and (max-width: 600px) {
+	@media screen and (max-width: 480px) {
 		.navbar__show-menus {
 			display: inline;
 		}
 
 		.navbar__menus {
 			top: 0;
-			gap: 0px;
 			right: 0;
 			bottom: 0;
-			width: 64%;
+			width: 68%;
 			z-index: 9999;
 			display: none;
 			position: fixed;
@@ -246,9 +247,9 @@
 		}
 
 		.navbar__profile-link {
-			gap: 15px;
 			display: flex;
 			padding: 10px;
+			margin-right: 0;
 			margin-top: 105px;
 			border-radius: 5px;
 			align-items: center;
@@ -266,13 +267,17 @@
 
 		.menu-name {
 			display: inline;
+			margin-left: 14px;
 		}
 
 		.navbar-area {
-			inset: 0;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
 			z-index: 9999;
 			position: fixed;
-			background-color: rgba(0, 0, 0, 0.3);
+			background-color: rgba(54, 58, 68, 0.4);
 		}
 	}
 

@@ -3,6 +3,8 @@
 
 	let statusPost;
 
+	$: rowSize = $wordsOfPost.trim() !== "" ? "7" : "3";
+
 	function selectStatusPost(status) {
 		statusPost = status;
 	}
@@ -11,7 +13,7 @@
 <div class="container">
 	<form class="form">
 		<textarea
-			rows="7"
+			rows={rowSize}
 			spellcheck="false"
 			autocomplete="off"
 			class="form__input"
@@ -19,7 +21,7 @@
 			placeholder="Write what you think ????"
 		/>
 
-		{#if $wordsOfPost}
+		{#if $wordsOfPost.trim() !== ""}
 			<div class="form__post-status">
 				<div class="form__status-input" class:emphasize-border-color={statusPost === "public"}>
 					<div class="radio-input">
@@ -45,10 +47,10 @@
 						xmlns="http://www.w3.org/2000/svg"
 						stroke={statusPost === "public" ? "#363a44" : "#86888e"}
 					>
-						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 						<circle cx="9" cy="7" r="4" />
-						<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
 						<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+						<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 					</svg>
 
 					<label for="public" class:emphasize-color={statusPost === "public"}>Public Post</label>
@@ -78,10 +80,10 @@
 						xmlns="http://www.w3.org/2000/svg"
 						stroke={statusPost === "anonym" ? "#363a44" : "#86888e"}
 					>
-						<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 						<circle cx="8.5" cy="7" r="4" />
 						<line x1="18" y1="8" x2="23" y2="13" />
 						<line x1="23" y1="8" x2="18" y2="13" />
+						<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 					</svg>
 
 					<label for="anonym" class:emphasize-color={statusPost === "anonym"}>Anonym Post</label>
@@ -111,8 +113,8 @@
 						xmlns="http://www.w3.org/2000/svg"
 						stroke={statusPost === "private" ? "#363a44" : "#86888e"}
 					>
-						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
 						<circle cx="12" cy="7" r="4" />
+						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
 					</svg>
 
 					<label for="private" class:emphasize-color={statusPost === "private"}>
@@ -152,6 +154,11 @@
 		border: 1px solid var(--primary-500);
 	}
 
+	svg {
+		margin-left: 7px;
+		margin-right: 9px;
+	}
+
 	.container {
 		width: 100%;
 		padding: 20px;
@@ -177,8 +184,9 @@
 	}
 
 	.form__input::placeholder {
-		color: var(--grey-600);
-		font-size: var(--text-16x);
+		font-size: 20px;
+		font-weight: 900;
+		color: var(--primary-900);
 	}
 
 	.form__input::-webkit-scrollbar {
@@ -200,8 +208,8 @@
 	.form__post-status {
 		display: flex;
 		margin-top: var(--space-24x);
-		margin-bottom: var(--space-24x);
 		justify-content: space-between;
+		margin-bottom: var(--space-24x);
 	}
 
 	.form__status-input {
@@ -209,7 +217,6 @@
 		border-radius: 3px;
 		padding: 10px 14px;
 		align-items: center;
-		gap: var(--space-8x);
 		border: 1px solid var(--primary-500);
 	}
 
@@ -283,7 +290,7 @@
 		}
 
 		.form__input::placeholder {
-			font-size: 14px;
+			font-size: 18px;
 		}
 
 		.form__submit-btn {

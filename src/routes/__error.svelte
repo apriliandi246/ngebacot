@@ -825,7 +825,7 @@
 		/>
 	</svg>
 
-	<a href="/">Back to Main Event</a>
+	<a href="/">Back to Home</a>
 </div>
 
 <style>

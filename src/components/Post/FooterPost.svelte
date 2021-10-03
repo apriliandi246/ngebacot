@@ -170,7 +170,6 @@
 	.post__footer {
 		display: flex;
 		align-items: center;
-		gap: var(--space-48x);
 	}
 
 	.post__footer-link {
@@ -178,9 +177,16 @@
 		padding: 7px 11px;
 		border-radius: 3px;
 		align-items: center;
-		gap: var(--space-12x);
 		transition: background-color 0.2s;
 		border: 1px solid var(--primary-900);
+	}
+
+	.post__footer-link {
+		margin-right: var(--space-48x);
+	}
+
+	.post__footer-link:last-child {
+		margin-right: 0;
 	}
 
 	.post__footer-link:hover {
@@ -191,6 +197,7 @@
 		color: var(--grey-600);
 		text-transform: capitalize;
 		font-size: var(--text-14x);
+		margin-left: var(--space-12x);
 	}
 
 	.post__btn-menu {
@@ -208,6 +215,7 @@
 		width: 25px;
 		height: 25px;
 		border-radius: 5px;
+		margin-left: var(--space-12x);
 		background-color: var(--primary-800);
 	}
 
@@ -236,12 +244,12 @@
 
 	@media screen and (max-width: 450px) {
 		.post__footer {
-			gap: var(--space-24x);
 			flex-direction: column;
 		}
 
 		.post__footer-link {
 			width: 100%;
+			margin: 0 0 var(--space-12x) 0;
 		}
 	}
 </style>

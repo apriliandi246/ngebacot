@@ -12,6 +12,7 @@
 	$: checkPasswordPattern = passwordPattern.test(password);
 	$: submitBtnContet = submitFormStatus ? "Loading...." : "Sign In";
 	$: passwordInputType = statusInputPassword === "hide" ? "password" : "text";
+
 	$: submitBtnDisabled =
 		checkEmailPattern && checkPasswordPattern && !submitFormStatus ? false : true;
 
@@ -207,8 +208,8 @@
 					on:click={() => showPassword("show")}
 					stroke={submitFormStatus ? "#aeb0b4" : "#363a44"}
 				>
-					<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
 					<circle cx="12" cy="12" r="3" />
+					<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
 				</svg>
 			{/if}
 
@@ -248,10 +249,9 @@
 		display: flex;
 		width: 1000px;
 		align-items: center;
-		gap: var(--space-64x);
 		justify-content: center;
+		margin: 200px auto 0 auto;
 		padding-bottom: var(--space-48x);
-		margin: var(--space-128x) auto 0 auto;
 	}
 
 	.signin {
@@ -275,9 +275,9 @@
 		color: var(--grey-50);
 		font-size: var(--text-16x);
 		margin-top: var(--space-8x);
+		transition: background-color 0.1s;
 		background-color: var(--primary-900);
 		border: 1px solid var(--primary-500);
-		transition: color 0.2s, background-color 0.2s, box-shadow 0.2s;
 	}
 
 	.signin__btn:hover {
@@ -313,6 +313,7 @@
 	.signup-ilustration {
 		width: 440px;
 		height: 440px;
+		margin-right: 60px;
 		border-radius: 14px;
 		border: 6px solid var(--primary-900);
 	}
@@ -329,10 +330,9 @@
 	@media screen and (max-width: 1010px) {
 		.container {
 			width: 70%;
+			margin-top: 140px;
 			align-items: center;
-			gap: var(--space-24x);
 			flex-direction: column;
-			margin-top: var(--space-96x);
 		}
 
 		.signin {
@@ -342,6 +342,8 @@
 		.signup-ilustration {
 			width: 290px;
 			height: 290px;
+			margin-right: 0;
+			margin-bottom: 40px;
 		}
 	}
 

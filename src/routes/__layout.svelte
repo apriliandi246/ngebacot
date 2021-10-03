@@ -1,21 +1,43 @@
 <script>
 	import "@style/global.css";
 	import { browser } from "$app/env";
-	import { welcomeBannerStatus } from "@store";
 	import { navigating, page } from "$app/stores";
 	import Navbar from "@components/Navbar.svelte";
 	import SimpleNavbar from "@components/SimpleNavbar.svelte";
 	import PreloadingIndicator from "@components/PreloadingIndicator.svelte";
+	import { welcomeBannerStatus, sideNavbarStatus, deviceSize } from "@store";
 
 	$: pageRoute = $page.path.split("/")[1];
 
 	if (browser) {
-		if (localStorage.getItem("_welcome-banner") === null) {
-			$welcomeBannerStatus = "show";
-			localStorage.setItem("_welcome-banner", "show");
+		$deviceSize = window.innerWidth;
+
+		if (localStorage.getItem("_1re6awj") === null) {
+			$welcomeBannerStatus = "_b72n6o";
+			localStorage.setItem("_1re6awj", "_b72n6o");
+		}
+	}
+
+	function getDeviceSize(event) {
+		$deviceSize = event.target.innerWidth;
+
+		if (event.target.innerWidth > 600) {
+			$sideNavbarStatus = "hide";
 		}
 	}
 </script>
+
+<svelte:window on:resize={getDeviceSize} />
+
+<svelte:head>
+	{#if $sideNavbarStatus === "show"}
+		<style>
+			body {
+				overflow: hidden;
+			}
+		</style>
+	{/if}
+</svelte:head>
 
 {#if $navigating}
 	<PreloadingIndicator />

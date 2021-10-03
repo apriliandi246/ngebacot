@@ -292,10 +292,9 @@
 		width: 1000px;
 		display: flex;
 		align-items: center;
-		gap: var(--space-24x);
 		justify-content: center;
+		margin: 200px auto 0 auto;
 		padding-bottom: var(--space-48x);
-		margin: var(--space-128x) auto 0 auto;
 	}
 
 	.signup {
@@ -319,9 +318,9 @@
 		color: var(--grey-50);
 		font-size: var(--text-16x);
 		margin-top: var(--space-8x);
+		transition: background-color 0.1s;
 		background-color: var(--primary-900);
 		border: 1px solid var(--primary-500);
-		transition: color 0.2s, background 0.2s, box-shadow 0.2s;
 	}
 
 	.signup__btn:hover {
@@ -357,7 +356,7 @@
 	.signup-ilustration {
 		width: 460px;
 		height: 460px;
-		margin-right: 40px;
+		margin-right: 60px;
 		border-radius: 14px;
 		border: 6px solid var(--primary-900);
 	}
@@ -375,9 +374,8 @@
 		.container {
 			width: 70%;
 			align-items: center;
-			gap: var(--space-2x);
 			flex-direction: column;
-			margin: var(--space-64x) auto 0 auto;
+			margin: 140px auto 0 auto;
 		}
 
 		.signup {

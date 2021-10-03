@@ -1,15 +1,17 @@
 <script>
 	export let postStatus;
 	export let imageSource;
+
+	$: imgAlt = postStatus === "anonym" ? "Anonym user" : "Username of the user";
 </script>
 
 <div class="post__head">
 	<img
 		width="47"
 		height="47"
+		alt={imgAlt}
 		loading="lazy"
 		src={imageSource}
-		alt="Username of the user"
 		class="post__image-profile"
 	/>
 
@@ -32,7 +34,10 @@
 	}
 
 	.post__image-profile {
+		font-size: 13px;
+		overflow: hidden;
 		border-radius: 100%;
+		color: var(--primary-900);
 		margin-right: var(--space-24x);
 		background-color: var(--grey-200);
 		border: 1px solid var(--primary-900);
@@ -41,7 +46,6 @@
 	.post__head-data {
 		display: flex;
 		align-items: center;
-		gap: var(--space-12x);
 	}
 
 	.post__username,
@@ -60,6 +64,8 @@
 	}
 
 	.post__dot {
+		margin-left: 12px;
+		margin-right: 12px;
 		font-weight: var(--bold);
 		font-size: var(--text-36x);
 	}

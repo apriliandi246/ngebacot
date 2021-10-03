@@ -8,11 +8,14 @@
 
 <style>
 	nav {
+		top: 0;
+		left: 0;
+		right: 0;
 		width: 100%;
 		height: 65px;
 		display: flex;
+		position: fixed;
 		align-items: center;
-		gap: var(--space-48x);
 		justify-content: space-around;
 		background-color: var(--primary-900);
 	}
