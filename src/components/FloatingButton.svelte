@@ -1,4 +1,8 @@
-<button>
+<script>
+	export let toogleFormStatus;
+</script>
+
+<button on:click={toogleFormStatus}>
 	<svg
 		width="24"
 		height="24"

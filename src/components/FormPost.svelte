@@ -10,123 +10,119 @@
 	}
 </script>
 
-<div class="container">
-	<form class="form">
-		<textarea
-			rows={rowSize}
-			spellcheck="false"
-			autocomplete="off"
-			class="form__input"
-			bind:value={$wordsOfPost}
-			placeholder="Write what you think ????"
-		/>
+<form class="form">
+	<textarea
+		rows={rowSize}
+		spellcheck="false"
+		autocomplete="off"
+		class="form__input"
+		bind:value={$wordsOfPost}
+		placeholder="Write what you think ????"
+	/>
 
-		{#if $wordsOfPost.trim() !== ""}
-			<div class="form__post-status">
-				<div class="form__status-input" class:emphasize-border-color={statusPost === "public"}>
-					<div class="radio-input">
-						<input
-							id="public"
-							type="radio"
-							name="status"
-							value="public"
-							on:change={() => selectStatusPost("public")}
-						/>
+	{#if $wordsOfPost.trim() !== ""}
+		<div class="form__post-status">
+			<div class="form__status-input" class:emphasize-border-color={statusPost === "public"}>
+				<div class="radio-input">
+					<input
+						id="public"
+						type="radio"
+						name="status"
+						value="public"
+						on:change={() => selectStatusPost("public")}
+					/>
 
-						<div class="radio-input-dot" class:radio-input-selected={statusPost === "public"} />
-					</div>
-
-					<svg
-						width="22"
-						height="22"
-						fill="none"
-						stroke-width="2"
-						viewBox="0 0 24 24"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						xmlns="http://www.w3.org/2000/svg"
-						stroke={statusPost === "public" ? "#363a44" : "#86888e"}
-					>
-						<circle cx="9" cy="7" r="4" />
-						<path d="M16 3.13a4 4 0 0 1 0 7.75" />
-						<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-					</svg>
-
-					<label for="public" class:emphasize-color={statusPost === "public"}>Public Post</label>
+					<div class="radio-input-dot" class:radio-input-selected={statusPost === "public"} />
 				</div>
 
-				<div class="form__status-input" class:emphasize-border-color={statusPost === "anonym"}>
-					<div class="radio-input">
-						<input
-							id="anonym"
-							type="radio"
-							name="status"
-							value="anonym"
-							on:change={() => selectStatusPost("anonym")}
-						/>
+				<svg
+					width="22"
+					height="22"
+					fill="none"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+					stroke={statusPost === "public" ? "#363a44" : "#86888e"}
+				>
+					<circle cx="9" cy="7" r="4" />
+					<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+					<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+					<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+				</svg>
 
-						<div class="radio-input-dot" class:radio-input-selected={statusPost === "anonym"} />
-					</div>
-
-					<svg
-						width="22"
-						height="22"
-						fill="none"
-						stroke-width="2"
-						viewBox="0 0 24 24"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						xmlns="http://www.w3.org/2000/svg"
-						stroke={statusPost === "anonym" ? "#363a44" : "#86888e"}
-					>
-						<circle cx="8.5" cy="7" r="4" />
-						<line x1="18" y1="8" x2="23" y2="13" />
-						<line x1="23" y1="8" x2="18" y2="13" />
-						<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-					</svg>
-
-					<label for="anonym" class:emphasize-color={statusPost === "anonym"}>Anonym Post</label>
-				</div>
-
-				<div class="form__status-input" class:emphasize-border-color={statusPost === "private"}>
-					<div class="radio-input">
-						<input
-							id="private"
-							type="radio"
-							name="status"
-							value="private"
-							on:change={() => selectStatusPost("private")}
-						/>
-
-						<div class="radio-input-dot" class:radio-input-selected={statusPost === "private"} />
-					</div>
-
-					<svg
-						width="22"
-						height="22"
-						fill="none"
-						stroke-width="2"
-						viewBox="0 0 24 24"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						xmlns="http://www.w3.org/2000/svg"
-						stroke={statusPost === "private" ? "#363a44" : "#86888e"}
-					>
-						<circle cx="12" cy="7" r="4" />
-						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-					</svg>
-
-					<label for="private" class:emphasize-color={statusPost === "private"}>
-						Private Post
-					</label>
-				</div>
+				<label for="public" class:emphasize-color={statusPost === "public"}>Public Post</label>
 			</div>
 
-			<button type="submit" class="form__submit-btn">Add Post</button>
-		{/if}
-	</form>
-</div>
+			<div class="form__status-input" class:emphasize-border-color={statusPost === "anonym"}>
+				<div class="radio-input">
+					<input
+						id="anonym"
+						type="radio"
+						name="status"
+						value="anonym"
+						on:change={() => selectStatusPost("anonym")}
+					/>
+
+					<div class="radio-input-dot" class:radio-input-selected={statusPost === "anonym"} />
+				</div>
+
+				<svg
+					width="22"
+					height="22"
+					fill="none"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+					stroke={statusPost === "anonym" ? "#363a44" : "#86888e"}
+				>
+					<circle cx="8.5" cy="7" r="4" />
+					<line x1="18" y1="8" x2="23" y2="13" />
+					<line x1="23" y1="8" x2="18" y2="13" />
+					<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+				</svg>
+
+				<label for="anonym" class:emphasize-color={statusPost === "anonym"}>Anonym Post</label>
+			</div>
+
+			<div class="form__status-input" class:emphasize-border-color={statusPost === "private"}>
+				<div class="radio-input">
+					<input
+						id="private"
+						type="radio"
+						name="status"
+						value="private"
+						on:change={() => selectStatusPost("private")}
+					/>
+
+					<div class="radio-input-dot" class:radio-input-selected={statusPost === "private"} />
+				</div>
+
+				<svg
+					width="22"
+					height="22"
+					fill="none"
+					stroke-width="2"
+					viewBox="0 0 24 24"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					xmlns="http://www.w3.org/2000/svg"
+					stroke={statusPost === "private" ? "#363a44" : "#86888e"}
+				>
+					<circle cx="12" cy="7" r="4" />
+					<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+				</svg>
+
+				<label for="private" class:emphasize-color={statusPost === "private"}> Private Post </label>
+			</div>
+		</div>
+
+		<button type="submit" class="form__submit-btn">Add Post</button>
+	{/if}
+</form>
 
 <style>
 	label {
@@ -157,15 +153,6 @@
 	svg {
 		margin-left: 7px;
 		margin-right: 9px;
-	}
-
-	.container {
-		width: 100%;
-		padding: 20px;
-		border-radius: 3px;
-		margin-bottom: var(--space-48x);
-		background-color: var(--grey-50);
-		border: 1px solid var(--primary-900);
 	}
 
 	.form__input {
@@ -266,10 +253,6 @@
 	}
 
 	@media screen and (max-width: 780px) {
-		.container {
-			padding: 20px;
-		}
-
 		.form__post-status {
 			flex-direction: column;
 		}
@@ -290,7 +273,7 @@
 		}
 
 		.form__input::placeholder {
-			font-size: 18px;
+			font-size: 17px;
 		}
 
 		.form__submit-btn {
@@ -299,10 +282,6 @@
 	}
 
 	@media screen and (min-width: 320px) and (max-width: 480px) {
-		.container {
-			padding: 10px;
-		}
-
 		.form__submit-btn,
 		.form__status-input {
 			padding: 9px;

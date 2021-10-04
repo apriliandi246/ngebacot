@@ -833,9 +833,9 @@
 		display: flex;
 		align-items: center;
 		padding-bottom: 40px;
-		margin: 0 auto 0 auto;
 		flex-direction: column;
 		justify-content: center;
+		margin: var(--space-48x) auto 0 auto;
 	}
 
 	svg {
@@ -870,19 +870,12 @@
 
 	@media screen and (max-width: 660px) {
 		svg {
-			width: auto;
-			height: auto;
-			margin-top: 10px;
+			width: 300px;
+			height: 300px;
 		}
 
 		a {
 			font-size: var(--text-16x);
-		}
-	}
-
-	@media screen and (max-width: 660px) {
-		.container {
-			margin-top: 60px;
 		}
 	}
 </style>
