@@ -255,7 +255,10 @@
 	}
 
 	.signin {
-		width: 32%;
+		width: 35%;
+		padding: 20px;
+		border-radius: 3px;
+		background-color: var(--grey-50);
 	}
 
 	.signin__password-wrapper {
@@ -329,31 +332,28 @@
 
 	@media screen and (max-width: 1010px) {
 		.container {
-			width: 70%;
+			width: 50%;
 			margin-top: 140px;
 			align-items: center;
 			flex-direction: column;
 		}
 
 		.signin {
-			width: 70%;
+			width: 100%;
 		}
 
 		.signup-ilustration {
-			width: 290px;
-			height: 290px;
-			margin-right: 0;
-			margin-bottom: 40px;
+			display: none;
 		}
 	}
 
-	@media screen and (max-width: 660px) {
-		.signin {
-			width: 94%;
+	@media screen and (max-width: 770px) {
+		.container {
+			width: 70%;
 		}
 	}
 
-	@media screen and (max-width: 500px) {
+	@media screen and (max-width: 520px) {
 		.container {
 			width: 100%;
 			padding-left: 16px;
@@ -362,6 +362,7 @@
 
 		.signin {
 			width: 100%;
+			padding: 18px 16px;
 		}
 	}
 </style>

@@ -39,7 +39,7 @@
 
 	.post__words,
 	.post__private {
-		margin-top: 19px;
+		margin-top: 14px;
 		margin-bottom: 21px;
 	}
 
@@ -55,13 +55,6 @@
 		margin-bottom: 0;
 	}
 
-	@media screen and (max-width: 550px) {
-		.post__words {
-			font-size: 14px;
-			line-height: 24px;
-		}
-	}
-
 	@media screen and (max-width: 493px) {
 		.large-block {
 			height: 26px;
@@ -70,7 +63,10 @@
 
 	@media screen and (min-width: 320px) and (max-width: 480px) {
 		.post__words {
-			padding: 8px;
+			font-size: 15px;
+			padding: 6px 7px;
+			line-height: 25px;
+			margin-bottom: 20px;
 		}
 
 		.post__private {

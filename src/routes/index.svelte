@@ -46,8 +46,8 @@
 		{#if mobileFormStatus}
 			<div
 				class="mobile-form"
-				in:fly={{ y: 140, duration: 200 }}
-				out:fly={{ y: 140, duration: 100 }}
+				in:fly={{ y: 140, duration: 180 }}
+				out:fly={{ y: 140, duration: 120 }}
 			>
 				<svg
 					width="30"
@@ -92,22 +92,22 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
+		padding: 14px;
 		z-index: 999999;
 		position: fixed;
-		padding: var(--space-16x);
 		background-color: var(--grey-50);
 	}
 
 	.mobile-for__close {
 		cursor: pointer;
 		margin-top: 12px;
-		margin-bottom: var(--space-32x);
+		margin-bottom: 30px;
 	}
 
 	.form-post {
 		width: 100%;
-		padding: 20px;
 		border-radius: 3px;
+		padding: 16px 16px 9px 16px;
 		margin-bottom: var(--space-32x);
 		background-color: var(--grey-50);
 		border: 1px solid var(--primary-900);

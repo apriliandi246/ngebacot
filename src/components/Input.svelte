@@ -41,8 +41,8 @@
 	}
 
 	input::placeholder {
+		font-size: 15px;
 		color: var(--grey-500);
-		font-size: var(--text-14x);
 	}
 
 	.icon-space {

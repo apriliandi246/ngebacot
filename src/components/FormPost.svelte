@@ -1,9 +1,8 @@
 <script>
-	import { wordsOfPost } from "@store";
+	import setTextareaHeight from "../actions/textareaHeight";
 
-	let statusPost;
-
-	$: rowSize = $wordsOfPost.trim() !== "" ? "7" : "3";
+	let textareaValue = "";
+	let statusPost = "public";
 
 	function selectStatusPost(status) {
 		statusPost = status;
@@ -12,15 +11,17 @@
 
 <form class="form">
 	<textarea
-		rows={rowSize}
+		rows="1"
+		id="textarea"
 		spellcheck="false"
 		autocomplete="off"
 		class="form__input"
-		bind:value={$wordsOfPost}
+		use:setTextareaHeight
+		bind:value={textareaValue}
 		placeholder="Write what you think ????"
 	/>
 
-	{#if $wordsOfPost.trim() !== ""}
+	{#if textareaValue.trim() !== ""}
 		<div class="form__post-status">
 			<div class="form__status-input" class:emphasize-border-color={statusPost === "public"}>
 				<div class="radio-input">
@@ -157,23 +158,23 @@
 
 	.form__input {
 		width: 100%;
+		resize: none;
 		line-height: 28px;
 		border-radius: 3px;
 		padding: 12px 13px;
 		letter-spacing: 0.5px;
 		color: var(--grey-900);
 		font-size: var(--text-16x);
-		border: 1px solid var(--grey-500);
+		transition: box-shadow 0.1s;
+		border: 1px solid var(--primary-900);
 	}
 
 	.form__input:focus {
-		border-color: var(--primary-900);
+		box-shadow: 0 0 0 1px var(--primary-900);
 	}
 
 	.form__input::placeholder {
-		font-size: 20px;
-		font-weight: 900;
-		color: var(--primary-900);
+		font-size: 18px;
 	}
 
 	.form__input::-webkit-scrollbar {
@@ -209,14 +210,12 @@
 
 	.form__submit-btn {
 		border: none;
+		float: right;
+		margin-bottom: 7px;
+		color: var(--grey-50);
 		font-size: var(--text-16x);
 		padding: 6px var(--space-32x);
 		transition: background-color 0.1s;
-	}
-
-	.form__submit-btn {
-		float: right;
-		color: var(--grey-50);
 		background-color: var(--primary-900);
 	}
 
@@ -266,29 +265,40 @@
 		}
 	}
 
-	@media screen and (max-width: 550px) {
+	@media screen and (min-width: 320px) and (max-width: 480px) {
+		label {
+			font-size: var(--text-16x);
+		}
+
 		.form__input {
-			font-size: 14px;
-			line-height: 23px;
+			border: none;
+			height: 44px;
+			padding: 7px 4px;
+			font-size: 16px;
+			border-radius: 0;
+			line-height: 25px;
+			background-color: transparent;
+			border-bottom: 2px solid var(--primary-500);
 		}
 
 		.form__input::placeholder {
 			font-size: 17px;
 		}
 
-		.form__submit-btn {
-			font-size: 15px;
+		.form__input:focus {
+			box-shadow: none;
+			border-bottom: 2px solid var(--primary-900);
 		}
-	}
 
-	@media screen and (min-width: 320px) and (max-width: 480px) {
-		.form__submit-btn,
 		.form__status-input {
-			padding: 9px;
+			padding: 10px;
 		}
 
 		.form__submit-btn {
 			width: 100%;
+			font-size: 18px;
+			padding-top: 10px;
+			padding-bottom: 10px;
 		}
 	}
 </style>

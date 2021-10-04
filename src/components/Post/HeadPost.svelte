@@ -7,8 +7,8 @@
 
 <div class="post__head">
 	<img
-		width="47"
-		height="47"
+		width="46"
+		height="46"
 		alt={imgAlt}
 		loading="lazy"
 		src={imageSource}
@@ -19,7 +19,7 @@
 		{#if postStatus === "anonym"}
 			<span class="post__anonym-user">Anonym</span>
 		{:else}
-			<a href="/#" class="post__username">username</a>
+			<a href="/#" class="post__username">_apriliandi_</a>
 		{/if}
 
 		<span class="post__dot">·</span>
@@ -36,9 +36,9 @@
 	.post__image-profile {
 		font-size: 13px;
 		overflow: hidden;
+		margin-right: 18px;
 		border-radius: 100%;
 		color: var(--primary-900);
-		margin-right: var(--space-24x);
 		background-color: var(--grey-200);
 		border: 1px solid var(--primary-900);
 	}
@@ -78,20 +78,16 @@
 		border: 1px solid var(--primary-900);
 	}
 
-	@media screen and (max-width: 550px) {
+	@media screen and (max-width: 480px) {
 		.post__username,
 		.post__anonym-user {
-			font-size: 14px;
+			font-size: 15px;
+			padding: 2px 7px;
 		}
 
 		.post__date {
-			font-size: 12px;
-		}
-	}
-
-	@media screen and (max-width: 340px) {
-		.post__image-profile {
-			margin-right: var(--space-16x);
+			font-size: 13px;
+			padding: 1px 8px;
 		}
 	}
 </style>

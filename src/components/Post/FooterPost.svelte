@@ -225,24 +225,13 @@
 		}
 	}
 
-	@media screen and (max-width: 550px) {
-		.post__footer-data {
-			font-size: 13px;
-		}
-	}
-
 	@media screen and (max-width: 493px) {
 		.post__footer {
 			justify-content: center;
 		}
-
-		.small-block {
-			width: 28px;
-			height: 28px;
-		}
 	}
 
-	@media screen and (max-width: 450px) {
+	@media screen and (max-width: 480px) {
 		.post__footer {
 			flex-direction: column;
 		}
@@ -250,6 +239,19 @@
 		.post__footer-link {
 			width: 100%;
 			margin: 0 0 var(--space-12x) 0;
+		}
+
+		.post__footer-link:last-child {
+			margin-bottom: 0;
+		}
+
+		.post__footer-data {
+			font-size: 14px;
+		}
+
+		.small-block {
+			width: 28px;
+			height: 28px;
 		}
 	}
 </style>

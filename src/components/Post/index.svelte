@@ -8,7 +8,7 @@
 	$: imageSource =
 		postStatus === "anonym"
 			? "/anonym.png"
-			: "https://avatars.dicebear.com/api/croodles-neutral/apriliandi.svg?size=47";
+			: "https://avatars.dicebear.com/api/croodles-neutral/apriliandi.svg?size=46";
 </script>
 
 <div class="post">
@@ -35,7 +35,7 @@
 
 	@media screen and (min-width: 320px) and (max-width: 480px) {
 		.post {
-			padding: 15px 13px;
+			padding: 8px 8px 10px 8px;
 		}
 	}
 </style>
