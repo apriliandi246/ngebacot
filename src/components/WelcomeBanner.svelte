@@ -1,7 +1,8 @@
 <script>
-	import { welcomeBannerStatus } from "@store";
+	import { welcomeBannerStatus, scrollBarStatus } from "@store";
 
 	function hideWelcomeBanner() {
+		$scrollBarStatus = "show";
 		$welcomeBannerStatus = "_b7bjwl";
 		localStorage.setItem("_1re6awj", "_b7bjwl");
 	}
@@ -130,7 +131,7 @@
 
 	@media screen and (max-width: 1035px) {
 		.banner {
-			width: 95%;
+			width: 90%;
 		}
 	}
 

@@ -5,7 +5,7 @@
 	import Navbar from "@components/Navbar.svelte";
 	import SimpleNavbar from "@components/SimpleNavbar.svelte";
 	import PreloadingIndicator from "@components/PreloadingIndicator.svelte";
-	import { welcomeBannerStatus, sideNavbarStatus, deviceSize } from "@store";
+	import { welcomeBannerStatus, sideNavbarStatus, scrollBarStatus, deviceSize } from "@store";
 
 	$: pageRoute = $page.path.split("/")[1];
 
@@ -13,6 +13,7 @@
 		$deviceSize = window.innerWidth;
 
 		if (localStorage.getItem("_1re6awj") === null) {
+			$scrollBarStatus = "hide";
 			$welcomeBannerStatus = "_b72n6o";
 			localStorage.setItem("_1re6awj", "_b72n6o");
 		}
@@ -30,7 +31,7 @@
 <svelte:window on:resize={getDeviceSize} />
 
 <svelte:head>
-	{#if $sideNavbarStatus === "show"}
+	{#if $scrollBarStatus === "hide"}
 		<style>
 			body {
 				overflow: hidden;
