@@ -16,6 +16,7 @@ const config = {
 					"@utils": path.resolve("./src/utils"),
 					"@store": path.resolve("./src/store"),
 					"@config": path.resolve("./src/config"),
+					"@actions": path.resolve("./src/actions"),
 					"@components": path.resolve("./src/components"),
 				},
 			},

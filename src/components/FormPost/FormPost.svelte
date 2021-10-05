@@ -1,5 +1,5 @@
 <script>
-	import setTextareaHeight from "../../actions/textareaHeight";
+	import setTextareaHeight from "@actions/textareaHeight";
 
 	let textareaValue = "";
 	let statusPost = "public";

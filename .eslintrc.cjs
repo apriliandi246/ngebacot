@@ -20,6 +20,7 @@ module.exports = {
 					["@utils", "./src/utils"],
 					["@store", "./src/store"],
 					["@config", "./src/config"],
+					["@actions", "./src/actions"],
 					["@components", "./src/components"],
 				],
 			},
