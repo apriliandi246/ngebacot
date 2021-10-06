@@ -7,9 +7,10 @@ export const wordsOfPost = writable("");
 export const scrollBarStatus = writable("show");
 export const sideNavbarStatus = writable("hide");
 export const signoutModalStatus = writable("hide");
+export const languageModalStatus = writable("hidden");
 
-export let welcomeBannerStatus;
+export let welcomeModalStatus;
 
 if (typeof window !== "undefined") {
-	welcomeBannerStatus = writable(localStorage.getItem("_1re6awj"));
+	welcomeModalStatus = writable(localStorage.getItem("_1re6awj"));
 }

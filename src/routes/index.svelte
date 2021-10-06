@@ -1,11 +1,10 @@
 <script>
 	import Post from "@components/CardPost/index.svelte";
-	import SignOutModal from "@components/SignOutModal.svelte";
-	import WelcomeBanner from "@components/WelcomeBanner.svelte";
 	import FloatingButton from "@components/FloatingButton.svelte";
+	import WelcomeModal from "@components/modal/WelcomeModal.svelte";
 	import MobileFormPost from "@components/FormPost/MobileFormPost.svelte";
+	import { welcomeModalStatus, scrollBarStatus, deviceSize } from "@store";
 	import DekstopFormPost from "@components/FormPost/DekstopFormPost.svelte";
-	import { welcomeBannerStatus, signoutModalStatus, scrollBarStatus, deviceSize } from "@store";
 
 	let mobileFormStatus = "hide";
 
@@ -24,12 +23,8 @@
 	<title>Ngebacot · Home</title>
 </svelte:head>
 
-{#if $welcomeBannerStatus === "_b72n6o"}
-	<WelcomeBanner {toggleFormStatus} />
-{/if}
-
-{#if $signoutModalStatus === "show"}
-	<SignOutModal />
+{#if $welcomeModalStatus === "_b72n6o"}
+	<WelcomeModal {toggleFormStatus} />
 {/if}
 
 <div class="container">

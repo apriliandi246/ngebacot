@@ -1,6 +1,12 @@
 <script>
 	import Logo from "@components/Logo.svelte";
-	import { sideNavbarStatus, signoutModalStatus, scrollBarStatus } from "@store";
+
+	import {
+		scrollBarStatus,
+		sideNavbarStatus,
+		signoutModalStatus,
+		languageModalStatus,
+	} from "@store";
 
 	function toggleNavbarMenus() {
 		if ($sideNavbarStatus === "hide") {
@@ -12,10 +18,12 @@
 		}
 	}
 
-	function showModalSignout() {
+	function showModal(modalName) {
+		if (modalName === "signOut") $signoutModalStatus = "show";
+		if (modalName === "language") $languageModalStatus = "show";
+
 		$scrollBarStatus = "hide";
 		$sideNavbarStatus = "hide";
-		$signoutModalStatus = "show";
 	}
 </script>
 
@@ -46,7 +54,7 @@
 				<span class="menu-name">Profile</span>
 			</a>
 
-			<button class="navbar__profile-link nav-btn">
+			<button on:click={() => showModal("language")} class="navbar__profile-link nav-btn">
 				<svg
 					width="26"
 					height="26"
@@ -69,7 +77,7 @@
 				<span class="menu-name">Language</span>
 			</button>
 
-			<button on:click={showModalSignout} class="navbar__profile-link nav-btn">
+			<button on:click={() => showModal("signOut")} class="navbar__profile-link nav-btn">
 				<svg
 					width="26"
 					height="26"
