@@ -16,6 +16,9 @@
 		bottom: 0;
 		z-index: 99999;
 		position: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		background-color: rgba(54, 58, 68, 0.4);
 	}
 
@@ -28,6 +31,7 @@
 		flex-direction: column;
 		background-color: #fff;
 		justify-content: center;
+		margin-top: 0 auto 0 auto;
 		border: 6px solid var(--primary-900);
 	}
 
