@@ -7,7 +7,7 @@
 <div
 	class="modal-area"
 	on:click|self={hideModal}
-	in:fade={{ duration: 200 }}
+	in:fade={{ duration: 150 }}
 	out:fade={{ duration: 100 }}
 >
 	<div class="modal">

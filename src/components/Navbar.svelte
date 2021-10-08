@@ -1,5 +1,6 @@
 <script>
 	import Logo from "@components/Logo.svelte";
+	import { scale } from "svelte/transition";
 
 	import {
 		scrollBarStatus,
@@ -124,19 +125,17 @@
 				width="30"
 				height="30"
 				fill="none"
-				stroke-width="2"
 				stroke="#f9fafb"
+				stroke-width="3"
+				class="close-icon"
 				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				style="margin-top: 8px;"
-				class="navbar__close-menus"
 				on:click={toggleNavbarMenus}
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<circle cx="12" cy="12" r="10" />
-				<line x1="15" y1="9" x2="9" y2="15" />
-				<line x1="9" y1="9" x2="15" y2="15" />
+				<line x1="18" y1="6" x2="6" y2="18" />
+				<line x1="6" y1="6" x2="18" y2="18" />
 			</svg>
 		{/if}
 	</nav>
@@ -186,20 +185,32 @@
 		transition: stroke 0.1s;
 	}
 
-	.navbar__show-menus,
-	.navbar__close-menus {
+	.close-icon,
+	.navbar__show-menus {
 		display: none;
 		cursor: pointer;
 		transition: stroke 0.1s;
 	}
 
-	.navbar__show-menus:hover,
-	.navbar__close-menus:hover {
+	.navbar__show-menus:hover {
 		stroke: var(--grey-400);
 	}
 
 	.menu-name {
 		display: none;
+	}
+
+	.close-icon {
+		padding: 1px;
+		cursor: pointer;
+		border-radius: 100%;
+		transition: background-color 0.1s;
+		border: 3px solid var(--primary-100);
+	}
+
+	.close-icon:hover {
+		stroke: var(--grey-400);
+		border: 3px solid var(--grey-400);
 	}
 
 	.home-link {
@@ -241,11 +252,12 @@
 			top: 0;
 			right: 0;
 			bottom: 0;
-			width: 68%;
+			width: 70%;
 			z-index: 9999;
 			display: none;
 			position: fixed;
 			align-items: center;
+			animation: navbar 0.2s;
 			flex-direction: column;
 			justify-content: flex-start;
 			background-color: var(--primary-900);
@@ -257,7 +269,7 @@
 		}
 
 		.navbar__show-menus,
-		.navbar__close-menus {
+		.close-icon {
 			z-index: 9999;
 			display: inline;
 		}
@@ -294,6 +306,16 @@
 			z-index: 9999;
 			position: fixed;
 			background-color: rgba(54, 58, 68, 0.4);
+		}
+
+		@keyframes navbar {
+			from {
+				transform: translateX(50%);
+			}
+
+			to {
+				transform: translateX(0%);
+			}
 		}
 	}
 
