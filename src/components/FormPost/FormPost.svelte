@@ -1,5 +1,5 @@
 <script>
-	import setTextareaHeight from "@actions/textareaHeight";
+	import relativeTextarea from "@actions/relativeTextarea";
 
 	let textareaValue = "";
 	let statusPost = "public";
@@ -16,7 +16,7 @@
 		spellcheck="false"
 		autocomplete="off"
 		class="form__input"
-		use:setTextareaHeight
+		use:relativeTextarea
 		bind:value={textareaValue}
 		placeholder="Write what you think ????"
 	/>
