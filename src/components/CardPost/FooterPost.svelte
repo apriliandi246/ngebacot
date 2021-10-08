@@ -2,7 +2,7 @@
 	export let postStatus;
 </script>
 
-<div class="post__footer">
+<footer class="post__footer">
 	<!-- Comment -->
 	{#if postStatus === "private"}
 		<div class="post__footer-link no-event">
@@ -164,7 +164,7 @@
 		<span class="post__footer-data">{postStatus} Post</span>
 	</div>
 	<!-- Post Status -->
-</div>
+</footer>
 
 <style>
 	.post__footer {

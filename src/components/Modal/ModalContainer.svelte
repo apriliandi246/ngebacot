@@ -28,13 +28,12 @@
 		flex-direction: column;
 		background-color: #fff;
 		justify-content: center;
-		margin: 180px auto -60px auto;
 		border: 6px solid var(--primary-900);
 	}
 
 	@media screen and (max-width: 1035px) {
 		.modal {
-			width: 90%;
+			width: 86%;
 		}
 	}
 </style>
