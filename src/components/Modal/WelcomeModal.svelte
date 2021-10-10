@@ -119,15 +119,4 @@
 			height: 300px;
 		}
 	}
-
-	@media screen and (max-width: 360px) {
-		.modal__title {
-			font-size: 30px;
-		}
-
-		.modal__ilustration {
-			width: 250px;
-			height: 250px;
-		}
-	}
 </style>

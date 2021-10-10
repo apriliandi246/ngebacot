@@ -55,22 +55,9 @@
 		margin-bottom: 0;
 	}
 
-	@media screen and (max-width: 493px) {
+	@media screen and (min-width: 483px) and (max-width: 550px) {
 		.large-block {
 			height: 26px;
-		}
-	}
-
-	@media screen and (min-width: 320px) and (max-width: 480px) {
-		.post__words {
-			font-size: 15px;
-			padding: 6px 7px;
-			line-height: 25px;
-			margin-bottom: 20px;
-		}
-
-		.post__private {
-			padding: 10px;
 		}
 	}
 </style>

@@ -9,9 +9,7 @@
 	import PreloadingIndicator from "@components/PreloadingIndicator.svelte";
 
 	import {
-		deviceSize,
 		scrollBarStatus,
-		sideNavbarStatus,
 		signoutModalStatus,
 		welcomeModalStatus,
 		languageModalStatus,
@@ -20,25 +18,13 @@
 	$: pageRoute = $page.path.split("/")[1];
 
 	if (browser) {
-		$deviceSize = window.innerWidth;
-
 		if (localStorage.getItem("_1re6awj") === null) {
 			$scrollBarStatus = "hide";
 			$welcomeModalStatus = "_b72n6o";
 			localStorage.setItem("_1re6awj", "_b72n6o");
 		}
 	}
-
-	function getDeviceSize(event) {
-		$deviceSize = event.target.innerWidth;
-
-		if (event.target.innerWidth > 600) {
-			$sideNavbarStatus = "hide";
-		}
-	}
 </script>
-
-<svelte:window on:resize={getDeviceSize} />
 
 <svelte:head>
 	{#if $scrollBarStatus === "hide"}

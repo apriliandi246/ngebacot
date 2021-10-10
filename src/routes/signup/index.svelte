@@ -395,6 +395,7 @@
 			width: 70%;
 		}
 	}
+
 	@media screen and (max-width: 500px) {
 		.container {
 			width: 100%;

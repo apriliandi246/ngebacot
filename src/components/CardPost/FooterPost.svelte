@@ -219,39 +219,9 @@
 		background-color: var(--primary-800);
 	}
 
-	@media screen and (max-width: 570px) {
+	@media screen and (min-width: 483px) and (max-width: 570px) {
 		.post__footer {
 			justify-content: space-between;
-		}
-	}
-
-	@media screen and (max-width: 493px) {
-		.post__footer {
-			justify-content: center;
-		}
-	}
-
-	@media screen and (max-width: 480px) {
-		.post__footer {
-			flex-direction: column;
-		}
-
-		.post__footer-link {
-			width: 100%;
-			margin: 0 0 var(--space-12x) 0;
-		}
-
-		.post__footer-link:last-child {
-			margin-bottom: 0;
-		}
-
-		.post__footer-data {
-			font-size: 14px;
-		}
-
-		.small-block {
-			width: 28px;
-			height: 28px;
 		}
 	}
 </style>

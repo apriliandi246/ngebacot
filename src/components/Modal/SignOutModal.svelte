@@ -182,8 +182,8 @@
 	</svg>
 
 	<div class="modal__buttons">
-		<button class="modal__sign-out">Sign Out</button>
-		<button on:click={hideModal} class="modal__cancel">Cancel</button>
+		<button class="modal__sign-out modal-btn">Sign Out</button>
+		<button on:click={hideModal} class="modal__cancel modal-btn">Cancel</button>
 	</div>
 </ModalContainer>
 
@@ -194,8 +194,7 @@
 		margin-bottom: var(--space-24x);
 	}
 
-	.modal__cancel,
-	.modal__sign-out {
+	.modal-btn {
 		border: none;
 		outline: none;
 		font-size: 18px;
@@ -247,13 +246,6 @@
 			font-size: 18px;
 			padding-top: 10px;
 			padding-bottom: 10px;
-		}
-	}
-
-	@media screen and (max-width: 360px) {
-		svg {
-			width: 250px;
-			height: 250px;
 		}
 	}
 </style>

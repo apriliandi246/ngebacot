@@ -27,15 +27,9 @@
 		border: 1px solid var(--primary-900);
 	}
 
-	@media screen and (max-width: 550px) {
+	@media screen and (min-width: 483px) and (max-width: 550px) {
 		.post {
 			padding: var(--space-16x);
-		}
-	}
-
-	@media screen and (min-width: 320px) and (max-width: 480px) {
-		.post {
-			padding: 8px 8px 10px 8px;
 		}
 	}
 </style>

@@ -77,17 +77,4 @@
 		font-size: var(--text-14x);
 		border: 1px solid var(--primary-900);
 	}
-
-	@media screen and (max-width: 480px) {
-		.post__username,
-		.post__anonym-user {
-			font-size: 15px;
-			padding: 2px 7px;
-		}
-
-		.post__date {
-			font-size: 13px;
-			padding: 1px 8px;
-		}
-	}
 </style>

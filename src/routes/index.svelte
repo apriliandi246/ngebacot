@@ -1,22 +1,8 @@
 <script>
+	import { welcomeModalStatus } from "@store";
+	import FormPost from "@components/FormPost.svelte";
 	import Post from "@components/CardPost/index.svelte";
-	import FloatingButton from "@components/FloatingButton.svelte";
 	import WelcomeModal from "@components/modal/WelcomeModal.svelte";
-	import MobileFormPost from "@components/FormPost/MobileFormPost.svelte";
-	import { welcomeModalStatus, scrollBarStatus, deviceSize } from "@store";
-	import DekstopFormPost from "@components/FormPost/DekstopFormPost.svelte";
-
-	let mobileFormStatus = "hide";
-
-	function toggleFormStatus() {
-		if (mobileFormStatus === "show") {
-			$scrollBarStatus = "show";
-			mobileFormStatus = "hide";
-		} else {
-			$scrollBarStatus = "hide";
-			mobileFormStatus = "show";
-		}
-	}
 </script>
 
 <svelte:head>
@@ -24,21 +10,11 @@
 </svelte:head>
 
 {#if $welcomeModalStatus === "_b72n6o"}
-	<WelcomeModal {toggleFormStatus} />
+	<WelcomeModal />
 {/if}
 
 <div class="container">
-	{#if $deviceSize > 480}
-		<DekstopFormPost />
-	{/if}
-
-	{#if $deviceSize <= 480}
-		<FloatingButton toogleFormStatus={toggleFormStatus} />
-
-		{#if mobileFormStatus === "show"}
-			<MobileFormPost {toggleFormStatus} />
-		{/if}
-	{/if}
+	<FormPost />
 
 	<Post postStatus="public" />
 	<Post postStatus="anonym" />

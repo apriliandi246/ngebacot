@@ -4,3 +4,4 @@ node_modules
 /.svelte-kit
 /package
 firebaseConfig.js
+.vercel_build_output

@@ -139,7 +139,7 @@
 		}
 	}
 
-	@media screen and (max-width: 480px) {
+	@media screen and (max-width: 483px) {
 		.modal__buttons {
 			margin-top: 20px;
 		}
@@ -150,13 +150,6 @@
 			font-size: 18px;
 			padding-top: 10px;
 			padding-bottom: 10px;
-		}
-	}
-
-	@media screen and (max-width: 360px) {
-		.modal__ilustration {
-			width: 250px;
-			height: 250px;
 		}
 	}
 </style>

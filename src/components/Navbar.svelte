@@ -1,145 +1,80 @@
 <script>
 	import Logo from "@components/Logo.svelte";
-	import { scale } from "svelte/transition";
-
-	import {
-		scrollBarStatus,
-		sideNavbarStatus,
-		signoutModalStatus,
-		languageModalStatus,
-	} from "@store";
-
-	function toggleNavbarMenus() {
-		if ($sideNavbarStatus === "hide") {
-			$scrollBarStatus = "hide";
-			$sideNavbarStatus = "show";
-		} else {
-			$scrollBarStatus = "show";
-			$sideNavbarStatus = "hide";
-		}
-	}
+	import { scrollBarStatus, signoutModalStatus, languageModalStatus } from "@store";
 
 	function showModal(modalName) {
 		if (modalName === "signOut") $signoutModalStatus = "show";
 		if (modalName === "language") $languageModalStatus = "show";
 
 		$scrollBarStatus = "hide";
-		$sideNavbarStatus = "hide";
 	}
 </script>
 
-<div on:click|self={toggleNavbarMenus} class:navbar-area={$sideNavbarStatus === "show"}>
-	<nav class="navbar">
-		<a href="/" class="home-link">
-			<Logo />
-		</a>
+<nav class="navbar">
+	<a href="/" class="home-link">
+		<Logo />
+	</a>
 
-		<div class="navbar__menus" class:show-menus-mobile={$sideNavbarStatus === "show"}>
-			<a href="/#" class="navbar__profile-link">
-				<svg
-					width="26"
-					height="26"
-					fill="none"
-					stroke="#f9fafb"
-					stroke-width="2"
-					viewBox="0 0 24 24"
-					class="navbar__menu"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<circle cx="12" cy="7" r="4" />
-					<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-				</svg>
-
-				<span class="menu-name">Profile</span>
-			</a>
-
-			<button on:click={() => showModal("language")} class="navbar__profile-link nav-btn">
-				<svg
-					width="26"
-					height="26"
-					fill="none"
-					stroke-width="2"
-					stroke="#f9fafb"
-					viewBox="0 0 24 24"
-					class="navbar__menu"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<circle cx="12" cy="12" r="10" />
-					<line x1="2" y1="12" x2="22" y2="12" />
-					<path
-						d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-					/>
-				</svg>
-
-				<span class="menu-name">Language</span>
-			</button>
-
-			<button on:click={() => showModal("signOut")} class="navbar__profile-link nav-btn">
-				<svg
-					width="26"
-					height="26"
-					fill="none"
-					stroke="#f9fafb"
-					stroke-width="2"
-					viewBox="0 0 24 24"
-					class="navbar__menu"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<polyline points="16 17 21 12 16 7" />
-					<line x1="21" y1="12" x2="9" y2="12" />
-					<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
-				</svg>
-
-				<span class="menu-name">Sign Out</span>
-			</button>
-		</div>
-
-		{#if $sideNavbarStatus === "hide"}
+	<div class="navbar__menus">
+		<a href="/#" class="navbar__profile-link">
 			<svg
-				width="30"
-				height="30"
+				width="26"
+				height="26"
 				fill="none"
 				stroke="#f9fafb"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				class="navbar__menu"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				on:click={toggleNavbarMenus}
-				class="navbar__show-menus"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<line x1="3" y1="6" x2="21" y2="6" />
-				<line x1="3" y1="12" x2="21" y2="12" />
-				<line x1="3" y1="18" x2="21" y2="18" />
+				<circle cx="12" cy="7" r="4" />
+				<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
 			</svg>
-		{/if}
+		</a>
 
-		{#if $sideNavbarStatus === "show"}
+		<button on:click={() => showModal("language")} class="navbar__profile-link nav-btn">
 			<svg
-				width="30"
-				height="30"
+				width="26"
+				height="26"
+				fill="none"
+				stroke-width="2"
+				stroke="#f9fafb"
+				viewBox="0 0 24 24"
+				class="navbar__menu"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<circle cx="12" cy="12" r="10" />
+				<line x1="2" y1="12" x2="22" y2="12" />
+				<path
+					d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+				/>
+			</svg>
+		</button>
+
+		<button on:click={() => showModal("signOut")} class="navbar__profile-link nav-btn">
+			<svg
+				width="26"
+				height="26"
 				fill="none"
 				stroke="#f9fafb"
-				stroke-width="3"
-				class="close-icon"
+				stroke-width="2"
 				viewBox="0 0 24 24"
+				class="navbar__menu"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				on:click={toggleNavbarMenus}
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<line x1="18" y1="6" x2="6" y2="18" />
-				<line x1="6" y1="6" x2="18" y2="18" />
+				<polyline points="16 17 21 12 16 7" />
+				<line x1="21" y1="12" x2="9" y2="12" />
+				<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
 			</svg>
-		{/if}
-	</nav>
-</div>
+		</button>
+	</div>
+</nav>
 
 <style>
 	.navbar {
@@ -172,45 +107,17 @@
 		transition: background-color 0.1s;
 	}
 
-	.navbar__profile-link:last-child {
-		margin-right: 0;
+	.navbar__menu {
+		cursor: pointer;
+		transition: stroke 0.1s;
 	}
 
 	.navbar__profile-link:hover {
 		background-color: var(--primary-800);
 	}
 
-	.navbar__menu {
-		cursor: pointer;
-		transition: stroke 0.1s;
-	}
-
-	.close-icon,
-	.navbar__show-menus {
-		display: none;
-		cursor: pointer;
-		transition: stroke 0.1s;
-	}
-
-	.navbar__show-menus:hover {
-		stroke: var(--grey-400);
-	}
-
-	.menu-name {
-		display: none;
-	}
-
-	.close-icon {
-		padding: 1px;
-		cursor: pointer;
-		border-radius: 100%;
-		transition: background-color 0.1s;
-		border: 3px solid var(--primary-100);
-	}
-
-	.close-icon:hover {
-		stroke: var(--grey-400);
-		border: 3px solid var(--grey-400);
+	.navbar__profile-link:last-child {
+		margin-right: 0;
 	}
 
 	.home-link {
@@ -243,83 +150,7 @@
 		}
 	}
 
-	@media screen and (max-width: 480px) {
-		.navbar__show-menus {
-			display: inline;
-		}
-
-		.navbar__menus {
-			top: 0;
-			right: 0;
-			bottom: 0;
-			width: 70%;
-			z-index: 9999;
-			display: none;
-			position: fixed;
-			align-items: center;
-			animation: navbar 0.2s;
-			flex-direction: column;
-			justify-content: flex-start;
-			background-color: var(--primary-900);
-		}
-
-		.navbar__menu {
-			width: 28px;
-			height: 28px;
-		}
-
-		.navbar__show-menus,
-		.close-icon {
-			z-index: 9999;
-			display: inline;
-		}
-
-		.navbar__profile-link {
-			display: flex;
-			padding: 10px;
-			margin-right: 0;
-			margin-top: 105px;
-			border-radius: 5px;
-			align-items: center;
-			color: var(--grey-50);
-			font-size: var(--text-16x);
-		}
-
-		.navbar__profile-link:hover {
-			background-color: var(--primary-800);
-		}
-
-		.show-menus-mobile {
-			display: flex;
-		}
-
-		.menu-name {
-			display: inline;
-			margin-left: 14px;
-		}
-
-		.navbar-area {
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			z-index: 9999;
-			position: fixed;
-			background-color: rgba(54, 58, 68, 0.4);
-		}
-
-		@keyframes navbar {
-			from {
-				transform: translateX(50%);
-			}
-
-			to {
-				transform: translateX(0%);
-			}
-		}
-	}
-
-	@media screen and (max-width: 550px) {
+	@media screen and (min-width: 483px) and (max-width: 550px) {
 		.navbar {
 			padding-left: var(--space-16x);
 			padding-right: var(--space-16x);
