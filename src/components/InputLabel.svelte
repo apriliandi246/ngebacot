@@ -4,10 +4,10 @@
 	export let labelDisabled;
 </script>
 
-<label for={labelFor} class:disabled={labelDisabled}>{labelContent}</label>
+<label for={labelFor} class="label" class:disabled={labelDisabled}>{labelContent}</label>
 
 <style>
-	label {
+	.label {
 		color: var(--grey-900);
 		margin-bottom: var(--space-4x);
 	}

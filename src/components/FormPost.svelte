@@ -1,5 +1,6 @@
 <script>
-	import relativeTextarea from "@actions/relativeTextarea";
+	import focusEvents from "@actions/focusEvents";
+	import { focusFormInputStatus, scrollbarStatus } from "@store";
 
 	let textareaValue = "";
 	let statusPost = "public";
@@ -8,24 +9,27 @@
 		statusPost = status;
 	}
 
+	$: if ($focusFormInputStatus === "focusOut") textareaValue = "";
+
 	function cancelPost() {
 		textareaValue = "";
-		document.body.scrollTop = 0;
-		document.documentElement.scrollTop = 0;
+		window.scrollTo(0, 0);
+		$scrollbarStatus = "show";
+		$focusFormInputStatus = "focusOut";
 	}
 </script>
 
 <div class="form-post">
 	<form class="form">
 		<textarea
-			rows="1"
 			id="textarea"
+			use:focusEvents
 			spellcheck="false"
 			autocomplete="off"
 			class="form__input"
 			bind:value={textareaValue}
-			use:relativeTextarea={textareaValue}
 			placeholder="Write what you think ????"
+			rows={$focusFormInputStatus === "focusIn" ? "15" : "1"}
 		/>
 
 		{#if textareaValue.trim() !== ""}
@@ -37,6 +41,7 @@
 							type="radio"
 							name="status"
 							value="public"
+							class="input-radio"
 							on:change={() => selectStatusPost("public")}
 						/>
 
@@ -48,6 +53,7 @@
 						height="22"
 						fill="none"
 						stroke-width="2"
+						class="form-icon"
 						viewBox="0 0 24 24"
 						stroke-linecap="round"
 						stroke-linejoin="round"
@@ -60,7 +66,9 @@
 						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 					</svg>
 
-					<label for="public" class:emphasize-color={statusPost === "public"}>Public Post</label>
+					<label for="public" class="status-name" class:emphasize-color={statusPost === "public"}>
+						Public Post
+					</label>
 				</div>
 
 				<div class="form__status-input" class:emphasize-border-color={statusPost === "anonym"}>
@@ -70,6 +78,7 @@
 							type="radio"
 							name="status"
 							value="anonym"
+							class="input-radio"
 							on:change={() => selectStatusPost("anonym")}
 						/>
 
@@ -81,6 +90,7 @@
 						height="22"
 						fill="none"
 						stroke-width="2"
+						class="form-icon"
 						viewBox="0 0 24 24"
 						stroke-linecap="round"
 						stroke-linejoin="round"
@@ -93,7 +103,9 @@
 						<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 					</svg>
 
-					<label for="anonym" class:emphasize-color={statusPost === "anonym"}>Anonym Post</label>
+					<label for="anonym" class="status-name" class:emphasize-color={statusPost === "anonym"}>
+						Anonym Post
+					</label>
 				</div>
 
 				<div class="form__status-input" class:emphasize-border-color={statusPost === "private"}>
@@ -103,6 +115,7 @@
 							type="radio"
 							name="status"
 							value="private"
+							class="input-radio"
 							on:change={() => selectStatusPost("private")}
 						/>
 
@@ -114,6 +127,7 @@
 						height="22"
 						fill="none"
 						stroke-width="2"
+						class="form-icon"
 						viewBox="0 0 24 24"
 						stroke-linecap="round"
 						stroke-linejoin="round"
@@ -124,7 +138,7 @@
 						<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
 					</svg>
 
-					<label for="private" class:emphasize-color={statusPost === "private"}>
+					<label for="private" class="status-name" class:emphasize-color={statusPost === "private"}>
 						Private Post
 					</label>
 				</div>
@@ -142,39 +156,8 @@
 </div>
 
 <style>
-	label {
-		cursor: pointer;
-		color: var(--grey-400);
-		font-size: var(--text-14x);
-	}
-
-	input[type="radio"] {
-		width: 22px;
-		height: 22px;
-		cursor: pointer;
-		appearance: none;
-		margin-right: 6px;
-		position: relative;
-	}
-
-	input[type="radio"]::before {
-		width: 100%;
-		content: "";
-		height: 100%;
-		position: absolute;
-		border-radius: 100%;
-		background-color: #eaebec;
-		border: 1px solid var(--primary-500);
-	}
-
-	svg {
-		margin-left: 7px;
-		margin-right: 9px;
-	}
-
 	.form-post {
 		width: 100%;
-		border-radius: 3px;
 		padding: 16px 16px 9px 16px;
 		margin-bottom: var(--space-32x);
 		background-color: var(--grey-50);
@@ -184,7 +167,7 @@
 	.form__input {
 		width: 100%;
 		resize: none;
-		overflow: hidden;
+		overflow: auto;
 		line-height: 28px;
 		border-radius: 3px;
 		padding: 12px 13px;
@@ -208,6 +191,36 @@
 		margin-top: 26px;
 		margin-bottom: 26px;
 		justify-content: space-between;
+	}
+
+	.status-name {
+		cursor: pointer;
+		color: var(--grey-400);
+		font-size: var(--text-14x);
+	}
+
+	.input-radio {
+		width: 22px;
+		height: 22px;
+		cursor: pointer;
+		appearance: none;
+		margin-right: 6px;
+		position: relative;
+	}
+
+	.input-radio::before {
+		width: 100%;
+		content: "";
+		height: 100%;
+		position: absolute;
+		border-radius: 100%;
+		background-color: #eaebec;
+		border: 1px solid var(--primary-500);
+	}
+
+	.form-icon {
+		margin-left: 7px;
+		margin-right: 9px;
 	}
 
 	.form__status-input {

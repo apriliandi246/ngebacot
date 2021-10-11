@@ -2,9 +2,10 @@ import { writable } from "svelte/store";
 
 export const userId = writable("");
 export const username = writable("");
-export const scrollBarStatus = writable("show");
+export const scrollbarStatus = writable("show");
 export const signoutModalStatus = writable("hide");
 export const languageModalStatus = writable("hidden");
+export const focusFormInputStatus = writable("focusOut");
 
 export let welcomeModalStatus;
 

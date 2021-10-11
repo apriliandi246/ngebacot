@@ -13,6 +13,7 @@
 
 <input
 	id={inputId}
+	class="input"
 	type={inputType}
 	spellcheck="false"
 	autocomplete="off"
@@ -23,7 +24,7 @@
 />
 
 <style>
-	input {
+	.input {
 		width: 100%;
 		padding: 9px 12px;
 		font-size: var(--text-16);
@@ -31,16 +32,16 @@
 		border: 1px solid var(--primary-900);
 	}
 
-	input:disabled {
+	.input:disabled {
 		background-color: var(--grey-100);
 		border: 1px solid var(--primary-300);
 	}
 
-	input:focus {
+	.input:focus {
 		box-shadow: 0 0 0 1px var(--primary-900);
 	}
 
-	input::placeholder {
+	.input::placeholder {
 		font-size: 15px;
 		color: var(--grey-500);
 	}

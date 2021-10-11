@@ -2,24 +2,20 @@
 	import "@style/global.css";
 	import { browser } from "$app/env";
 	import { navigating, page } from "$app/stores";
-	import Navbar from "@components/Navbar.svelte";
-	import SimpleNavbar from "@components/SimpleNavbar.svelte";
 	import SignOutModal from "@components/modal/SignOutModal.svelte";
 	import LanguageModal from "@components/modal/LanguageModal.svelte";
 	import PreloadingIndicator from "@components/PreloadingIndicator.svelte";
 
 	import {
-		scrollBarStatus,
+		scrollbarStatus,
 		signoutModalStatus,
 		welcomeModalStatus,
 		languageModalStatus,
 	} from "@store";
 
-	$: pageRoute = $page.path.split("/")[1];
-
 	if (browser) {
 		if (localStorage.getItem("_1re6awj") === null) {
-			$scrollBarStatus = "hide";
+			$scrollbarStatus = "hide";
 			$welcomeModalStatus = "_b72n6o";
 			localStorage.setItem("_1re6awj", "_b72n6o");
 		}
@@ -27,7 +23,7 @@
 </script>
 
 <svelte:head>
-	{#if $scrollBarStatus === "hide"}
+	{#if $scrollbarStatus === "hide"}
 		<style>
 			body {
 				overflow: hidden;
@@ -46,14 +42,6 @@
 
 {#if $languageModalStatus === "show"}
 	<LanguageModal />
-{/if}
-
-{#if pageRoute === "signup" || pageRoute === "signin"}
-	<SimpleNavbar />
-{:else if pageRoute === ""}
-	<Navbar />
-{:else}
-	<SimpleNavbar />
 {/if}
 
 <slot />

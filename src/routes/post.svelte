@@ -1,38 +1,27 @@
 <script>
-	import Navbar from "@components/Navbar.svelte";
-	import FormPost from "@components/FormPost.svelte";
-	import Post from "@components/CardPost/index.svelte";
-	import WelcomeModal from "@components/modal/WelcomeModal.svelte";
-	import { welcomeModalStatus, scrollbarStatus, focusFormInputStatus } from "@store";
-
-	function focusOut() {
-		$scrollbarStatus = "show";
-		$focusFormInputStatus = "focusOut";
-	}
+	import Logo from "@components/Logo.svelte";
+	import CommentPost from "@components/CommentPost.svelte";
+	import CommentForm from "@components/CommentForm.svelte";
+	import Post from "@components/DetailCardPost/index.svelte";
 </script>
 
-<svelte:head>
-	<title>Ngebacot · Home</title>
-</svelte:head>
-
-{#if $welcomeModalStatus === "_b72n6o"}
-	<WelcomeModal />
-{/if}
-
-{#if $focusFormInputStatus === "focusIn"}
-	<div on:click={focusOut} class="bg-dark" />
-{/if}
-
 <main class="container">
-	<header class="header">
-		<Navbar />
-		<FormPost />
-	</header>
+	<nav class="navbar">
+		<Logo />
+	</nav>
 
-	<div class="posts">
+	<div class="post-detail">
 		<Post postStatus="public" />
-		<Post postStatus="anonym" />
-		<Post postStatus="private" />
+
+		<hr class="dive-line" />
+
+		<CommentForm />
+		<CommentPost />
+		<CommentPost />
+		<CommentPost />
+		<CommentPost />
+		<CommentPost />
+		<CommentPost />
 	</div>
 </main>
 
@@ -47,25 +36,26 @@
 		margin: var(--space-32x) auto 0 auto;
 	}
 
-	.header {
+	.navbar {
 		top: 0;
 		z-index: 999;
+		height: 65px;
+		display: flex;
 		width: inherit;
 		position: fixed;
-	}
-
-	.posts {
-		margin-top: 150px;
-	}
-
-	.bg-dark {
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 999;
 		position: fixed;
-		background-color: rgba(54, 58, 68, 0.6);
+		align-items: center;
+		justify-content: center;
+		background-color: var(--primary-900);
+	}
+
+	.post-detail {
+		margin-top: 31px;
+	}
+
+	.dive-line {
+		margin: 60px 0 60px 0;
+		border: 1px solid var(--primary-400);
 	}
 
 	@media screen and (max-width: 1019px) {

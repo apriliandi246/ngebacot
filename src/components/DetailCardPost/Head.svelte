@@ -15,16 +15,11 @@
 		class="post-head__img-profile"
 	/>
 
-	<div class="post-head__detail">
-		{#if postStatus === "anonym"}
-			<span class="post-user">Anonym</span>
-		{:else}
-			<a href="/#" class="post__username post-user">_apriliandi_</a>
-		{/if}
-
-		<span class="middle-dot">·</span>
-		<span class="post-head__date">6 Apr</span>
-	</div>
+	{#if postStatus === "anonym"}
+		<span class="post-user">Anonym</span>
+	{:else}
+		<a href="/#" class="post__username post-user">_apriliandi_</a>
+	{/if}
 </div>
 
 <style>
@@ -43,28 +38,8 @@
 		border: 1px solid var(--primary-900);
 	}
 
-	.post-head__detail {
-		display: flex;
-		align-items: center;
-	}
-
 	.post__username:hover {
 		background-color: var(--primary-50);
-	}
-
-	.post-head__date {
-		padding: 2px 10px;
-		border-radius: 3px;
-		color: var(--grey-600);
-		font-size: var(--text-14x);
-		border: 1px solid var(--primary-900);
-	}
-
-	.middle-dot {
-		margin-left: 12px;
-		margin-right: 12px;
-		font-weight: var(--bold);
-		font-size: var(--text-36x);
 	}
 
 	.post-user {

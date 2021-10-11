@@ -1,9 +1,9 @@
 <script>
 	import ModalContainer from "./ModalContainer.svelte";
-	import { languageModalStatus, scrollBarStatus } from "@store";
+	import { languageModalStatus, scrollbarStatus } from "@store";
 
 	function hideModal() {
-		$scrollBarStatus = "show";
+		$scrollbarStatus = "show";
 		$languageModalStatus = "hide";
 	}
 </script>
@@ -67,45 +67,44 @@
 		/>
 	</svg>
 
-	<div class="modal__buttons">
-		<button class="modal__en-lang">EN</button>
-		<button class="modal__id-lang">ID</button>
+	<div class="modal-buttons">
+		<button class="modal-btn__en modal-btn">EN</button>
+		<button class="modal-btn__id modal-btn">ID</button>
 	</div>
 </ModalContainer>
 
 <style>
-	.modal__buttons {
+	.modal-buttons {
 		display: flex;
 		flex-direction: column;
 		margin-bottom: var(--space-24x);
 	}
 
-	.modal__id-lang,
-	.modal__en-lang {
-		border: none;
-		outline: none;
-		font-size: 18px;
-		padding: 12px 70px;
-		transition: background-color 0.1s;
-	}
-
-	.modal__en-lang {
+	.modal-btn__en {
 		color: var(--grey-50);
 		margin-bottom: var(--space-24x);
 		background-color: var(--light-blue-800);
 	}
 
-	.modal__en-lang:hover {
+	.modal-btn__en:hover {
 		background-color: var(--light-blue-700);
 	}
 
-	.modal__id-lang {
+	.modal-btn__id {
 		color: var(--primary-900);
 		background-color: transparent;
 	}
 
-	.modal__id-lang:hover {
+	.modal-btn__id:hover {
 		background-color: var(--grey-100);
+	}
+
+	.modal-btn {
+		border: none;
+		outline: none;
+		font-size: 18px;
+		padding: 12px 70px;
+		transition: background-color 0.1s;
 	}
 
 	.close-icon {
@@ -140,12 +139,11 @@
 	}
 
 	@media screen and (max-width: 483px) {
-		.modal__buttons {
+		.modal-buttons {
 			margin-top: 20px;
 		}
 
-		.modal__en-lang,
-		.modal__id-lang {
+		.modal-btn {
 			width: 100%;
 			font-size: 18px;
 			padding-top: 10px;

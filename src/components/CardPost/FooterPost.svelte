@@ -2,17 +2,16 @@
 	export let postStatus;
 </script>
 
-<footer class="post__footer">
+<footer class="post-footer">
 	<!-- Comment -->
 	{#if postStatus === "private"}
-		<div class="post__footer-link no-event">
+		<div class="post-footer__data no-event">
 			<svg
 				width="24"
 				height="24"
 				fill="none"
 				stroke="#4b5563"
 				stroke-width="2"
-				class="post__icon"
 				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
@@ -23,19 +22,18 @@
 				/>
 			</svg>
 
-			<div class="small-block" />
+			<div class="block" />
 		</div>
 	{/if}
 
 	{#if postStatus === "public" || postStatus === "anonym"}
-		<a href="/#" class="post__footer-link">
+		<a href="/post" target="_blank" class="post-footer__data">
 			<svg
 				width="24"
 				height="24"
 				fill="none"
 				stroke="#4b5563"
 				stroke-width="2"
-				class="post__icon"
 				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
@@ -46,21 +44,20 @@
 				/>
 			</svg>
 
-			<span class="post__footer-data">14</span>
+			<span class="post-footer__detail-data">14</span>
 		</a>
 	{/if}
 	<!-- Comment -->
 
 	<!-- Like -->
 	{#if postStatus === "private"}
-		<div class="post__footer-link no-event">
+		<div class="post-footer__data no-event">
 			<svg
 				width="24"
 				height="24"
 				fill="none"
 				stroke="#4b5563"
 				stroke-width="2"
-				class="post__icon"
 				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
@@ -72,20 +69,19 @@
 			</svg>
 
 			{#if postStatus === "private"}
-				<span class="small-block" />
+				<span class="block" />
 			{/if}
 		</div>
 	{/if}
 
 	{#if postStatus === "public" || postStatus === "anonym"}
-		<button class="post__footer-link post__btn-menu">
+		<button class="post-footer__data post-footer-btn">
 			<svg
 				width="24"
 				height="24"
 				fill="none"
 				stroke="#4b5563"
 				stroke-width="2"
-				class="post__icon"
 				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
@@ -96,13 +92,13 @@
 				/>
 			</svg>
 
-			<span class="post__footer-data">16</span>
+			<span class="post-footer__detail-data">16</span>
 		</button>
 	{/if}
 	<!-- Like -->
 
 	<!-- Post Status -->
-	<div class="post__footer-link no-event">
+	<div class="post-footer__data no-event">
 		{#if postStatus === "private"}
 			<svg
 				width="24"
@@ -110,7 +106,6 @@
 				fill="none"
 				stroke="#4b5563"
 				stroke-width="2"
-				class="post__icon"
 				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
@@ -128,7 +123,6 @@
 				fill="none"
 				stroke-width="2"
 				stroke="#4b5563"
-				class="post__icon"
 				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
@@ -148,7 +142,6 @@
 				fill="none"
 				stroke-width="2"
 				stroke="#4b5563"
-				class="post__icon"
 				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
@@ -161,46 +154,43 @@
 			</svg>
 		{/if}
 
-		<span class="post__footer-data">{postStatus} Post</span>
+		<span class="post-footer__detail-data">{postStatus} Post</span>
 	</div>
 	<!-- Post Status -->
 </footer>
 
 <style>
-	.post__footer {
+	.post-footer {
 		display: flex;
 		align-items: center;
 	}
 
-	.post__footer-link {
+	.post-footer__data {
 		display: flex;
 		padding: 7px 11px;
 		border-radius: 3px;
 		align-items: center;
+		margin-right: var(--space-48x);
 		transition: background-color 0.2s;
 		border: 1px solid var(--primary-900);
 	}
 
-	.post__footer-link {
-		margin-right: var(--space-48x);
-	}
-
-	.post__footer-link:last-child {
+	.post-footer__data--last-child {
 		margin-right: 0;
 	}
 
-	.post__footer-link:hover {
+	.post-footer__data:hover {
 		background-color: var(--primary-50);
 	}
 
-	.post__footer-data {
+	.post-footer__detail-data {
 		color: var(--grey-600);
 		text-transform: capitalize;
 		font-size: var(--text-14x);
 		margin-left: var(--space-12x);
 	}
 
-	.post__btn-menu {
+	.post-footer-btn {
 		border: none;
 		outline: none;
 		background-color: inherit;
@@ -211,7 +201,7 @@
 		pointer-events: none;
 	}
 
-	.small-block {
+	.block {
 		width: 25px;
 		height: 25px;
 		border-radius: 5px;
@@ -220,7 +210,7 @@
 	}
 
 	@media screen and (min-width: 483px) and (max-width: 570px) {
-		.post__footer {
+		.post-footer {
 			justify-content: space-between;
 		}
 	}

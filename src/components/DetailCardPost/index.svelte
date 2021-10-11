@@ -1,9 +1,9 @@
 <script>
-	import HeadPost from "./HeadPost.svelte";
-	import WordsPost from "./WordsPost.svelte";
-	import FooterPost from "./FooterPost.svelte";
+	import HeadPost from "./Head.svelte";
+	import WordsPost from "./Words.svelte";
+	import FooterPost from "./Footer.svelte";
 
-	export let postStatus;
+	let postStatus = "public";
 
 	$: imageSource =
 		postStatus === "anonym"
@@ -13,7 +13,7 @@
 
 <div class="post">
 	<HeadPost {postStatus} {imageSource} />
-	<WordsPost {postStatus} />
+	<WordsPost />
 	<FooterPost {postStatus} />
 </div>
 
@@ -22,7 +22,6 @@
 		width: 100%;
 		border-radius: 3px;
 		padding: 20px 22px;
-		margin-bottom: 40px;
 		background-color: var(--grey-50);
 		border: 1px solid var(--primary-900);
 	}

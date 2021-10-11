@@ -2,12 +2,12 @@
 	import Logo from "@components/Logo.svelte";
 </script>
 
-<nav>
+<nav class="navbar">
 	<Logo />
 </nav>
 
 <style>
-	nav {
+	.navbar {
 		top: 0;
 		left: 0;
 		right: 0;
@@ -16,7 +16,7 @@
 		display: flex;
 		position: fixed;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: center;
 		background-color: var(--primary-900);
 	}
 </style>

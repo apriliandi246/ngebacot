@@ -1,12 +1,12 @@
 <script>
 	import Logo from "@components/Logo.svelte";
-	import { scrollBarStatus, signoutModalStatus, languageModalStatus } from "@store";
+	import { scrollbarStatus, signoutModalStatus, languageModalStatus } from "@store";
 
 	function showModal(modalName) {
 		if (modalName === "signOut") $signoutModalStatus = "show";
 		if (modalName === "language") $languageModalStatus = "show";
 
-		$scrollBarStatus = "hide";
+		$scrollbarStatus = "hide";
 	}
 </script>
 
@@ -78,16 +78,14 @@
 
 <style>
 	.navbar {
-		top: 0;
-		left: 0;
-		right: 0;
 		width: 100%;
 		height: 60px;
 		z-index: 999;
 		display: flex;
-		position: fixed;
+		padding-left: 20px;
 		align-items: center;
-		justify-content: space-evenly;
+		padding-right: 20px;
+		justify-content: space-between;
 		background-color: var(--primary-900);
 	}
 

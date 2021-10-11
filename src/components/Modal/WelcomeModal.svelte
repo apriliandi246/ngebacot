@@ -1,16 +1,16 @@
 <script>
 	import ModalContainer from "./ModalContainer.svelte";
-	import { welcomeModalStatus, scrollBarStatus } from "@store";
+	import { welcomeModalStatus, scrollbarStatus } from "@store";
 
 	function hideModal() {
-		$scrollBarStatus = "show";
+		$scrollbarStatus = "show";
 		$welcomeModalStatus = "_b7bjwl";
 		localStorage.setItem("_1re6awj", "_b7bjwl");
 	}
 </script>
 
 <ModalContainer {hideModal}>
-	<h2 class="modal__title">Welcome</h2>
+	<h2 class="modal-title">Welcome</h2>
 
 	<svg
 		fill="none"
@@ -83,7 +83,7 @@
 </ModalContainer>
 
 <style>
-	.modal__title {
+	.modal-title {
 		margin-top: 60px;
 		font-weight: 800;
 		margin-bottom: -5px;

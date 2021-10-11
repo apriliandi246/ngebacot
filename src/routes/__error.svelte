@@ -17,7 +17,7 @@
 </svelte:head>
 
 <div class="container">
-	<svg viewBox="0 0 750 750" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<svg class="ilustration" viewBox="0 0 750 750" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<rect width="750" height="750" fill="white" />
 		<path
 			fill-rule="evenodd"
@@ -825,20 +825,21 @@
 		/>
 	</svg>
 
-	<a href="/">Back to Home</a>
+	<a href="/" class="home-link">Back to Home</a>
 </div>
 
 <style>
 	.container {
 		display: flex;
+		position: relative;
 		align-items: center;
 		padding-bottom: 40px;
 		flex-direction: column;
 		justify-content: center;
-		margin: var(--space-48x) auto 0 auto;
+		margin: var(--space-16x) auto 0 auto;
 	}
 
-	svg {
+	.ilustration {
 		width: 650px;
 		height: 650px;
 		margin-top: 90px;
@@ -846,7 +847,7 @@
 		border: 6px solid var(--primary-900);
 	}
 
-	a {
+	.home-link {
 		border-radius: 4px;
 		padding: 12px 30px;
 		text-decoration: none;
@@ -858,7 +859,7 @@
 		background-color: var(--primary-900);
 	}
 
-	a:hover {
+	.home-link:hover {
 		background-color: var(--primary-800);
 	}
 
@@ -869,12 +870,12 @@
 	}
 
 	@media screen and (max-width: 660px) {
-		svg {
+		.ilustration {
 			width: 300px;
 			height: 300px;
 		}
 
-		a {
+		.home-link {
 			font-size: var(--text-16x);
 		}
 	}

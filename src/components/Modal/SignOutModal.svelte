@@ -1,9 +1,9 @@
 <script>
 	import ModalContainer from "./ModalContainer.svelte";
-	import { signoutModalStatus, scrollBarStatus } from "@store";
+	import { signoutModalStatus, scrollbarStatus } from "@store";
 
 	function hideModal() {
-		$scrollBarStatus = "show";
+		$scrollbarStatus = "show";
 		$signoutModalStatus = "hide";
 	}
 </script>
@@ -181,17 +181,36 @@
 		/>
 	</svg>
 
-	<div class="modal__buttons">
-		<button class="modal__sign-out modal-btn">Sign Out</button>
-		<button on:click={hideModal} class="modal__cancel modal-btn">Cancel</button>
+	<div class="modal-buttons">
+		<button class="btn-sign-out modal-btn">Sign Out</button>
+		<button on:click={hideModal} class="btn-cancel modal-btn">Cancel</button>
 	</div>
 </ModalContainer>
 
 <style>
-	.modal__buttons {
+	.modal-buttons {
 		display: flex;
 		flex-direction: column;
 		margin-bottom: var(--space-24x);
+	}
+
+	.btn-sign-out {
+		color: var(--grey-50);
+		margin-bottom: var(--space-24x);
+		background-color: var(--red-600);
+	}
+
+	.btn-sign-out:hover {
+		background-color: var(--red-500);
+	}
+
+	.btn-cancel {
+		color: var(--primary-900);
+		background-color: transparent;
+	}
+
+	.btn-cancel:hover {
+		background-color: var(--grey-100);
 	}
 
 	.modal-btn {
@@ -200,25 +219,6 @@
 		font-size: 18px;
 		padding: 12px 70px;
 		transition: background-color 0.1s;
-	}
-
-	.modal__sign-out {
-		color: var(--grey-50);
-		margin-bottom: var(--space-24x);
-		background-color: var(--red-600);
-	}
-
-	.modal__sign-out:hover {
-		background-color: var(--red-500);
-	}
-
-	.modal__cancel {
-		color: var(--primary-900);
-		background-color: transparent;
-	}
-
-	.modal__cancel:hover {
-		background-color: var(--grey-100);
 	}
 
 	@media screen and (max-width: 625px) {
@@ -236,12 +236,11 @@
 	}
 
 	@media screen and (max-width: 480px) {
-		.modal__buttons {
+		.modal-buttons {
 			margin-top: 20px;
 		}
 
-		.modal__cancel,
-		.modal__sign-out {
+		.modal-btn {
 			width: 100%;
 			font-size: 18px;
 			padding-top: 10px;
