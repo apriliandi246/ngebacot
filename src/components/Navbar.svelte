@@ -16,7 +16,7 @@
 	</a>
 
 	<div class="navbar__menus">
-		<a href="/#" class="navbar__profile-link">
+		<a href="/mine" class="navbar__profile-link">
 			<svg
 				width="26"
 				height="26"
@@ -82,9 +82,8 @@
 		height: 60px;
 		z-index: 999;
 		display: flex;
-		padding-left: 20px;
+		padding: 0 20px;
 		align-items: center;
-		padding-right: 20px;
 		justify-content: space-between;
 		background-color: var(--primary-900);
 	}
@@ -131,27 +130,5 @@
 		border: none;
 		outline: none;
 		background-color: transparent;
-	}
-
-	@media screen and (max-width: 1190px) {
-		.navbar {
-			justify-content: space-between;
-			padding-left: var(--space-96x);
-			padding-right: var(--space-96x);
-		}
-	}
-
-	@media screen and (max-width: 800px) {
-		.navbar {
-			padding-left: var(--space-48x);
-			padding-right: var(--space-48x);
-		}
-	}
-
-	@media screen and (min-width: 483px) and (max-width: 550px) {
-		.navbar {
-			padding-left: var(--space-16x);
-			padding-right: var(--space-16x);
-		}
 	}
 </style>

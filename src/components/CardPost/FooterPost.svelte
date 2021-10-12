@@ -27,7 +27,7 @@
 	{/if}
 
 	{#if postStatus === "public" || postStatus === "anonym"}
-		<a href="/post" target="_blank" class="post-footer__data">
+		<a href="/post/2468" target="_blank" class="post-footer__data">
 			<svg
 				width="24"
 				height="24"
@@ -173,10 +173,6 @@
 		margin-right: var(--space-48x);
 		transition: background-color 0.2s;
 		border: 1px solid var(--primary-900);
-	}
-
-	.post-footer__data--last-child {
-		margin-right: 0;
 	}
 
 	.post-footer__data:hover {

@@ -105,7 +105,6 @@
 
 	.form-btn {
 		border: none;
-		outline: none;
 		padding: 8px 18px;
 		font-size: var(--text-14x);
 		transition: background-color 100ms;

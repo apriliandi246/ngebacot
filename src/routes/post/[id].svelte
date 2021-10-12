@@ -1,9 +1,27 @@
+<script context="module">
+	export async function load({ page }) {
+		const postId = page.params.id;
+
+		return {
+			props: {
+				postId,
+			},
+		};
+	}
+</script>
+
 <script>
 	import Logo from "@components/Logo.svelte";
 	import CommentPost from "@components/CommentPost.svelte";
 	import CommentForm from "@components/CommentForm.svelte";
 	import Post from "@components/DetailCardPost/index.svelte";
+
+	export let postId;
 </script>
+
+<svelte:head>
+	<title>Username · detail post</title>
+</svelte:head>
 
 <main class="container">
 	<nav class="navbar">

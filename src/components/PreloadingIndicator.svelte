@@ -33,9 +33,9 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 6px;
-		z-index: 999;
+		height: 8px;
 		position: fixed;
+		z-index: 9999999;
 	}
 
 	.progress {
@@ -44,17 +44,19 @@
 		height: 100%;
 		position: absolute;
 		transition: width 0.4s;
-		background-color: var(--primary-400);
+		background-color: var(--primary-700);
 	}
 
 	.fade {
-		width: 100%;
-		height: 100%;
-		z-index: 998;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 		position: fixed;
+		z-index: 9999999;
 		pointer-events: none;
 		animation: fade 0.4s;
-		background-color: rgba(211, 181, 181, 0.3);
+		background-color: rgba(211, 181, 181, 0.2);
 	}
 
 	@keyframes fade {

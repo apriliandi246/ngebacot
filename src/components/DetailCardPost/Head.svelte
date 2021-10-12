@@ -18,7 +18,7 @@
 	{#if postStatus === "anonym"}
 		<span class="post-user">Anonym</span>
 	{:else}
-		<a href="/#" class="post__username post-user">_apriliandi_</a>
+		<a href="/user/_apriliandi_" class="post__username post-user">_apriliandi_</a>
 	{/if}
 </div>
 

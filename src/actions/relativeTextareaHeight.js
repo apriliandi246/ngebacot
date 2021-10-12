@@ -6,7 +6,6 @@ export default function relativeTextarea(node) {
 
 	return {
 		update(currentValue) {
-			console.log(currentValue);
 			if (currentValue.trim() === "") {
 				node.style.height = "52px";
 			}

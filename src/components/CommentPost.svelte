@@ -9,7 +9,7 @@
 			src="https://avatars.dicebear.com/api/croodles-neutral/apriliandi.svg?size=40"
 		/>
 
-		<a href="/#" class="post__username post-user">_apriliandi_</a>
+		<a href="/user/_apriliandi_" class="post__username post-user">_apriliandi_</a>
 	</div>
 
 	<div class="post-words">
