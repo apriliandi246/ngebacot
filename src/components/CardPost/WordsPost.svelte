@@ -4,11 +4,20 @@
 
 {#if postStatus === "private"}
 	<div class="post-private post-detail">
-		<div class="block" />
-		<div class="block" />
-		<div class="block" />
-		<div class="block" />
-		<div class="block block--last-child" />
+		<svg
+			width="50"
+			height="50"
+			fill="none"
+			stroke-width="2"
+			stroke="#363a44"
+			viewBox="0 0 24 24"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+			<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+		</svg>
 	</div>
 {/if}
 
@@ -32,31 +41,17 @@
 	}
 
 	.post-private {
-		padding: 16px;
+		display: flex;
 		border-radius: 3px;
+		padding: 110px 16px;
+		align-items: center;
+		justify-content: center;
+		background-color: var(--primary-50);
 		border: 1px solid var(--primary-900);
 	}
 
 	.post-detail {
 		margin-top: 14px;
 		margin-bottom: 21px;
-	}
-
-	.block {
-		width: 100%;
-		height: 32px;
-		border-radius: 3px;
-		margin-bottom: 17px;
-		background-color: var(--primary-800);
-	}
-
-	.block--last-child {
-		margin-bottom: 0;
-	}
-
-	@media screen and (min-width: 483px) and (max-width: 550px) {
-		.block {
-			height: 26px;
-		}
 	}
 </style>

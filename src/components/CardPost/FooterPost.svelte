@@ -22,7 +22,21 @@
 				/>
 			</svg>
 
-			<div class="block" />
+			<svg
+				width="16"
+				height="16"
+				fill="none"
+				stroke-width="2"
+				stroke="#363a44"
+				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="private-data-icon"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+				<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+			</svg>
 		</div>
 	{/if}
 
@@ -69,7 +83,21 @@
 			</svg>
 
 			{#if postStatus === "private"}
-				<span class="block" />
+				<svg
+					width="16"
+					height="16"
+					fill="none"
+					stroke-width="2"
+					stroke="#363a44"
+					viewBox="0 0 24 24"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					class="private-data-icon"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+					<path d="M7 11V7a5 5 0 0 1 10 0v4" />
+				</svg>
 			{/if}
 		</div>
 	{/if}
@@ -193,16 +221,12 @@
 		border: 1px solid var(--primary-900);
 	}
 
-	.no-event {
-		pointer-events: none;
+	.private-data-icon {
+		margin-left: 10px;
 	}
 
-	.block {
-		width: 25px;
-		height: 25px;
-		border-radius: 5px;
-		margin-left: var(--space-12x);
-		background-color: var(--primary-800);
+	.no-event {
+		pointer-events: none;
 	}
 
 	@media screen and (min-width: 483px) and (max-width: 570px) {
