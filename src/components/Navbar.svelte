@@ -11,12 +11,12 @@
 </script>
 
 <nav class="navbar">
-	<a href="/" class="home-link">
+	<a href="/" aria-label="Home page" class="home-link">
 		<Logo />
 	</a>
 
 	<div class="navbar__menus">
-		<a href="/mine" class="navbar__profile-link">
+		<a href="/mine" aria-label="My profile" class="navbar__profile-link">
 			<svg
 				width="26"
 				height="26"
@@ -34,7 +34,11 @@
 			</svg>
 		</a>
 
-		<button on:click={() => showModal("language")} class="navbar__profile-link nav-btn">
+		<button
+			aria-label="Choose language"
+			class="navbar__profile-link nav-btn"
+			on:click={() => showModal("language")}
+		>
 			<svg
 				width="26"
 				height="26"
@@ -55,7 +59,11 @@
 			</svg>
 		</button>
 
-		<button on:click={() => showModal("signOut")} class="navbar__profile-link nav-btn">
+		<button
+			aria-label="Sign out"
+			class="navbar__profile-link nav-btn"
+			on:click={() => showModal("signOut")}
+		>
 			<svg
 				width="26"
 				height="26"

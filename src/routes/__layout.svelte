@@ -1,17 +1,14 @@
 <script>
 	import "@style/global.css";
 	import { browser } from "$app/env";
-	import { navigating, page } from "$app/stores";
-	import SignOutModal from "@components/modal/SignOutModal.svelte";
-	import LanguageModal from "@components/modal/LanguageModal.svelte";
-	import PreloadingIndicator from "@components/PreloadingIndicator.svelte";
+	import { navigating } from "$app/stores";
+	import { scrollbarStatus, welcomeModalStatus } from "@store";
 
-	import {
-		scrollbarStatus,
-		signoutModalStatus,
-		welcomeModalStatus,
-		languageModalStatus,
-	} from "@store";
+	import("../components/PreloadingIndicator.svelte").then(
+		(component) => (PreloadingIndicator = component.default),
+	);
+
+	let PreloadingIndicator;
 
 	if (browser) {
 		if (localStorage.getItem("_1re6awj") === null) {
@@ -33,15 +30,7 @@
 </svelte:head>
 
 {#if $navigating}
-	<PreloadingIndicator />
-{/if}
-
-{#if $signoutModalStatus === "show"}
-	<SignOutModal />
-{/if}
-
-{#if $languageModalStatus === "show"}
-	<LanguageModal />
+	<svelte:component this={PreloadingIndicator} />
 {/if}
 
 <slot />

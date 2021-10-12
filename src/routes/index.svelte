@@ -2,8 +2,30 @@
 	import Navbar from "@components/Navbar.svelte";
 	import FormPost from "@components/FormPost.svelte";
 	import Post from "@components/CardPost/index.svelte";
-	import WelcomeModal from "@components/modal/WelcomeModal.svelte";
-	import { welcomeModalStatus, scrollbarStatus, focusFormInputStatus } from "@store";
+
+	import("../components/Modal/WelcomeModal.svelte").then(
+		(component) => (WelcomeModal = component.default),
+	);
+
+	import("../components/Modal/LanguageModal.svelte").then(
+		(component) => (LanguageModal = component.default),
+	);
+
+	import("../components/Modal/SignOutModal.svelte").then(
+		(component) => (SignOutModal = component.default),
+	);
+
+	import {
+		scrollbarStatus,
+		signoutModalStatus,
+		welcomeModalStatus,
+		languageModalStatus,
+		focusFormInputStatus,
+	} from "@store";
+
+	let WelcomeModal;
+	let SignOutModal;
+	let LanguageModal;
 
 	function focusOut() {
 		$scrollbarStatus = "show";
@@ -16,7 +38,15 @@
 </svelte:head>
 
 {#if $welcomeModalStatus === "_b72n6o"}
-	<WelcomeModal />
+	<svelte:component this={WelcomeModal} />
+{/if}
+
+{#if $languageModalStatus === "show"}
+	<svelte:component this={LanguageModal} />
+{/if}
+
+{#if $signoutModalStatus === "show"}
+	<svelte:component this={SignOutModal} />
 {/if}
 
 {#if $focusFormInputStatus === "focusIn"}
