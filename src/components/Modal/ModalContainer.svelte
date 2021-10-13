@@ -33,13 +33,13 @@
 		width: 650px;
 		display: flex;
 		position: relative;
-		border-radius: 14px;
+		border-radius: 6px;
 		align-items: center;
 		flex-direction: column;
 		background-color: #fff;
 		justify-content: center;
 		margin-top: 0 auto 0 auto;
-		border: 6px solid var(--primary-900);
+		border: 5px solid var(--primary-900);
 	}
 
 	@media screen and (max-width: 1035px) {

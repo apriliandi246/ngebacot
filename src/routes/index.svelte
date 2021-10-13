@@ -50,7 +50,7 @@
 {/if}
 
 {#if $focusFormInputStatus === "focusIn"}
-	<div on:click={focusOut} class="bg-dark" />
+	<div class="bg-dark" on:click={focusOut} />
 {/if}
 
 <main class="container">

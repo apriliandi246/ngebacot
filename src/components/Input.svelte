@@ -28,7 +28,7 @@
 		width: 100%;
 		padding: 9px 12px;
 		font-size: var(--text-16);
-		transition: box-shadow 0.2s;
+		transition: box-shadow 100ms;
 		border: 1px solid var(--primary-900);
 	}
 

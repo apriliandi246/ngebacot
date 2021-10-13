@@ -43,7 +43,7 @@
 		left: 0;
 		height: 100%;
 		position: absolute;
-		transition: width 0.4s;
+		transition: width 400ms;
 		background-color: var(--primary-700);
 	}
 
@@ -55,7 +55,7 @@
 		position: fixed;
 		z-index: 9999999;
 		pointer-events: none;
-		animation: fade 0.4s;
+		animation: fade 400ms;
 		background-color: rgba(211, 181, 181, 0.2);
 	}
 

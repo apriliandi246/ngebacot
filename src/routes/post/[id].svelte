@@ -20,7 +20,7 @@
 </script>
 
 <svelte:head>
-	<title>Username · detail post</title>
+	<title>Username · {postId}</title>
 </svelte:head>
 
 <main class="container">
@@ -61,7 +61,6 @@
 		display: flex;
 		width: inherit;
 		position: fixed;
-		position: fixed;
 		align-items: center;
 		justify-content: center;
 		background-color: var(--primary-900);
@@ -72,7 +71,7 @@
 	}
 
 	.dive-line {
-		margin: 60px 0 60px 0;
+		margin: 60px 0;
 		border: 1px solid var(--primary-400);
 	}
 
@@ -85,29 +84,25 @@
 	@media screen and (max-width: 800px) {
 		.container {
 			width: 100%;
-			padding-left: 80px;
-			padding-right: 80px;
+			padding: 0 80px;
 		}
 	}
 
 	@media screen and (max-width: 700px) {
 		.container {
-			padding-left: 40px;
-			padding-right: 40px;
+			padding: 0 40px;
 		}
 	}
 
 	@media screen and (max-width: 550px) {
 		.container {
-			padding-left: 20px;
-			padding-right: 20px;
+			padding: 0 20px;
 		}
 	}
 
 	@media screen and (max-width: 480px) {
 		.container {
-			padding-left: 11px;
-			padding-right: 11px;
+			padding: 0 11px;
 			margin-top: var(--space-128x);
 		}
 	}

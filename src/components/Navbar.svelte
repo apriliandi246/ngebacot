@@ -18,15 +18,15 @@
 	<div class="navbar__menus">
 		<a href="/mine" aria-label="My profile" class="navbar__profile-link">
 			<svg
+				class="navbar__menu"
 				width="26"
 				height="26"
 				fill="none"
 				stroke="#f9fafb"
-				stroke-width="2"
-				viewBox="0 0 24 24"
-				class="navbar__menu"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="12" cy="7" r="4" />
@@ -40,21 +40,21 @@
 			on:click={() => showModal("language")}
 		>
 			<svg
+				class="navbar__menu"
 				width="26"
 				height="26"
 				fill="none"
-				stroke-width="2"
 				stroke="#f9fafb"
-				viewBox="0 0 24 24"
-				class="navbar__menu"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="12" cy="12" r="10" />
-				<line x1="2" y1="12" x2="22" y2="12" />
+				<line x1="2" x2="22" y1="12" y2="12" />
 				<path
-					d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+					d="m12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
 				/>
 			</svg>
 		</button>
@@ -65,19 +65,19 @@
 			on:click={() => showModal("signOut")}
 		>
 			<svg
+				class="navbar__menu"
 				width="26"
 				height="26"
 				fill="none"
 				stroke="#f9fafb"
-				stroke-width="2"
-				viewBox="0 0 24 24"
-				class="navbar__menu"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<polyline points="16 17 21 12 16 7" />
-				<line x1="21" y1="12" x2="9" y2="12" />
+				<line x1="21" x2="9" y1="12" y2="12" />
 				<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
 			</svg>
 		</button>
@@ -109,12 +109,12 @@
 		border-radius: 4px;
 		text-decoration: none;
 		margin-right: var(--space-32x);
-		transition: background-color 0.1s;
+		transition: background-color 100ms;
 	}
 
 	.navbar__menu {
 		cursor: pointer;
-		transition: stroke 0.1s;
+		transition: stroke 100ms;
 	}
 
 	.navbar__profile-link:hover {
@@ -127,7 +127,7 @@
 
 	.home-link {
 		text-decoration: none;
-		transition: transform 0.1s ease-in;
+		transition: transform 100ms ease-in;
 	}
 
 	.home-link:active {
@@ -136,7 +136,6 @@
 
 	.nav-btn {
 		border: none;
-		outline: none;
 		background-color: transparent;
 	}
 </style>

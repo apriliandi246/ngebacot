@@ -49,20 +49,20 @@
 					</div>
 
 					<svg
+						class="form-icon"
 						width="22"
 						height="22"
 						fill="none"
-						stroke-width="2"
-						class="form-icon"
-						viewBox="0 0 24 24"
 						stroke-linecap="round"
 						stroke-linejoin="round"
+						stroke-width="2"
+						viewBox="0 0 24 24"
 						xmlns="http://www.w3.org/2000/svg"
 						stroke={statusPost === "public" ? "#363a44" : "#86888e"}
 					>
 						<circle cx="9" cy="7" r="4" />
-						<path d="M16 3.13a4 4 0 0 1 0 7.75" />
-						<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+						<path d="m16 3.13a4 4 0 0 1 0 7.75" />
+						<path d="m23 21v-2a4 4 0 0 0-3-3.87" />
 						<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 					</svg>
 
@@ -86,20 +86,20 @@
 					</div>
 
 					<svg
+						class="form-icon"
 						width="22"
 						height="22"
 						fill="none"
-						stroke-width="2"
-						class="form-icon"
-						viewBox="0 0 24 24"
 						stroke-linecap="round"
 						stroke-linejoin="round"
+						stroke-width="2"
+						viewBox="0 0 24 24"
 						xmlns="http://www.w3.org/2000/svg"
 						stroke={statusPost === "anonym" ? "#363a44" : "#86888e"}
 					>
 						<circle cx="8.5" cy="7" r="4" />
-						<line x1="18" y1="8" x2="23" y2="13" />
-						<line x1="23" y1="8" x2="18" y2="13" />
+						<line x1="18" x2="23" y1="8" y2="13" />
+						<line x1="23" x2="18" y1="8" y2="13" />
 						<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 					</svg>
 
@@ -123,14 +123,14 @@
 					</div>
 
 					<svg
+						class="form-icon"
 						width="22"
 						height="22"
 						fill="none"
-						stroke-width="2"
-						class="form-icon"
-						viewBox="0 0 24 24"
 						stroke-linecap="round"
 						stroke-linejoin="round"
+						stroke-width="2"
+						viewBox="0 0 24 24"
 						xmlns="http://www.w3.org/2000/svg"
 						stroke={statusPost === "private" ? "#363a44" : "#86888e"}
 					>
@@ -174,7 +174,7 @@
 		letter-spacing: 0.5px;
 		color: var(--grey-900);
 		font-size: var(--text-16x);
-		transition: box-shadow 0.1s;
+		transition: box-shadow 100ms;
 		border: 1px solid var(--primary-900);
 	}
 
@@ -188,8 +188,7 @@
 
 	.form__post-status {
 		display: flex;
-		margin-top: 26px;
-		margin-bottom: 26px;
+		margin: 26px 0;
 		justify-content: space-between;
 	}
 
@@ -241,7 +240,7 @@
 	.form-btn {
 		font-size: var(--text-16x);
 		padding: 8px var(--space-32x);
-		transition: background-color 0.1s;
+		transition: background-color 100ms;
 	}
 
 	.form__submit-btn {
@@ -259,7 +258,7 @@
 		margin-right: 20px;
 		color: var(--primary-900);
 		background-color: transparent;
-		transition: background-color 0.1s;
+		transition: background-color 100ms;
 	}
 
 	.form__cancel-btn:hover {

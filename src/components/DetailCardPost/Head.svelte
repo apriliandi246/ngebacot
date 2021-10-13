@@ -43,12 +43,12 @@
 	}
 
 	.post-user {
+		font-weight: 600;
 		padding: 4px 12px;
 		border-radius: 3px;
 		letter-spacing: 0.5px;
 		color: var(--grey-900);
 		font-size: var(--text-16x);
-		font-weight: var(--semi-bold);
 		border: 1px solid var(--primary-900);
 	}
 </style>

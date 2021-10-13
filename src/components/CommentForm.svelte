@@ -69,7 +69,7 @@
 		border-radius: 3px;
 		letter-spacing: 0.5px;
 		color: var(--grey-900);
-		transition: box-shadow 0.1s;
+		transition: box-shadow 100ms;
 		border: 1px solid var(--primary-900);
 	}
 

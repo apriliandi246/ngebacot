@@ -11,10 +11,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-width="2"
-				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<path
@@ -23,15 +23,15 @@
 			</svg>
 
 			<svg
+				class="private-data-icon"
 				width="16"
 				height="16"
 				fill="none"
-				stroke-width="2"
 				stroke="#363a44"
-				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				class="private-data-icon"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
@@ -47,10 +47,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-width="2"
-				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<path
@@ -71,28 +71,28 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-width="2"
-				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<path
-					d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+					d="m20.84 4.61a5.5 5.5 0 0 0-7.78 0l-1.06 1.06-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l8.84 8.84 8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
 				/>
 			</svg>
 
 			{#if postStatus === "private"}
 				<svg
+					class="private-data-icon"
 					width="16"
 					height="16"
 					fill="none"
-					stroke-width="2"
 					stroke="#363a44"
-					viewBox="0 0 24 24"
 					stroke-linecap="round"
 					stroke-linejoin="round"
-					class="private-data-icon"
+					stroke-width="2"
+					viewBox="0 0 24 24"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
@@ -109,14 +109,14 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-width="2"
-				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<path
-					d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+					d="m20.84 4.61a5.5 5.5 0 0 0-7.78 0l-1.06 1.06-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l8.84 8.84 8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
 				/>
 			</svg>
 
@@ -133,10 +133,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-width="2"
-				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="12" cy="7" r="4" />
@@ -149,17 +149,15 @@
 				width="24"
 				height="24"
 				fill="none"
-				stroke-width="2"
 				stroke="#4b5563"
-				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<circle cx="8.5" cy="7" r="4" />
-				<line x1="18" y1="8" x2="23" y2="13" />
-				<line x1="23" y1="8" x2="18" y2="13" />
-				<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+				<circle cx="12" cy="7" r="4" />
+				<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
 			</svg>
 		{/if}
 
@@ -168,16 +166,16 @@
 				width="24"
 				height="24"
 				fill="none"
-				stroke-width="2"
 				stroke="#4b5563"
-				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
+				stroke-width="2"
+				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="9" cy="7" r="4" />
-				<path d="M16 3.13a4 4 0 0 1 0 7.75" />
-				<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+				<path d="m16 3.13a4 4 0 0 1 0 7.75" />
+				<path d="m23 21v-2a4 4 0 0 0-3-3.87" />
 				<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
 			</svg>
 		{/if}
@@ -199,7 +197,7 @@
 		border-radius: 3px;
 		align-items: center;
 		margin-right: var(--space-48x);
-		transition: background-color 0.2s;
+		transition: background-color 100ms;
 		border: 1px solid var(--primary-900);
 	}
 
@@ -216,7 +214,6 @@
 
 	.post-footer-btn {
 		border: none;
-		outline: none;
 		background-color: inherit;
 		border: 1px solid var(--primary-900);
 	}

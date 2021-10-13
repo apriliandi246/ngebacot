@@ -10,7 +10,6 @@ export default function relativeTextarea(node) {
 				node.style.height = "52px";
 			}
 		},
-
 		destroy() {
 			node.removeEventListener("input", (event) => {
 				node.style.height = "4px";
