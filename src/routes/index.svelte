@@ -3,18 +3,6 @@
 	import FormPost from "@components/FormPost.svelte";
 	import Post from "@components/CardPost/index.svelte";
 
-	import("../components/Modal/WelcomeModal.svelte").then(
-		(component) => (WelcomeModal = component.default),
-	);
-
-	import("../components/Modal/LanguageModal.svelte").then(
-		(component) => (LanguageModal = component.default),
-	);
-
-	import("../components/Modal/SignOutModal.svelte").then(
-		(component) => (SignOutModal = component.default),
-	);
-
 	import {
 		scrollbarStatus,
 		signoutModalStatus,
@@ -24,8 +12,19 @@
 	} from "@store";
 
 	let WelcomeModal;
-	let SignOutModal;
+	import("../components/Modal/WelcomeModal.svelte").then(
+		(component) => (WelcomeModal = component.default),
+	);
+
 	let LanguageModal;
+	import("../components/Modal/LanguageModal.svelte").then(
+		(component) => (LanguageModal = component.default),
+	);
+
+	let SignOutModal;
+	import("../components/Modal/SignOutModal.svelte").then(
+		(component) => (SignOutModal = component.default),
+	);
 
 	function focusOut() {
 		$scrollbarStatus = "show";
@@ -104,29 +103,25 @@
 	@media screen and (max-width: 800px) {
 		.container {
 			width: 100%;
-			padding-left: 80px;
-			padding-right: 80px;
+			padding: 0 80px;
 		}
 	}
 
 	@media screen and (max-width: 700px) {
 		.container {
-			padding-left: 40px;
-			padding-right: 40px;
+			padding: 0 40px;
 		}
 	}
 
 	@media screen and (max-width: 550px) {
 		.container {
-			padding-left: 20px;
-			padding-right: 20px;
+			padding: 0 20px;
 		}
 	}
 
 	@media screen and (max-width: 480px) {
 		.container {
-			padding-left: 11px;
-			padding-right: 11px;
+			padding: 0 11px;
 			margin-top: var(--space-128x);
 		}
 	}

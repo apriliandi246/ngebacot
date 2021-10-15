@@ -1,22 +1,21 @@
 <script>
 	import "@style/global.css";
-	import { browser } from "$app/env";
+	import { onMount } from "svelte";
 	import { navigating } from "$app/stores";
 	import { scrollbarStatus, welcomeModalStatus } from "@store";
 
+	let PreloadingIndicator;
 	import("../components/PreloadingIndicator.svelte").then(
 		(component) => (PreloadingIndicator = component.default),
 	);
 
-	let PreloadingIndicator;
-
-	if (browser) {
+	onMount(() => {
 		if (localStorage.getItem("_1re6awj") === null) {
 			$scrollbarStatus = "hide";
 			$welcomeModalStatus = "_b72n6o";
 			localStorage.setItem("_1re6awj", "_b72n6o");
 		}
-	}
+	});
 </script>
 
 <svelte:head>
