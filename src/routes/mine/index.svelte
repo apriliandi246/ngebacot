@@ -63,15 +63,17 @@
 			</div>
 		</div>
 
-		<p on:mouseenter={showEditProfile} on:mouseleave={hideEditProfile} class="profile__bio">
-			Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quasi laboriosam deleniti
-			molestiae pariatur tempore nostrum sint excepturi quis doloribus repellat temporibus
-			aspernatur at dolorum, tenetur doloremque ipsam vero amet.
+		{#if !showUpdateForm}
+			<p on:mouseenter={showEditProfile} on:mouseleave={hideEditProfile} class="profile__bio">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quasi laboriosam deleniti
+				molestiae pariatur tempore nostrum sint excepturi quis doloribus repellat temporibus
+				aspernatur at dolorum, tenetur doloremque ipsam vero amet.
 
-			{#if !showUpdateForm && editProfileStatus === "show"}
-				<button on:click={toggleUpdateForm} class="edit-btn">Edit</button>
-			{/if}
-		</p>
+				{#if !showUpdateForm && editProfileStatus === "show"}
+					<button on:click={toggleUpdateForm} class="edit-btn">Edit</button>
+				{/if}
+			</p>
+		{/if}
 
 		{#if showUpdateForm}
 			<form class="profile-form">

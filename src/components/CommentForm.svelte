@@ -29,7 +29,8 @@
 
 		{#if comment.trim() !== ""}
 			<div class="form-buttons">
-				<button type="button" class="btn-cancel form-btn" on:click={cancelComment}>Cancel</button>
+				<button type="button" class="btn-cancel form-btn" on:click={cancelComment}> Cancel </button>
+
 				<button type="submit" class="btn-sumbit form-btn">Comment</button>
 			</div>
 		{/if}
@@ -71,6 +72,10 @@
 		color: var(--grey-900);
 		transition: box-shadow 100ms;
 		border: 1px solid var(--primary-900);
+	}
+
+	.form__input:focus {
+		box-shadow: 0 0 0 1px var(--primary-900);
 	}
 
 	.form__input::placeholder {

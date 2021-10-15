@@ -4,7 +4,9 @@
 	export let labelDisabled;
 </script>
 
-<label class="label" for={labelFor} class:disabled={labelDisabled}>{labelContent}</label>
+<label class="label" for={labelFor} class:disabled={labelDisabled}>
+	{labelContent}
+</label>
 
 <style>
 	.label {

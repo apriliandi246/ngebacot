@@ -4,7 +4,7 @@
 
 <footer class="post-footer">
 	<!-- Comment -->
-	<div href="/#" class="post-footer__data no-event">
+	<div class="post-footer__data no-event">
 		<svg
 			width="24"
 			height="24"
@@ -92,7 +92,7 @@
 	<!-- Post Status -->
 
 	<!-- Date -->
-	<div href="/#" class="post-footer__data post-footer__data--last-child no-event">
+	<div class="post-footer__data post-footer__data--last-child no-event">
 		<svg
 			width="24"
 			height="24"

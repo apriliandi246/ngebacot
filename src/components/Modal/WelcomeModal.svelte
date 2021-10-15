@@ -10,23 +10,25 @@
 </script>
 
 <ModalContainer {hideModal}>
+	<button class="close-icon">
+		<svg
+			width="26"
+			height="26"
+			fill="none"
+			stroke="#363a44"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			stroke-width="3"
+			viewBox="0 0 24 24"
+			on:click={hideModal}
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<line x1="18" x2="6" y1="6" y2="18" />
+			<line x1="6" x2="18" y1="6" y2="18" />
+		</svg>
+	</button>
+
 	<h2 class="modal-title">Welcome</h2>
-	<svg
-		class="close-icon"
-		width="32"
-		height="32"
-		fill="none"
-		stroke="#363a44"
-		stroke-linecap="round"
-		stroke-linejoin="round"
-		stroke-width="3"
-		viewBox="0 0 24 24"
-		on:click={hideModal}
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<line x1="18" x2="6" y1="6" y2="18" />
-		<line x1="6" x2="18" y1="6" y2="18" />
-	</svg>
 
 	<svg
 		class="modal__ilustration"
