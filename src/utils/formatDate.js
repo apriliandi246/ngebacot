@@ -1,7 +1,9 @@
-class FormatDate {
-	constructor(currentDate) {
+"use strict";
+
+class Time {
+	constructor(date) {
 		this.now = new Date();
-		this.past = new Date(currentDate);
+		this.past = new Date(date);
 		this.difference = this.now.getTime() / 1000 - this.past.getTime() / 1000;
 		this.hour = Math.floor(this.difference / 3600);
 		this.diff = this.difference - this.hour * 3600;
@@ -14,9 +16,11 @@ class FormatDate {
 
 	// the feature
 	format(level, format) {
-		if (format !== "normal" || format !== "short") throw new Error("Format Not Found");
+		if (["easy", "medium", "hard"].includes(level) === false) {
+			throw new Error("Level Not Found");
+		}
 
-		if (level !== "easy" || level !== "medium" || level !== "hard") {
+		if (["normal", "short"].includes(format) === false) {
 			throw new Error("Format Not Found");
 		}
 
@@ -36,13 +40,18 @@ class FormatDate {
 
 	// the feature
 	fromNow(format) {
-		if (format !== "normal" || format !== "short") throw new Error("Format Not Found");
-		if (format === "short") this.getShortRt();
-		if (format === "normal") this.getNormalRt();
+		if (["normal", "short"].includes(format) === false) {
+			throw new Error("Format Not Found");
+		}
+
+		if (format === "short") return this.getShortRt();
+		if (format === "normal") return this.getNormalRt();
 	}
 
 	getNameOfDay(numberOfDay, format) {
-		if (format !== "normal" || format !== "short") throw new Error("Format Not Found");
+		if (["normal", "short"].includes(format) === false) {
+			throw new Error("Format Not Found");
+		}
 
 		const days = {
 			1: format === "normal" ? "Sunday" : "Sun",
@@ -58,7 +67,9 @@ class FormatDate {
 	}
 
 	getNameOfMonth(numberOfMonth, format) {
-		if (format !== "normal" || format !== "short") throw new Error("Format Not Found");
+		if (["normal", "short"].includes(format) === false) {
+			throw new Error("Format Not Found");
+		}
 
 		const months = {
 			1: format === "normal" ? "January" : "Jan",
@@ -89,22 +100,43 @@ class FormatDate {
 		if (this.month > 0 || this.day > 0) {
 			return `${this.getNameOfMonth(this.past.getMonth(), "short")} ${this.past.getDate()}`;
 		}
-		if (this.hour > 0) return `${this.hour}h`;
-		if (this.minute > 0) return `${this.minute}m`;
+
+		if (this.hour > 0) {
+			return `${this.hour}h`;
+		}
+
+		if (this.minute > 0) {
+			return `${this.minute}m`;
+		}
 
 		return `${Math.floor(this.difference)} seconds ago`;
 	}
 
 	getNormalRt() {
-		if (this.year > 0) return this.year === 1 ? "a year ago" : `${this.year} years ago`;
-		if (this.month > 0) return this.month === 1 ? "a month ago" : `${this.month} months ago`;
-		if (this.week > 0) return this.week === 1 ? "a week ago" : `${this.week} weeks ago`;
-		if (this.day > 0) return this.day === 1 ? "a day ago" : `${this.day} days ago`;
-		if (this.hour > 0) return this.hour === 1 ? "an hour ago" : `${this.hour} hours ago`;
-		if (this.minute > 0) return this.minute === 1 ? "a minute ago" : `${this.minute} minutes ago`;
+		if (this.year > 0) {
+			return this.year === 1 ? "a year ago" : `${this.year} years ago`;
+		}
+
+		if (this.month > 0) {
+			return this.month === 1 ? "a month ago" : `${this.month} months ago`;
+		}
+
+		if (this.week > 0) {
+			return this.week === 1 ? "a week ago" : `${this.week} weeks ago`;
+		}
+
+		if (this.day > 0) {
+			return this.day === 1 ? "a day ago" : `${this.day} days ago`;
+		}
+
+		if (this.hour > 0) {
+			return this.hour === 1 ? "an hour ago" : `${this.hour} hours ago`;
+		}
+
+		if (this.minute > 0) {
+			return this.minute === 1 ? "a minute ago" : `${this.minute} minutes ago`;
+		}
 
 		return "Just now";
 	}
 }
-
-export default FormatDate;
