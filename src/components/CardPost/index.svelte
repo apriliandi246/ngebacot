@@ -7,7 +7,7 @@
 
 	$: imageSource =
 		postStatus === "anonym"
-			? "/anonym.png"
+			? "https://iili.io/5BkbSe.png"
 			: "https://avatars.dicebear.com/api/croodles-neutral/apriliandi.svg?size=46";
 </script>
 
