@@ -30,7 +30,6 @@
 		{#if comment.trim() !== ""}
 			<div class="form-buttons">
 				<button type="button" class="btn-cancel form-btn" on:click={cancelComment}> Cancel </button>
-
 				<button type="submit" class="btn-sumbit form-btn">Comment</button>
 			</div>
 		{/if}
@@ -75,7 +74,8 @@
 	}
 
 	.form__input:focus {
-		box-shadow: 0 0 0 1px var(--primary-900);
+		outline-offset: -1px;
+		outline: 2px solid var(--primary-900);
 	}
 
 	.form__input::placeholder {
@@ -86,7 +86,7 @@
 		display: flex;
 		align-self: center;
 		justify-content: flex-end;
-		margin-top: var(--space-8x);
+		margin-top: var(--space-12x);
 	}
 
 	.btn-sumbit {
@@ -98,6 +98,11 @@
 		background-color: var(--primary-900);
 	}
 
+	.btn-sumbit:focus {
+		outline-offset: 1px;
+		outline: 4px solid var(--primary-800);
+	}
+
 	.btn-cancel {
 		color: #000;
 		background-color: transparent;
@@ -106,6 +111,11 @@
 
 	.btn-cancel:hover {
 		background-color: var(--grey-100);
+	}
+
+	.btn-cancel:focus {
+		outline-offset: 1px;
+		outline: 3px solid var(--grey-600);
 	}
 
 	.form-btn {

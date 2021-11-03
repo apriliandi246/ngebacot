@@ -13,7 +13,6 @@
 
 	function cancelPost() {
 		textareaValue = "";
-		window.scrollTo(0, 0);
 		$scrollbarStatus = "show";
 		$focusFormInputStatus = "focusOut";
 	}
@@ -22,17 +21,16 @@
 <div class="form-post">
 	<form class="form">
 		<textarea
-			id="textarea"
-			use:focusEvents
 			spellcheck="false"
 			autocomplete="off"
 			class="form__input"
 			bind:value={textareaValue}
+			use:focusEvents={textareaValue}
 			placeholder="Write what you think ????"
 			rows={$focusFormInputStatus === "focusIn" ? "15" : "1"}
 		/>
 
-		{#if textareaValue.trim() !== ""}
+		{#if $focusFormInputStatus == "focusIn"}
 			<div class="form__post-status">
 				<div class="form__status-input" class:emphasize-border-color={statusPost === "public"}>
 					<div class="radio-input">
@@ -49,14 +47,14 @@
 					</div>
 
 					<svg
-						class="form-icon"
 						width="22"
 						height="22"
 						fill="none"
+						stroke-width="2"
+						class="form-icon"
+						viewBox="0 0 24 24"
 						stroke-linecap="round"
 						stroke-linejoin="round"
-						stroke-width="2"
-						viewBox="0 0 24 24"
 						xmlns="http://www.w3.org/2000/svg"
 						stroke={statusPost === "public" ? "#363a44" : "#86888e"}
 					>
@@ -86,14 +84,14 @@
 					</div>
 
 					<svg
-						class="form-icon"
 						width="22"
 						height="22"
 						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
+						class="form-icon"
 						stroke-width="2"
 						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
 						xmlns="http://www.w3.org/2000/svg"
 						stroke={statusPost === "anonym" ? "#363a44" : "#86888e"}
 					>
@@ -123,14 +121,14 @@
 					</div>
 
 					<svg
-						class="form-icon"
 						width="22"
 						height="22"
 						fill="none"
-						stroke-linecap="round"
-						stroke-linejoin="round"
+						class="form-icon"
 						stroke-width="2"
 						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
 						xmlns="http://www.w3.org/2000/svg"
 						stroke={statusPost === "private" ? "#363a44" : "#86888e"}
 					>
@@ -179,7 +177,8 @@
 	}
 
 	.form__input:focus {
-		box-shadow: 0 0 0 1px var(--primary-900);
+		outline-offset: -1px;
+		outline: 2px solid var(--primary-900);
 	}
 
 	.form__input::placeholder {
@@ -205,6 +204,12 @@
 		appearance: none;
 		margin-right: 6px;
 		position: relative;
+		border-radius: 100%;
+	}
+
+	.input-radio:focus {
+		outline-offset: 4px;
+		outline: 2px solid var(--primary-900);
 	}
 
 	.input-radio::before {
@@ -253,12 +258,22 @@
 		background-color: var(--primary-800);
 	}
 
+	.form__submit-btn:focus {
+		outline-offset: 1px;
+		outline: 4px solid var(--primary-800);
+	}
+
 	.form__cancel-btn {
 		border: none;
 		margin-right: 20px;
 		color: var(--primary-900);
 		background-color: transparent;
 		transition: background-color 100ms;
+	}
+
+	.form__cancel-btn:focus {
+		outline-offset: 1px;
+		outline: 3px solid var(--grey-600);
 	}
 
 	.form__cancel-btn:hover {

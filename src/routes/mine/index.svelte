@@ -1,6 +1,5 @@
 <script>
 	let showUpdateForm = false;
-	let editProfileStatus = "hide";
 
 	function toggleUpdateForm() {
 		if (showUpdateForm) {
@@ -27,15 +26,15 @@
 	<header class="header">
 		<a href="/" class="home-link">
 			<svg
-				class="header__navigation"
 				width="26"
 				height="26"
 				fill="none"
 				stroke="#363a44"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				class="header__navigation"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<line x1="19" x2="5" y1="12" y2="12" />
@@ -64,14 +63,12 @@
 		</div>
 
 		{#if !showUpdateForm}
-			<p on:mouseenter={showEditProfile} on:mouseleave={hideEditProfile} class="profile__bio">
+			<p class="profile__bio">
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid quasi laboriosam deleniti
 				molestiae pariatur tempore nostrum sint excepturi quis doloribus repellat temporibus
 				aspernatur at dolorum, tenetur doloremque ipsam vero amet.
 
-				{#if !showUpdateForm && editProfileStatus === "show"}
-					<button on:click={toggleUpdateForm} class="edit-btn">Edit</button>
-				{/if}
+				<button on:click={toggleUpdateForm} class="edit-btn">Edit</button>
 			</p>
 		{/if}
 
@@ -98,9 +95,9 @@
 				fill="none"
 				stroke="#4b5563"
 				stroke-width="2"
+				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="9" cy="7" r="4" />
@@ -120,9 +117,9 @@
 				fill="none"
 				stroke="#4b5563"
 				stroke-width="2"
+				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="8.5" cy="7" r="4" />
@@ -142,9 +139,9 @@
 				fill="none"
 				stroke="#4b5563"
 				stroke-width="2"
+				viewBox="0 0 24 24"
 				stroke-linecap="round"
 				stroke-linejoin="round"
-				viewBox="0 0 24 24"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="12" cy="7" r="4" />
@@ -249,6 +246,11 @@
 		transition: background-color 100ms;
 	}
 
+	.home-link:focus {
+		outline-offset: -1px;
+		outline: 2px solid var(--primary-900);
+	}
+
 	.home-link:hover {
 		background-color: var(--grey-200);
 	}
@@ -320,7 +322,8 @@
 	}
 
 	.profile-form__input:focus {
-		box-shadow: 0 0 0 1px var(--primary-900);
+		outline-offset: -1px;
+		outline: 2px solid var(--primary-900);
 	}
 
 	.profile-form__buttons {
@@ -335,6 +338,11 @@
 		background-color: var(--primary-800);
 	}
 
+	.btn-sumbit:focus {
+		outline-offset: 1px;
+		outline: 4px solid var(--primary-800);
+	}
+
 	.btn-sumbit:hover {
 		background-color: var(--primary-900);
 	}
@@ -343,6 +351,11 @@
 		color: #000;
 		background-color: transparent;
 		margin-right: var(--space-16x);
+	}
+
+	.btn-cancel:focus {
+		outline-offset: 1px;
+		outline: 3px solid var(--grey-600);
 	}
 
 	.btn-cancel:hover {
@@ -358,9 +371,15 @@
 
 	.edit-btn {
 		border: none;
+		padding: 0 4px;
 		margin-left: 6px;
-		color: var(--grey-600);
+		color: var(--grey-800);
 		background-color: transparent;
+	}
+
+	.edit-btn:focus {
+		outline-offset: 1px;
+		outline: 2px solid var(--primary-900);
 	}
 
 	.edit-btn:hover {

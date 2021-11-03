@@ -154,6 +154,11 @@
 		border: 1px solid var(--primary-900);
 	}
 
+	.post-footer-btn:focus {
+		outline-offset: 0px;
+		outline: 2px solid var(--primary-900);
+	}
+
 	.no-event {
 		pointer-events: none;
 	}

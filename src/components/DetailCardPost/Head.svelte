@@ -42,6 +42,11 @@
 		background-color: var(--primary-50);
 	}
 
+	.post__username:focus {
+		outline-offset: 0px;
+		outline: 2px solid var(--primary-900);
+	}
+
 	.post-user {
 		font-weight: 600;
 		padding: 4px 12px;

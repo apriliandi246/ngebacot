@@ -10,23 +10,23 @@
 	}
 </script>
 
-<nav class="navbar">
-	<a href="/" aria-label="Home page" class="home-link">
+<header class="navbar">
+	<a href="/" aria-label="home page" class="home-link">
 		<Logo />
 	</a>
 
-	<div class="navbar__menus">
-		<a href="/mine" aria-label="My profile" class="navbar__profile-link">
+	<nav class="navbar__menus">
+		<a href="/mine" aria-label="my profile" class="navbar__profile-link">
 			<svg
-				class="navbar__menu"
 				width="26"
 				height="26"
 				fill="none"
 				stroke="#f9fafb"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				class="navbar__menu"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="12" cy="7" r="4" />
@@ -35,20 +35,20 @@
 		</a>
 
 		<button
-			aria-label="Choose language"
+			aria-label="choose language"
 			class="navbar__profile-link nav-btn"
 			on:click={() => showModal("language")}
 		>
 			<svg
-				class="navbar__menu"
 				width="26"
 				height="26"
 				fill="none"
 				stroke="#f9fafb"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				class="navbar__menu"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="12" cy="12" r="10" />
@@ -60,20 +60,20 @@
 		</button>
 
 		<button
-			aria-label="Sign out"
+			aria-label="sign out"
 			class="navbar__profile-link nav-btn"
 			on:click={() => showModal("signOut")}
 		>
 			<svg
-				class="navbar__menu"
 				width="26"
 				height="26"
 				fill="none"
 				stroke="#f9fafb"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				class="navbar__menu"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<polyline points="16 17 21 12 16 7" />
@@ -81,8 +81,8 @@
 				<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
 			</svg>
 		</button>
-	</div>
-</nav>
+	</nav>
+</header>
 
 <style>
 	.navbar {
@@ -90,8 +90,8 @@
 		height: 60px;
 		z-index: 999;
 		display: flex;
-		padding: 0 20px;
 		align-items: center;
+		padding: 0 20px 0 16px;
 		justify-content: space-between;
 		background-color: var(--primary-900);
 	}
@@ -112,22 +112,33 @@
 		transition: background-color 100ms;
 	}
 
-	.navbar__menu {
-		cursor: pointer;
-		transition: stroke 100ms;
-	}
-
 	.navbar__profile-link:hover {
 		background-color: var(--primary-800);
+	}
+
+	.navbar__profile-link:focus {
+		outline: 2px solid var(--primary-200);
 	}
 
 	.navbar__profile-link:last-child {
 		margin-right: 0;
 	}
 
+	.navbar__menu {
+		cursor: pointer;
+		transition: stroke 100ms;
+	}
+
 	.home-link {
+		padding: 0px 12px;
+		border-radius: 10px;
 		text-decoration: none;
 		transition: transform 100ms ease-in;
+	}
+
+	.home-link:focus {
+		outline-offset: -10px;
+		outline: 2px solid var(--primary-200);
 	}
 
 	.home-link:active {

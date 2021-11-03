@@ -198,6 +198,11 @@
 		background-color: var(--red-500);
 	}
 
+	.btn-sign-out:focus {
+		outline-offset: 1px;
+		outline: 4px solid var(--red-400);
+	}
+
 	.btn-cancel {
 		color: var(--primary-900);
 		background-color: transparent;
@@ -205,6 +210,10 @@
 
 	.btn-cancel:hover {
 		background-color: var(--grey-100);
+	}
+
+	.btn-cancel:focus {
+		outline: 3px solid var(--grey-600);
 	}
 
 	.modal-btn {

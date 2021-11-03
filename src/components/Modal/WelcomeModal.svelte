@@ -10,17 +10,16 @@
 </script>
 
 <ModalContainer {hideModal}>
-	<button class="close-icon">
+	<button class="close-icon" on:click={hideModal}>
 		<svg
 			width="26"
 			height="26"
 			fill="none"
 			stroke="#363a44"
+			stroke-width="2"
+			viewBox="0 0 24 24"
 			stroke-linecap="round"
 			stroke-linejoin="round"
-			stroke-width="3"
-			viewBox="0 0 24 24"
-			on:click={hideModal}
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<line x1="18" x2="6" y1="6" y2="18" />
@@ -99,11 +98,12 @@
 		margin-right: 16px;
 		border-radius: 100%;
 		transition: background-color 100ms;
-		border: 3px solid var(--primary-900);
+		border: 2px solid var(--primary-900);
 	}
 
-	.close-icon:hover {
-		background-color: var(--primary-100);
+	.close-icon:focus {
+		outline-offset: -1px;
+		outline: 3px solid var(--primary-900);
 	}
 
 	@media screen and (max-width: 625px) {

@@ -9,17 +9,16 @@
 </script>
 
 <ModalContainer {hideModal}>
-	<button class="close-icon">
+	<button class="close-icon" on:click={hideModal}>
 		<svg
 			width="26"
 			height="26"
 			fill="none"
 			stroke="#363a44"
+			stroke-width="2"
+			viewBox="0 0 24 24"
 			stroke-linecap="round"
 			stroke-linejoin="round"
-			stroke-width="3"
-			viewBox="0 0 24 24"
-			on:click={hideModal}
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<line x1="18" x2="6" y1="6" y2="18" />
@@ -28,10 +27,10 @@
 	</button>
 
 	<svg
-		class="modal__ilustration"
 		width="450"
 		height="450"
 		viewBox="0 0 750 750"
+		class="modal__ilustration"
 		xmlns="http://www.w3.org/2000/svg"
 	>
 		<rect width="750" height="750" fill="#fff" />
@@ -81,6 +80,11 @@
 		background-color: var(--light-blue-800);
 	}
 
+	.modal-btn__en:focus {
+		outline-offset: 1px;
+		outline: 3px solid var(--light-blue-700);
+	}
+
 	.modal-btn__en:hover {
 		background-color: var(--light-blue-700);
 	}
@@ -88,6 +92,10 @@
 	.modal-btn__id {
 		color: var(--primary-900);
 		background-color: transparent;
+	}
+
+	.modal-btn__id:focus {
+		outline: 3px solid var(--grey-600);
 	}
 
 	.modal-btn__id:hover {
@@ -112,11 +120,12 @@
 		margin-right: 16px;
 		border-radius: 100%;
 		transition: background-color 100ms;
-		border: 3px solid var(--primary-900);
+		border: 2px solid var(--primary-900);
 	}
 
-	.close-icon:hover {
-		background-color: var(--primary-100);
+	.close-icon:focus {
+		outline-offset: -1px;
+		outline: 3px solid var(--primary-900);
 	}
 
 	@media screen and (max-width: 625px) {
