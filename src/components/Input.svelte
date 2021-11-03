@@ -38,7 +38,8 @@
 	}
 
 	.input:focus {
-		box-shadow: 0 0 0 1px var(--primary-900);
+		outline-offset: -1px;
+		outline: 2px solid var(--primary-900);
 	}
 
 	.input::placeholder {
