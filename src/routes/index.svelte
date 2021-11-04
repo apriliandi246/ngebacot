@@ -78,7 +78,7 @@
 
 	.header {
 		top: 0;
-		z-index: 999;
+		z-index: 2;
 		width: inherit;
 		position: fixed;
 	}
@@ -89,7 +89,7 @@
 
 	.bg-dark {
 		inset: 0;
-		z-index: 999;
+		z-index: 1;
 		position: fixed;
 		background-color: rgba(54, 58, 68, 0.6);
 	}

@@ -2,7 +2,15 @@
 	import { fade } from "svelte/transition";
 
 	export let hideModal;
+
+	function escapePress(event) {
+		if (event.key === "Escape") {
+			hideModal();
+		}
+	}
 </script>
+
+<svelte:window on:keydown={escapePress} />
 
 <div
 	class="modal-area"
@@ -18,8 +26,8 @@
 <style>
 	.modal-area {
 		inset: 0;
+		z-index: 4;
 		display: flex;
-		z-index: 99999;
 		position: fixed;
 		align-items: center;
 		justify-content: center;

@@ -10,7 +10,7 @@
 	}
 </script>
 
-<header class="navbar">
+<div class="navbar">
 	<a href="/" aria-label="home page" class="home-link">
 		<Logo />
 	</a>
@@ -82,13 +82,12 @@
 			</svg>
 		</button>
 	</nav>
-</header>
+</div>
 
 <style>
 	.navbar {
 		width: 100%;
 		height: 60px;
-		z-index: 999;
 		display: flex;
 		align-items: center;
 		padding: 0 20px 0 16px;
