@@ -2,7 +2,7 @@
 	export let postStatus;
 </script>
 
-<footer class="post-footer">
+<div class="post-footer">
 	<!-- Comment -->
 	{#if postStatus === "private"}
 		<div class="post-footer__data no-event">
@@ -71,10 +71,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<path
@@ -89,10 +89,10 @@
 					height="16"
 					fill="none"
 					stroke="#363a44"
-					stroke-linecap="round"
-					stroke-linejoin="round"
 					stroke-width="2"
 					viewBox="0 0 24 24"
+					stroke-linecap="round"
+					stroke-linejoin="round"
 					xmlns="http://www.w3.org/2000/svg"
 				>
 					<rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
@@ -109,10 +109,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<path
@@ -133,10 +133,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="12" cy="7" r="4" />
@@ -150,10 +150,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="12" cy="7" r="4" />
@@ -167,10 +167,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="9" cy="7" r="4" />
@@ -183,7 +183,7 @@
 		<span class="post-footer__detail-data">{postStatus} Post</span>
 	</div>
 	<!-- Post Status -->
-</footer>
+</div>
 
 <style>
 	.post-footer {

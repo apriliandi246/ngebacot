@@ -22,7 +22,7 @@
 	<title>My profile</title>
 </svelte:head>
 
-<main class="container">
+<div class="container">
 	<header class="header">
 		<a href="/" class="home-link">
 			<svg
@@ -57,7 +57,7 @@
 			/>
 
 			<div class="profile__detail">
-				<h4 class="profile__username">Username</h4>
+				<h1 class="profile__username">parhan__</h1>
 				<span class="profile__joined">Joined Jun 3, 2021</span>
 			</div>
 		</div>
@@ -214,9 +214,9 @@
 			/>
 		</svg>
 
-		<h3>No Post</h3>
+		<h2>No Post</h2>
 	</div>
-</main>
+</div>
 
 <style>
 	.container {
@@ -287,7 +287,7 @@
 
 	.profile__username {
 		font-weight: 700;
-		margin-bottom: 2px;
+		margin-bottom: 4px;
 		letter-spacing: 0.4px;
 	}
 

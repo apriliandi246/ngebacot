@@ -23,25 +23,26 @@
 	<title>Username · {postId}</title>
 </svelte:head>
 
-<main class="container">
-	<nav class="navbar">
+<div class="container">
+	<header class="header">
 		<Logo />
-	</nav>
+	</header>
 
-	<div class="post-detail">
+	<main class="post-detail">
 		<Post postStatus="public" />
 
-		<hr class="dive-line" />
+		<hr class="line" />
 
 		<CommentForm />
+
 		<CommentPost />
 		<CommentPost />
 		<CommentPost />
 		<CommentPost />
 		<CommentPost />
 		<CommentPost />
-	</div>
-</main>
+	</main>
+</div>
 
 <style>
 	.container {
@@ -54,9 +55,9 @@
 		margin: var(--space-32x) auto 0 auto;
 	}
 
-	.navbar {
+	.header {
 		top: 0;
-		z-index: 999;
+		z-index: 1;
 		height: 65px;
 		display: flex;
 		width: inherit;
@@ -70,7 +71,7 @@
 		margin-top: 31px;
 	}
 
-	.dive-line {
+	.line {
 		margin: 60px 0;
 		border: 1px solid var(--primary-400);
 	}

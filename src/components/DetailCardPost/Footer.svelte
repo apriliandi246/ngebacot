@@ -2,7 +2,7 @@
 	export let postStatus;
 </script>
 
-<footer class="post-footer">
+<div class="post-footer">
 	<!-- Comment -->
 	<div class="post-footer__data no-event">
 		<svg
@@ -10,10 +10,10 @@
 			height="24"
 			fill="none"
 			stroke="#4b5563"
-			stroke-linecap="round"
-			stroke-linejoin="round"
 			stroke-width="2"
 			viewBox="0 0 24 24"
+			stroke-linecap="round"
+			stroke-linejoin="round"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
@@ -32,10 +32,10 @@
 			height="24"
 			fill="none"
 			stroke="#4b5563"
-			stroke-linecap="round"
-			stroke-linejoin="round"
 			stroke-width="2"
 			viewBox="0 0 24 24"
+			stroke-linecap="round"
+			stroke-linejoin="round"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<path
@@ -55,10 +55,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="8.5" cy="7" r="4" />
@@ -74,10 +74,10 @@
 				height="24"
 				fill="none"
 				stroke="#4b5563"
-				stroke-linecap="round"
-				stroke-linejoin="round"
 				stroke-width="2"
 				viewBox="0 0 24 24"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				xmlns="http://www.w3.org/2000/svg"
 			>
 				<circle cx="9" cy="7" r="4" />
@@ -98,10 +98,10 @@
 			height="24"
 			fill="none"
 			stroke="#4b5563"
-			stroke-linecap="round"
-			stroke-linejoin="round"
 			stroke-width="2"
 			viewBox="0 0 24 24"
+			stroke-linecap="round"
+			stroke-linejoin="round"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -113,7 +113,7 @@
 		<span class="post-footer__detail-data">Jun 3, 2021</span>
 	</div>
 	<!-- Date -->
-</footer>
+</div>
 
 <style>
 	.post-footer {
